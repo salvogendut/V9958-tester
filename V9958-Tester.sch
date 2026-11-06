@@ -7,7 +7,7 @@ encoding utf-8
 Sheet 1 1
 Title "V9958 Pico Functional Tester"
 Date "2026-11-06"
-Rev "0.2-prototype"
+Rev "0.3-prototype"
 Comp "Omega side project"
 Comment1 "Unbuilt prototype - verify socket and parts before fabrication"
 Comment2 "USB 5V supply must provide at least 1A"
@@ -15,7 +15,7 @@ Comment3 "Never insert or remove DUT while powered"
 Comment4 "V9958 behavioral tester, not forensic authentication"
 $EndDescr
 Text Notes 900 700 0    100  ~ 20
-V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.2
+V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.3
 Text Notes 900 900 0    60   ~ 12
 Checks V9958 ID, CPU interface, 128 KiB VRAM, sync/clock frequencies, interrupt and RGB response; buffered DIN RGB output.
 Text Notes 900 1100 0    60   ~ 12
@@ -2327,11 +2327,11 @@ $EndComp
 Wire Wire Line
 	2100 7200 1900 7200
 Text Label 1900 7200 2    40   ~ 0
-LED_GREEN_A
+GND
 Wire Wire Line
 	2700 7200 2900 7200
 Text Label 2900 7200 0    40   ~ 0
-GND
+LED_GREEN_A
 $Comp
 L V9958-Tester-cache:R R31
 U 1 1 6A000049
@@ -2365,11 +2365,11 @@ $EndComp
 Wire Wire Line
 	2100 7600 1900 7600
 Text Label 1900 7600 2    40   ~ 0
-LED_RED_A
+GND
 Wire Wire Line
 	2700 7600 2900 7600
 Text Label 2900 7600 0    40   ~ 0
-GND
+LED_RED_A
 $Comp
 L V9958-Tester-cache:SW_Push SW1
 U 1 1 6A00004B

@@ -1,5 +1,5 @@
 Drill report for V9958-Tester.kicad_pcb
-Created on 2026-11-06T12:02:09
+Created on 2026-11-06T12:15:43
 
 Copper Layer Stackup:
     =============================================================
@@ -10,8 +10,8 @@ Copper Layer Stackup:
 Drill file 'V9958-Tester-PTH.drl' contains
     plated through holes:
     =============================================================
-    T1  0.350mm  0.0138"  (111 holes))
-    T2  0.400mm  0.0157"  (6 holes))
+    T1  0.350mm  0.0138"  (97 holes))
+    T2  0.400mm  0.0157"  (4 holes))
     T3  0.710mm  0.0280"  (2 holes))
     T4  0.800mm  0.0315"  (306 holes))
     T5  0.900mm  0.0354"  (70 holes))
@@ -19,7 +19,7 @@ Drill file 'V9958-Tester-PTH.drl' contains
     T7  1.100mm  0.0433"  (4 holes))
     T8  1.300mm  0.0512"  (10 holes))
 
-    Total plated holes count 560
+    Total plated holes count 544
 
 
 Drill file 'V9958-Tester-NPTH.drl' contains

@@ -64,7 +64,7 @@ for layer in (p.F_Cu, p.B_Cu):
     zone.SetPadConnection(p.ZONE_CONNECTION_THERMAL)
     poly = zone.Outline()
     poly.NewOutline()
-    for x, y in ((0.5, 0.5), (230.5, 0.5), (230.5, 139.5), (0.5, 139.5)):
+    for x, y in ((0.5, 0.5), (231.5, 0.5), (231.5, 140.5), (0.5, 140.5)):
         poly.Append(M(x), M(y))
     board.Add(zone)
 

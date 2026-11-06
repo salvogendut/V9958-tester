@@ -2,13 +2,13 @@
 <export version="E">
   <design>
     <source>/var/home/salvogendut/Dev/omega/V9958-Tester/V9958-Tester.kicad_sch</source>
-    <date>2026-11-06T11:52:50</date>
+    <date>2026-11-06T12:09:19</date>
     <tool>Eeschema 10.0.8-1.fc45app1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>V9958 Pico Functional Tester</title>
         <company>Omega side project</company>
-        <rev>0.2 - PROTOTYPE</rev>
+        <rev>0.3 - PROTOTYPE</rev>
         <date>2026-11-06</date>
         <source>V9958-Tester.kicad_sch</source>
         <comment number="1" value="Unbuilt prototype; verify socket and parts before fabrication"/>
@@ -3224,8 +3224,8 @@
       <node ref="C7" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="C8" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="C9" pin="2" pinfunction="2_2" pintype="passive"/>
-      <node ref="D1" pin="2" pinfunction="2_2" pintype="passive"/>
-      <node ref="D2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="D1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="D2" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="J1" pin="1" pinfunction="GND_1" pintype="passive"/>
       <node ref="R14" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R15" pin="2" pinfunction="2_2" pintype="passive"/>
@@ -3304,7 +3304,7 @@
       <node ref="R30" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
     <net code="58" name="/LED_GREEN_A" class="Default">
-      <node ref="D1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="D1" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R30" pin="2" pinfunction="2_2" pintype="passive"/>
     </net>
     <net code="59" name="/LED_RED" class="Default">
@@ -3312,7 +3312,7 @@
       <node ref="R31" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
     <net code="60" name="/LED_RED_A" class="Default">
-      <node ref="D2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="D2" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R31" pin="2" pinfunction="2_2" pintype="passive"/>
     </net>
     <net code="61" name="/MON_CPUCLK" class="Default">

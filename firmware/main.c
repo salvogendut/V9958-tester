@@ -367,7 +367,7 @@ int main(void) {
     stdio_init_all();
     init_pins();
     sleep_ms(1500);
-    puts("\nV9958 Pico functional tester rev 0.2");
+    puts("\nV9958 Pico functional tester rev 0.3");
     puts("Behavioral test only; power off before changing DUT/VRAM.");
 
     enum test_error result = run_test();

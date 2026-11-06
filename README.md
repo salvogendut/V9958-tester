@@ -2,7 +2,7 @@
 
 This is an all-through-hole carrier board that performs a behavioral test of a socketed Yamaha V9958 video display processor. An original RP2040 Raspberry Pi Pico controls the VDP, tests its dedicated 128 KiB VRAM, measures its clocks and analog RGB outputs, and reports the result on green/red LEDs, USB serial, and an on-screen message through an Omega-compatible DIN RGB output.
 
-The current design is **revision 0.2, an unbuilt prototype**. It passes KiCad ERC, DRC, connectivity, and schematic/PCB parity checks, but it still needs physical assembly and calibration before it should be treated as a proven fixture.
+The current design is **revision 0.3, an unbuilt prototype**. It passes KiCad ERC, DRC, connectivity, and schematic/PCB parity checks, but it still needs physical assembly and calibration before it should be treated as a proven fixture.
 
 ## Board mockups
 

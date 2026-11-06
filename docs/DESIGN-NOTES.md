@@ -14,6 +14,8 @@ The same raw RGB channels are AC-coupled into U9, a through-hole CXA1645P. U9 su
 
 The CXA1645 is strapped for PAL and its unused composite/Y/C outputs are left unconnected. SCIN is intentionally unused: the subcarrier is needed only for composite/chroma encoding, while the RGB clamp and output path is timed from the TTL composite-sync input. The firmware selects PAL timing and leaves a 40-column result screen visible after the electrical tests.
 
+All footprint references are printed on the front silkscreen. D1/D2 use the KiCad LED convention of pad 1 cathode and pad 2 anode; the explicit `+` is beside the anode. Polarized capacitors C6, C21, C23, C25, and C26–C28 use pad 1 positive and each has an explicit `+` assembly mark.
+
 ## PCB constraints
 
 - Two copper layers, 1.6 mm nominal thickness.
@@ -22,8 +24,8 @@ The CXA1645 is strapped for PAL and its unused composite/Y/C outputs are left un
 - 0.70/0.35 mm default vias and 0.80/0.40 mm power vias.
 - Ground pours on both layers.
 - All populated carrier-board parts are through-hole or through-hole modules.
-- Board outline: 231 mm x 140 mm.
-- The Pico USB end sits at x=228 mm, leaving 3 mm of PCB to the right edge and an unobstructed plug/cable path.
+- Board outline: 232 mm x 141 mm.
+- The Pico USB end sits at x=228 mm, leaving 4 mm of PCB to the right edge and an unobstructed plug/cable path.
 
 The V9958 footprint uses 1.40 mm x 1.80 mm pads with 0.90 mm drills. Along the 1.778 mm pitch this leaves 0.378 mm copper gap and 0.25 mm annular copper at the narrow side.
 

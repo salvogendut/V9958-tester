@@ -340,9 +340,9 @@ add("R42", "R", "180", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horiz
 
 # Indicators and test button.
 add("R30", "R", "1k", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 1500, 7200, {1:"LED_GREEN",2:"LED_GREEN_A"})
-add("D1", "LED", "GREEN PASS", "LED_THT:LED_D5.0mm", 2400, 7200, {1:"LED_GREEN_A",2:"GND"})
+add("D1", "LED", "GREEN PASS", "LED_THT:LED_D5.0mm", 2400, 7200, {1:"GND",2:"LED_GREEN_A"})
 add("R31", "R", "1k", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 1500, 7600, {1:"LED_RED",2:"LED_RED_A"})
-add("D2", "LED", "RED FAIL", "LED_THT:LED_D5.0mm", 2400, 7600, {1:"LED_RED_A",2:"GND"})
+add("D2", "LED", "RED FAIL", "LED_THT:LED_D5.0mm", 2400, 7600, {1:"GND",2:"LED_RED_A"})
 add("SW1", "SW_Push", "TEST", "Button_Switch_THT:SW_PUSH_6mm_H7.3mm", 1500, 8100, {1:"TEST_BUTTON",2:"GND"})
 add("R32", "R", "10k", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 2400, 8100, {1:"TEST_BUTTON",2:"+3V3"})
 
@@ -407,7 +407,7 @@ sch = [
     "Sheet 1 1",
     'Title "V9958 Pico Functional Tester"',
     'Date "2026-11-06"',
-    'Rev "0.2-prototype"',
+    'Rev "0.3-prototype"',
     'Comp "Omega side project"',
     'Comment1 "Unbuilt prototype - verify socket and parts before fabrication"',
     'Comment2 "USB 5V supply must provide at least 1A"',
@@ -415,7 +415,7 @@ sch = [
     'Comment4 "V9958 behavioral tester, not forensic authentication"',
     "$EndDescr",
     "Text Notes 900 700 0    100  ~ 20",
-    "V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.2",
+    "V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.3",
     "Text Notes 900 900 0    60   ~ 12",
     "Checks V9958 ID, CPU interface, 128 KiB VRAM, sync/clock frequencies, interrupt and RGB response; buffered DIN RGB output.",
     "Text Notes 900 1100 0    60   ~ 12",

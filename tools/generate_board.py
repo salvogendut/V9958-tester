@@ -57,7 +57,7 @@ default.SetViaDrill(M(0.35))
 
 title = board.GetTitleBlock()
 title.SetTitle("V9958 Pico functional tester")
-title.SetRevision("0.2 PROTOTYPE")
+title.SetRevision("0.3 PROTOTYPE")
 title.SetDate("2026-11-06")
 title.SetCompany("Omega side project")
 
@@ -141,6 +141,15 @@ if set(pos) != set(components):
     raise RuntimeError(f"Placement mismatch: missing={set(components)-set(pos)}, extra={set(pos)-set(components)}")
 
 footprints = {}
+reference_positions = {
+    "A1": (174, 125), "C7": (90, 112), "F1": (164, 104.5),
+    "Y1": (49, 56), "J1": (190, 30), "R38": (226, 68),
+    "R41": (207, 99),
+    "TP1": (6, 15), "TP2": (6, 22), "TP3": (6, 29),
+    "TP4": (6, 45), "TP5": (6, 55), "TP6": (6, 65),
+    "TP7": (6, 87), "TP8": (6, 98), "TP9": (6, 109),
+    "H1": (9, 5), "H2": (221, 5), "H3": (9, 135), "H4": (166, 135),
+}
 for ref, comp in components.items():
     fpid = comp.findtext("footprint")
     lib, name = fpid.split(":", 1)
@@ -159,10 +168,10 @@ for ref, comp in components.items():
     fp.Reference().SetTextSize(V(0.85, 0.85))
     fp.Reference().SetTextThickness(M(0.13))
     fp.Reference().SetKeepUpright(True)
-    if ref.startswith("TP") or ref.startswith("H"):
-        fp.Reference().SetVisible(False)
-    if ref in ("A1", "C7", "F1", "Y1", "J1", "R38", "R41"):
-        fp.Reference().SetVisible(False)
+    fp.Reference().SetVisible(True)
+    if ref in reference_positions:
+        fp.Reference().SetPosition(V(*reference_positions[ref]))
+        fp.Reference().SetTextAngle(p.EDA_ANGLE(0, p.DEGREES_T))
     if ref == "U3":
         fp.Reference().SetPosition(V(88, 63))
     for pad in fp.Pads():
@@ -172,9 +181,9 @@ for ref, comp in components.items():
     board.Add(fp)
     footprints[ref] = fp
 
-# Rectangular 231 x 140 mm outline.  The added service area holds the DIN
-# video buffer and leaves only 3 mm between the Pico USB origin and the edge.
-outline = [(0, 0), (231, 0), (231, 140), (0, 140)]
+# Rectangular 232 x 141 mm outline.  The added service area holds the DIN
+# video buffer and leaves 4 mm between the Pico USB origin and the edge.
+outline = [(0, 0), (232, 0), (232, 141), (0, 141)]
 for a, b in zip(outline, outline[1:] + outline[:1]):
     edge = p.PCB_SHAPE(board)
     edge.SetShape(p.SHAPE_T_SEGMENT)
@@ -183,7 +192,7 @@ for a, b in zip(outline, outline[1:] + outline[:1]):
     board.Add(edge)
 
 add_text(board, "V9958 PICO FUNCTIONAL TESTER", 115, 5, 1.6)
-add_text(board, "REV 0.2  PROTOTYPE / UNVALIDATED", 115, 8, 0.9)
+add_text(board, "REV 0.3  PROTOTYPE / UNVALIDATED", 115, 8, 0.9)
 add_text(board, "POWER OFF BEFORE INSERTING OR REMOVING DUT", 88, 63, 0.9, p.B_SilkS)
 add_text(board, "PIN 1", 60, 76, 0.8)
 add_text(board, "PASS", 76, 95, 0.8)
@@ -193,11 +202,20 @@ add_text(board, "F1 1A PTC", 167, 119, 0.8)
 add_text(board, "USB POWER / SERIAL", 228, 106, 0.8, angle=90)
 add_text(board, "OMEGA RGB DIN", 205, 22, 0.9)
 add_text(board, "1:GND  4:SYNC  6:R  7:G  8:B", 205, 25, 0.8)
+add_text(board, "(c) salvogendut 2026", 115, 135, 1.0)
 add_text(board, "V9958 behavioral tester - not forensic authentication", 115, 138, 0.8, p.B_SilkS)
 for label, y in (("5V", 15), ("3V3", 22), ("GND", 29),
                  ("CPUCLK", 45), ("HSYNC", 55), ("CSYNC", 65),
                  ("R", 87), ("G", 98), ("B", 109)):
     add_text(board, label, 15, y, 0.80)
+
+# Explicit polarity marks.  KiCad's LED_D5.0mm footprint is K=1, A=2;
+# all polarized capacitor footprints use pad 1 as positive in this design.
+for x, y in ((81.5, 91), (81.5, 101)):
+    add_text(board, "+", x, y, 1.2)
+for x, y in ((97.5, 116), (215.5, 84), (184.5, 91), (228.5, 86.5),
+             (225.5, 41), (225.5, 51), (225.5, 61)):
+    add_text(board, "+", x, y, 1.2)
 
 p.SaveBoard(str(BOARD), board)
 PROJECT.write_bytes(project_bytes)  # pcbnew must not rewrite project constraints.

@@ -5,17 +5,17 @@
       "Application": "Pcbnew",
       "Version": "10.0.8-1.fc45app1"
     },
-    "CreationDate": "2026-11-06T12:02:08+01:00"
+    "CreationDate": "2026-11-06T12:15:42+01:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
       "Name": "V9958-Tester",
       "GUID": "56393935-382d-4546-9573-7465722e6b69",
-      "Revision": "0.2 PROTOTYPE"
+      "Revision": "0.3 PROTOTYPE"
     },
     "Size": {
-      "X": 231.05,
-      "Y": 140.05
+      "X": 232.05,
+      "Y": 141.05
     },
     "LayerNumber": 2,
     "BoardThickness": 1.6,
