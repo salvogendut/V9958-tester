@@ -227,6 +227,78 @@ static bool rgb_test(void) {
            sample[2][2] > sample[2][1] + margin;
 }
 
+/* Compact 5x7 font used by the stand-alone DIN RGB result screen. */
+static const uint8_t font_digits[10][7] = {
+    {14,17,19,21,25,17,14}, {4,12,4,4,4,4,14},
+    {14,17,1,2,4,8,31}, {30,1,1,14,1,1,30},
+    {2,6,10,18,31,2,2}, {31,16,16,30,1,1,30},
+    {14,16,16,30,17,17,14}, {31,1,2,4,8,8,8},
+    {14,17,17,14,17,17,14}, {14,17,17,15,1,1,14},
+};
+
+static const uint8_t font_letters[26][7] = {
+    {14,17,17,31,17,17,17}, {30,17,17,30,17,17,30},
+    {14,17,16,16,16,17,14}, {30,17,17,17,17,17,30},
+    {31,16,16,30,16,16,31}, {31,16,16,30,16,16,16},
+    {14,17,16,23,17,17,15}, {17,17,17,31,17,17,17},
+    {14,4,4,4,4,4,14}, {7,2,2,2,2,18,12},
+    {17,18,20,24,20,18,17}, {16,16,16,16,16,16,31},
+    {17,27,21,21,17,17,17}, {17,25,21,19,17,17,17},
+    {14,17,17,17,17,17,14}, {30,17,17,30,16,16,16},
+    {14,17,17,17,21,18,13}, {30,17,17,30,20,18,17},
+    {15,16,16,14,1,1,30}, {31,4,4,4,4,4,4},
+    {17,17,17,17,17,17,14}, {17,17,17,17,17,10,4},
+    {17,17,17,21,21,21,10}, {17,17,10,4,10,17,17},
+    {17,17,10,4,4,4,4}, {31,1,2,4,8,16,31},
+};
+
+static uint8_t glyph_row(char c, unsigned row) {
+    uint8_t bits = 0;
+    if (c >= '0' && c <= '9') bits = font_digits[c - '0'][row];
+    else if (c >= 'A' && c <= 'Z') bits = font_letters[c - 'A'][row];
+    else if (c == '-') bits = row == 3 ? 31 : 0;
+    return (uint8_t)(bits << 3);
+}
+
+static bool text_write(unsigned row, unsigned column, const char *text) {
+    if (!vram_address(row * 40u + column, true)) return false;
+    while (*text) {
+        if (!vdp_write_port(0, (uint8_t)*text++)) return false;
+    }
+    return true;
+}
+
+static bool show_result_screen(enum test_error result) {
+    /* V9958 40-column text mode, PAL timing, pattern table at 0x0800. */
+    if (!vdp_reg(1, 0x10) || !vdp_reg(0, 0x00) || !vdp_reg(2, 0x00) ||
+        !vdp_reg(4, 0x01) || !vdp_reg(7, result == ERR_NONE ? 0xf2 : 0xf8) ||
+        !vdp_reg(9, 0x02)) return false;
+
+    for (unsigned c = 32; c <= 90; ++c) {
+        if (!vram_address(0x0800u + c * 8u, true)) return false;
+        for (unsigned row = 0; row < 7; ++row)
+            if (!vdp_write_port(0, glyph_row((char)c, row))) return false;
+        if (!vdp_write_port(0, 0)) return false;
+    }
+    if (!vram_address(0, true)) return false;
+    for (unsigned i = 0; i < 40u * 24u; ++i)
+        if (!vdp_write_port(0, ' ')) return false;
+
+    static const char *const stage[] = {
+        "ALL TESTS PASSED", "MASTER CLOCK", "V9958 IDENTIFICATION",
+        "CPU BUS OR WAIT", "128K VRAM", "HSYNC OR CSYNC",
+        "VBLANK INTERRUPT", "RGB ANALOG OUTPUT",
+    };
+    char code[16];
+    snprintf(code, sizeof(code), "RESULT CODE %u", (unsigned)result);
+    if (!text_write(5, 14, "V9958 TESTER") ||
+        !text_write(9, result == ERR_NONE ? 18 : 17,
+                    result == ERR_NONE ? "PASS" : "FAIL") ||
+        !text_write(12, 12, stage[(unsigned)result]) ||
+        !text_write(15, 13, code)) return false;
+    return vdp_reg(1, 0x50);
+}
+
 static enum test_error run_test(void) {
     gpio_put(PIN_LED_GREEN, 0);
     gpio_put(PIN_LED_RED, 0);
@@ -295,11 +367,12 @@ int main(void) {
     stdio_init_all();
     init_pins();
     sleep_ms(1500);
-    puts("\nV9958 Pico functional tester rev 0.1");
+    puts("\nV9958 Pico functional tester rev 0.2");
     puts("Behavioral test only; power off before changing DUT/VRAM.");
 
     enum test_error result = run_test();
     printf("RESULT: %s (code %u)\n", error_name(result), result);
+    if (!show_result_screen(result)) puts("DIN RGB result screen could not be displayed");
     gpio_put(PIN_LED_GREEN, result == ERR_NONE);
     gpio_put(PIN_LED_RED, result != ERR_NONE);
 
@@ -310,6 +383,7 @@ int main(void) {
                 while (!gpio_get(PIN_TEST_N)) sleep_ms(10);
                 result = run_test();
                 printf("RESULT: %s (code %u)\n", error_name(result), result);
+                if (!show_result_screen(result)) puts("DIN RGB result screen could not be displayed");
                 gpio_put(PIN_LED_GREEN, result == ERR_NONE);
                 gpio_put(PIN_LED_RED, result != ERR_NONE);
             }

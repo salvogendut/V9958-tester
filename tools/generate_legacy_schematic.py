@@ -125,6 +125,19 @@ buf244_names = {
 
 rn_names = {1: "COM", **{i: str(i) for i in range(2, 11)}}
 
+cxa1645_names = {
+    1: "GND1", 2: "RIN", 3: "GIN", 4: "BIN", 5: "NC", 6: "SCIN",
+    7: "NPIN", 8: "BFOUT", 9: "YCLPC", 10: "SYNCIN", 11: "NC",
+    12: "VCC1", 13: "IREF", 14: "VREF", 15: "COUT", 16: "YOUT",
+    17: "YTRAP", 18: "FO", 19: "VCC2", 20: "CVOUT", 21: "BOUT",
+    22: "GOUT", 23: "ROUT", 24: "GND2",
+}
+
+din8_names = {
+    1: "GND", 2: "AUDIO", 3: "AV", 4: "SYNC", 5: "YS",
+    6: "RED", 7: "GREEN", 8: "BLUE",
+}
+
 
 def pin_list(names):
     return [(names[i], i, "P") for i in sorted(names)]
@@ -140,6 +153,8 @@ for name, ref, names, left_count in [
     ("SN74AHCT244", "U", buf244_names, 10),
     ("SN74LVC244A", "U", buf244_names, 10),
     ("RN_Bussed_10", "RN", rn_names, 10),
+    ("CXA1645", "U", cxa1645_names, 12),
+    ("DIN8_Omega", "J", din8_names, 4),
 ]:
     text, ep = rect_symbol(name, ref, pin_list(names), left_count)
     lib_parts.append(text)
@@ -278,6 +293,51 @@ for ch in ("R","G","B"):
     add(f"R{next_r}", "R", "22k", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 13900, y, {1:rgb_adc[ch],2:"GND"}); next_r += 1
     add(f"C{next_c}", "C", "10n", "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm", 14800, y, {1:rgb_adc[ch],2:"GND"}); next_c += 1
 
+# Omega-compatible DIN RGB output.  The CXA1645P is used only as a low-
+# impedance, clamp-timed RGB buffer here; no subcarrier is required because
+# composite colour is not generated.  DIN pin 4 carries 75-ohm-terminated
+# composite sync, not composite video.  Pins 3 and 5 reproduce the Omega's
+# cable-control voltages so the same RGB lead can be used.
+add("U9", "CXA1645", "CXA1645P RGB buffer", "Package_DIP:DIP-24_W10.16mm_Socket_LongPads", 10300, 10400, {
+    1:"GND",2:"CXA_R_IN",3:"CXA_G_IN",4:"CXA_B_IN",7:"GND",9:"CXA_YCLP",
+    10:"CSYNC_RAW",12:"+5V",13:"CXA_IREF",14:"CXA_VREF",18:"CXA_FO",
+    19:"+5V",21:"CXA_B_OUT",22:"CXA_G_OUT",23:"CXA_R_OUT",24:"GND",
+})
+add("J1", "DIN8_Omega", "OMEGA RGB DIN-8", "V9958-Tester:DIN8_Omega_THT", 14300, 10400, {
+    1:"GND",3:"DIN_AV",4:"DIN_SYNC",5:"DIN_YS",6:"DIN_R",7:"DIN_G",8:"DIN_B",
+})
+
+for ref, y, source, target in [
+    ("C16",10000,"RED_RAW","CXA_R_IN"),
+    ("C17",10300,"GREEN_RAW","CXA_G_IN"),
+    ("C18",10600,"BLUE_RAW","CXA_B_IN"),
+]:
+    add(ref, "C", "100n", "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm", 8200, y, {1:source,2:target})
+
+add("C19", "C", "100n", "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm", 7500, 11200, {1:"CXA_YCLP",2:"GND"})
+add("R33", "R", "47k", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 8400, 11200, {1:"CXA_IREF",2:"GND"})
+add("C20", "C", "100n", "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm", 9300, 11200, {1:"CXA_IREF",2:"GND"})
+add("C21", "CP", "10uF", "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm", 10200, 11200, {1:"CXA_VREF",2:"GND"})
+add("R34", "R", "16k 1% PAL", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 11100, 11200, {1:"CXA_FO",2:"GND"})
+add("C22", "C", "100n VCC1", "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm", 12000, 11200, {1:"+5V",2:"GND"})
+add("C23", "CP", "47uF VCC1", "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm", 12900, 11200, {1:"+5V",2:"GND"})
+add("C24", "C", "100n VCC2", "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm", 13800, 11200, {1:"+5V",2:"GND"})
+add("C25", "CP", "47uF VCC2", "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm", 14700, 11200, {1:"+5V",2:"GND"})
+
+for ref, y, source, mid, capref, target in [
+    ("R35",9800,"CXA_R_OUT","DIN_R_AC","C26","DIN_R"),
+    ("R36",10100,"CXA_G_OUT","DIN_G_AC","C27","DIN_G"),
+    ("R37",10400,"CXA_B_OUT","DIN_B_AC","C28","DIN_B"),
+]:
+    add(ref, "R", "75", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 12000, y, {1:source,2:mid})
+    add(capref, "CP", "220uF", "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm", 13200, y, {1:mid,2:target})
+
+add("R38", "R", "1k sync/75R load", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 12000, 10700, {1:"CSYNC_RAW",2:"DIN_SYNC"})
+add("R39", "R", "1k", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 14600, 9800, {1:"+5V",2:"DIN_AV"})
+add("R40", "R", "10k", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 15400, 9800, {1:"DIN_AV",2:"GND"})
+add("R41", "R", "120", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 14600, 10100, {1:"+5V",2:"DIN_YS"})
+add("R42", "R", "180", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 15400, 10100, {1:"DIN_YS",2:"GND"})
+
 # Indicators and test button.
 add("R30", "R", "1k", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 1500, 7200, {1:"LED_GREEN",2:"LED_GREEN_A"})
 add("D1", "LED", "GREEN PASS", "LED_THT:LED_D5.0mm", 2400, 7200, {1:"LED_GREEN_A",2:"GND"})
@@ -347,7 +407,7 @@ sch = [
     "Sheet 1 1",
     'Title "V9958 Pico Functional Tester"',
     'Date "2026-11-06"',
-    'Rev "0.1-prototype"',
+    'Rev "0.2-prototype"',
     'Comp "Omega side project"',
     'Comment1 "Unbuilt prototype - verify socket and parts before fabrication"',
     'Comment2 "USB 5V supply must provide at least 1A"',
@@ -355,9 +415,9 @@ sch = [
     'Comment4 "V9958 behavioral tester, not forensic authentication"',
     "$EndDescr",
     "Text Notes 900 700 0    100  ~ 20",
-    "V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.1",
+    "V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.2",
     "Text Notes 900 900 0    60   ~ 12",
-    "Checks V9958 ID, CPU interface, 128 KiB VRAM, sync/clock frequencies, interrupt and RGB response.",
+    "Checks V9958 ID, CPU interface, 128 KiB VRAM, sync/clock frequencies, interrupt and RGB response; buffered DIN RGB output.",
     "Text Notes 900 1100 0    60   ~ 12",
     "WARNING: power off before inserting/removing V9958 or VRAM. Use a current-limited 5V USB supply.",
 ]

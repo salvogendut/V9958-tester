@@ -57,7 +57,7 @@ default.SetViaDrill(M(0.35))
 
 title = board.GetTitleBlock()
 title.SetTitle("V9958 Pico functional tester")
-title.SetRevision("0.1 PROTOTYPE")
+title.SetRevision("0.2 PROTOTYPE")
 title.SetDate("2026-11-06")
 title.SetCompany("Omega side project")
 
@@ -83,9 +83,10 @@ for name in ("/+5V", "/+3V3", "/VCCVDP", "/VBUS_USB", "/GND"):
         settings.m_NetSettings.SetNetclassPatternAssignment(name, "Power")
 
 # Locations are intentionally explicit: this is a human-reviewable fixture,
-# not a generic placement result.  The Pico USB connector faces the right edge.
+# not a generic placement result.  The Pico footprint origin is its USB end;
+# x=228 puts the shell at the right board edge with the module extending left.
 pos = {
-    "A1": (153, 92, 270),
+    "A1": (228, 120, 270),
     "U1": (127, 35, 0), "U2": (143, 35, 0), "U4": (159, 35, 0),
     "U3": (88, 63, 0),
     "U5": (50, 20, 90), "U6": (80, 20, 90),
@@ -114,11 +115,25 @@ pos = {
     "C9": (128, 61, 0), "C10": (144, 61, 0), "C11": (160, 61, 0),
     "C12": (44, 31, 0), "C13": (74, 31, 0),
     "C14": (104, 31, 0), "C15": (134, 31, 0),
+    # CXA1645 RGB buffer and Omega-compatible DIN output occupy the added
+    # upper-right service area.  Keep 75R output resistors close to U9.
+    "U9": (190, 57, 0), "J1": (205, 20, 180),
+    "C16": (177, 46, 90), "C17": (177, 57, 90), "C18": (177, 68, 90),
+    "C19": (174, 78, 0), "R33": (205, 85, 0), "C20": (205, 92, 0),
+    "C21": (219, 84, 0), "R34": (205, 72, 0),
+    "C22": (177, 88, 0), "C23": (188, 91, 0),
+    "C24": (215, 90, 0), "C25": (224, 90, 0),
+    "R35": (205, 41, 0), "C26": (218, 41, 0),
+    "R36": (205, 51, 0), "C27": (218, 51, 0),
+    "R37": (205, 61, 0), "C28": (218, 61, 0),
+    "R38": (216, 68, 0),
+    "R39": (179, 96, 0), "R40": (191, 96, 0),
+    "R41": (203, 96, 0), "R42": (215, 96, 0),
     "TP1": (10, 15, 0), "TP2": (10, 22, 0), "TP3": (10, 29, 0),
     "TP4": (10, 45, 0), "TP5": (10, 55, 0), "TP6": (10, 65, 0),
     "TP7": (10, 87, 0), "TP8": (10, 98, 0), "TP9": (10, 109, 0),
-    "H1": (5, 5, 0), "H2": (175, 5, 0),
-    "H3": (5, 118, 0), "H4": (175, 118, 0),
+    "H1": (5, 5, 0), "H2": (225, 5, 0),
+    "H3": (5, 135, 0), "H4": (170, 135, 0),
 }
 
 components = {c.attrib["ref"]: c for c in tree.findall("./components/comp")}
@@ -146,7 +161,7 @@ for ref, comp in components.items():
     fp.Reference().SetKeepUpright(True)
     if ref.startswith("TP") or ref.startswith("H"):
         fp.Reference().SetVisible(False)
-    if ref in ("A1", "C7", "F1", "Y1"):
+    if ref in ("A1", "C7", "F1", "Y1", "J1", "R38", "R41"):
         fp.Reference().SetVisible(False)
     if ref == "U3":
         fp.Reference().SetPosition(V(88, 63))
@@ -157,9 +172,9 @@ for ref, comp in components.items():
     board.Add(fp)
     footprints[ref] = fp
 
-# Rectangular 180 x 123 mm outline.  The extra 3 mm at the service edge keeps
-# bottom power routing comfortably beyond the 0.5 mm copper-to-edge rule.
-outline = [(0, 0), (180, 0), (180, 123), (0, 123)]
+# Rectangular 231 x 140 mm outline.  The added service area holds the DIN
+# video buffer and leaves only 3 mm between the Pico USB origin and the edge.
+outline = [(0, 0), (231, 0), (231, 140), (0, 140)]
 for a, b in zip(outline, outline[1:] + outline[:1]):
     edge = p.PCB_SHAPE(board)
     edge.SetShape(p.SHAPE_T_SEGMENT)
@@ -167,16 +182,18 @@ for a, b in zip(outline, outline[1:] + outline[:1]):
     edge.SetLayer(p.Edge_Cuts); edge.SetWidth(M(0.05))
     board.Add(edge)
 
-add_text(board, "V9958 PICO FUNCTIONAL TESTER", 90, 5, 1.6)
-add_text(board, "REV 0.1  PROTOTYPE / UNVALIDATED", 90, 8, 0.9)
+add_text(board, "V9958 PICO FUNCTIONAL TESTER", 115, 5, 1.6)
+add_text(board, "REV 0.2  PROTOTYPE / UNVALIDATED", 115, 8, 0.9)
 add_text(board, "POWER OFF BEFORE INSERTING OR REMOVING DUT", 88, 63, 0.9, p.B_SilkS)
 add_text(board, "PIN 1", 60, 76, 0.8)
 add_text(board, "PASS", 76, 95, 0.8)
 add_text(board, "FAIL", 76, 105, 0.8)
 add_text(board, "TEST", 100, 101, 0.8)
 add_text(board, "F1 1A PTC", 167, 119, 0.8)
-add_text(board, "USB POWER / SERIAL", 163, 88, 0.8, angle=90)
-add_text(board, "V9958 behavioral tester - not forensic authentication", 90, 121, 0.8, p.B_SilkS)
+add_text(board, "USB POWER / SERIAL", 228, 106, 0.8, angle=90)
+add_text(board, "OMEGA RGB DIN", 205, 22, 0.9)
+add_text(board, "1:GND  4:SYNC  6:R  7:G  8:B", 205, 25, 0.8)
+add_text(board, "V9958 behavioral tester - not forensic authentication", 115, 138, 0.8, p.B_SilkS)
 for label, y in (("5V", 15), ("3V3", 22), ("GND", 29),
                  ("CPUCLK", 45), ("HSYNC", 55), ("CSYNC", 65),
                  ("R", 87), ("G", 98), ("B", 109)):

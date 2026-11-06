@@ -61,6 +61,35 @@ trim = '''(footprint "C_Trim_P5.00mm"
 '''
 (LIB / "C_Trim_P5.00mm.kicad_mod").write_text(trim)
 
+din = '''(footprint "DIN8_Omega_THT"
+  (version 20240108)
+  (generator "v9958-tester-generator")
+  (layer "F.Cu")
+  (descr "Omega-compatible 8-pin DIN RGB socket, CUI/Amphenol-style THT pattern")
+  (tags "DIN 8 RGB Omega THT")
+  (attr through_hole)
+  (fp_rect (start -10.35 0) (end 10.35 19.2) (stroke (width 0.25) (type default)) (fill none) (layer "F.SilkS"))
+  (fp_rect (start -10.75 -0.4) (end 10.75 19.2) (stroke (width 0.1) (type default)) (fill none) (layer "F.CrtYd"))
+  (fp_text reference "REF**" (at 0 -1.8) (layer "F.SilkS") (effects (font (size 1 1) (thickness 0.15))))
+  (fp_text value "OMEGA RGB DIN-8" (at 0 20.3) (layer "F.Fab") (effects (font (size 1 1) (thickness 0.15))))
+  (pad "1" thru_hole circle (at -2.5 2.7) (size 2.3 2.3) (drill 1.3) (layers "*.Cu" "*.Mask"))
+  (pad "1" thru_hole circle (at 2.5 2.7) (size 2.3 2.3) (drill 1.3) (layers "*.Cu" "*.Mask"))
+  (pad "" np_thru_hole circle (at -7.5 7.7) (size 4 4) (drill 2.4) (layers "*.Cu" "*.Mask"))
+  (pad "" np_thru_hole circle (at 7.5 7.7) (size 4 4) (drill 2.4) (layers "*.Cu" "*.Mask"))
+  (pad "1" thru_hole circle (at -5 12.7) (size 2.3 2.3) (drill 1.3) (layers "*.Cu" "*.Mask"))
+  (pad "2" thru_hole circle (at 0 12.7) (size 2.3 2.3) (drill 1.3) (layers "*.Cu" "*.Mask"))
+  (pad "3" thru_hole circle (at 5 12.7) (size 2.3 2.3) (drill 1.3) (layers "*.Cu" "*.Mask"))
+  (pad "4" thru_hole circle (at -2.5 15.2) (size 2.3 2.3) (drill 1.3) (layers "*.Cu" "*.Mask"))
+  (pad "5" thru_hole circle (at 2.5 15.2) (size 2.3 2.3) (drill 1.3) (layers "*.Cu" "*.Mask"))
+  (pad "6" thru_hole circle (at -7.5 15.2) (size 2.3 2.3) (drill 1.3) (layers "*.Cu" "*.Mask"))
+  (pad "7" thru_hole circle (at 7.5 15.2) (size 2.3 2.3) (drill 1.3) (layers "*.Cu" "*.Mask"))
+  (pad "8" thru_hole circle (at 0 17.7) (size 2.3 2.3) (drill 1.3) (layers "*.Cu" "*.Mask"))
+  (model "${KIPRJMOD}/V9958-Tester.3dshapes/DIN8_Omega.wrl"
+    (offset (xyz 0 0 0)) (scale (xyz 1 1 1)) (rotate (xyz 0 0 0)))
+)
+'''
+(LIB / "DIN8_Omega_THT.kicad_mod").write_text(din)
+
 (ROOT / "fp-lib-table").write_text(
     '(fp_lib_table\n'
     '  (version 7)\n'
@@ -68,4 +97,4 @@ trim = '''(footprint "C_Trim_P5.00mm"
     ')\n'
 )
 
-print("Generated local V9958 and trimmer footprints")
+print("Generated local V9958, trimmer, and Omega DIN-8 footprints")

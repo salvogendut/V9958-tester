@@ -36,11 +36,15 @@ notes = {
     "Bourns MF-RHT100 PTC 1.0A": "1.0 A hold / 1.8 A trip resettable fuse",
     "21.477270MHz": "Parallel-resonant fundamental crystal, HC49/U THT",
     "30pF trimmer": "2-pin ceramic trimmer, 5.0 mm pitch",
+    "CXA1645P RGB buffer": "Sony CXA1645P DIP-24; socket recommended; used for buffered DIN RGB only",
+    "OMEGA RGB DIN-8": "Omega-compatible THT DIN-8 socket; verify the chosen part against the supplied footprint",
+    "16k 1% PAL": "1% metal-film resistor for CXA1645 PAL filter reference",
+    "1k sync/75R load": "Forms approximately 0.35 V CSYNC when terminated by 75 ohms at the display",
 }
 
 out = ROOT / "docs" / "BOM.csv"
 with out.open("w", newline="") as handle:
-    writer = csv.writer(handle)
+    writer = csv.writer(handle, lineterminator="\n")
     writer.writerow(("Quantity", "References", "Value / part", "KiCad footprint", "Notes"))
     for (value, footprint), refs in sorted(groups.items(), key=lambda x: ref_key(sorted(x[1], key=ref_key)[0])):
         refs = sorted(refs, key=ref_key)

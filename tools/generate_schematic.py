@@ -127,6 +127,8 @@ custom_rect("SN74LVC245A", legacy.buf245_names, 10, 10.16, 2.54)
 custom_rect("SN74AHCT244", legacy.buf244_names, 10, 10.16, 2.54)
 custom_rect("SN74LVC244A", legacy.buf244_names, 10, 10.16, 2.54)
 custom_rect("RN_Bussed_10", legacy.rn_names, 10, 8.89, 2.54)
+custom_rect("CXA1645", legacy.cxa1645_names, 12, 11.43, 2.54)
+custom_rect("DIN8_Omega", legacy.din8_names, 4, 8.89, 2.54)
 for symbol, reference in [
     ("R", "R"), ("C", "C"), ("CP", "C"), ("L", "L"), ("Crystal", "Y"),
     ("Fuse", "F"), ("LED", "D"), ("SW_Push", "SW"),
@@ -193,8 +195,8 @@ for comp in components:
 
 
 for index, (text, x, y, size) in enumerate([
-    ("V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.1", 20.32, 17.78, 2.0),
-    ("Checks V9958 ID, CPU interface, 128 KiB VRAM, clocks/sync, interrupt and RGB response.", 20.32, 22.86, 1.2),
+    ("V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.2", 20.32, 17.78, 2.0),
+    ("Checks V9958 ID, CPU interface, 128 KiB VRAM, clocks/sync, interrupt and RGB response; buffered DIN RGB output.", 20.32, 22.86, 1.2),
     ("WARNING: power off before inserting/removing V9958 or VRAM. Use a current-limited 5V / 1A USB supply.", 20.32, 27.94, 1.2),
     ("Behavioral V9958 test only; a pass is not forensic proof of Yamaha manufacture.", 20.32, 33.02, 1.2),
 ]):
@@ -212,7 +214,7 @@ for key, symbol in symbol_defs.items():
 output = (
     f'(kicad_sch (version 20250114) (generator "eeschema") (uuid {ROOT_UUID}) (paper "A3") '
     f'(title_block (title "V9958 Pico Functional Tester") (date "2026-11-06") '
-    f'(rev "0.1 - PROTOTYPE") (company "Omega side project") '
+    f'(rev "0.2 - PROTOTYPE") (company "Omega side project") '
     f'(comment 1 "Unbuilt prototype; verify socket and parts before fabrication") '
     f'(comment 2 "Power off before inserting or removing DUT")) '
     f'(lib_symbols {" ".join(embedded)}) '

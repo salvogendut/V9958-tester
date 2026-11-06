@@ -1,6 +1,6 @@
 # Firmware
 
-`main.c` targets an original RP2040 Raspberry Pi Pico. It runs the complete test at startup and whenever SW1 is pressed. Results are shown on D1/D2 and printed over USB CDC serial.
+`main.c` targets an original RP2040 Raspberry Pi Pico. It runs the complete test at startup and whenever SW1 is pressed. Results are shown on D1/D2, printed over USB CDC serial, and rendered as a 40-column PAL text screen through the Omega-compatible DIN RGB output.
 
 The source passed a host C11 syntax check with `-Wall -Wextra -Werror`; the hardware API calls were checked against official Pico SDK 2.3.1. This environment did not contain the ARM embedded compiler, so no UF2 is checked in.
 
