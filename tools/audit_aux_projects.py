@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Print fabrication-relevant counts for the two auxiliary boards."""
+"""Print fabrication-relevant counts for the auxiliary boards."""
 
 from pathlib import Path
 import pcbnew as p
@@ -7,6 +7,7 @@ import pcbnew as p
 root = Path(__file__).resolve().parents[1]
 for board_path in (
     root / "revision-b" / "V9958-Tester-RevB.kicad_pcb",
+    root / "revision-b2-sram" / "V9958-Tester-RevB2-SRAM.kicad_pcb",
     root / "video-daughterboard" / "V9958-Video-Daughterboard.kicad_pcb",
 ):
     board = p.LoadBoard(str(board_path))

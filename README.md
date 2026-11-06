@@ -14,7 +14,7 @@ Isometric KiCad 3D rendering of the assembled all-THT carrier board. The custom 
 
 Orthographic top rendering showing component placement, test points, socket orientation, controls, and front silkscreen.
 
-## Minimal Revision B and video daughterboard
+## Revision B family and video daughterboard
 
 Revision B separates the functional tester from the optional monitor output. The
 [Revision B core](revision-b/) keeps the V9958, four 41464 VRAMs, one
@@ -26,6 +26,21 @@ moved to a separate [RGB DIN daughterboard](video-daughterboard/).
 ![Revision B core isometric mockup](revision-b/docs/V9958-Tester-RevB-3D.png)
 
 ![Revision B core top mockup](revision-b/docs/V9958-Tester-RevB-top.png)
+
+The experimental [Revision B2 SRAM board](revision-b2-sram/) replaces the four
+41464 DRAMs with one AS6C1008-55PCN 128Kx8 SRAM, an SN74AHCT573 row-address
+latch and an SN74AHCT08 CAS-to-output-enable gate. The Pico still controls and
+tests the V9958; it does not emulate the timing-critical video RAM bus.
+
+![Revision B2 SRAM isometric mockup](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-3D.png)
+
+![Revision B2 SRAM top mockup](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-top.png)
+
+B2 is smaller at 160 x 110 mm and remains entirely through-hole. It includes
+dedicated `/RAS`, `/CAS0`, `/CAS1`, SRAM `/OE` and SRAM `/WE` test points. Its
+static KiCad checks pass, but its narrow SRAM timing margin has not been
+qualified on hardware. Do not use an unqualified B2 fixture to reject a V9958;
+confirm failures on the DRAM-based Revision B or a working Omega.
 
 ![RGB DIN daughterboard isometric mockup](video-daughterboard/docs/V9958-Video-Daughterboard-3D.png)
 
@@ -89,8 +104,9 @@ cmake --build firmware/build -j4
 
 Copy `v9958_tester.uf2` to a Pico in BOOTSEL mode. The program runs once at power-up and again whenever SW1 is pressed. USB CDC serial prints the clock counts, VDP ID, first VRAM mismatch if any, interrupt result, RGB ADC readings, and final stage code. At completion it programs V9958 PAL text mode and shows the same result through J1.
 
-Revision B uses the same source with a separate build in `revision-b/firmware/`.
-It has no TEST button; send `R` over USB serial to repeat the test.
+Revision B and B2 use the same source with separate builds in
+`revision-b/firmware/` and `revision-b2-sram/firmware/`. They have no TEST
+button; send `R` over USB serial to repeat the test.
 
 ## Design files and regeneration
 

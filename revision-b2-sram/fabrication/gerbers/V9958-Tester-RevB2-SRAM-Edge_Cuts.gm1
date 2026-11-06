@@ -1,0 +1,26 @@
+%TF.GenerationSoftware,KiCad,Pcbnew,10.0.8-1.fc45app1*%
+%TF.CreationDate,2026-11-06T14:41:13+01:00*%
+%TF.ProjectId,V9958-Tester-RevB2-SRAM,56393935-382d-4546-9573-7465722d5265,B2 PROTOTYPE*%
+%TF.SameCoordinates,Original*%
+%TF.FileFunction,Profile,NP*%
+%FSLAX46Y46*%
+G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
+G04 Created by KiCad (PCBNEW 10.0.8-1.fc45app1) date 2026-11-06 14:41:13*
+%MOMM*%
+%LPD*%
+G01*
+G04 APERTURE LIST*
+%TA.AperFunction,Profile*%
+%ADD10C,0.050000*%
+%TD*%
+G04 APERTURE END LIST*
+D10*
+X0Y0D02*
+X160000000Y0D01*
+X0Y-110000000D02*
+X0Y0D01*
+X160000000Y0D02*
+X160000000Y-110000000D01*
+X160000000Y-110000000D02*
+X0Y-110000000D01*
+M02*

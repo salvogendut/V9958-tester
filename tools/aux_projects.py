@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate and finish the Revision B core and RGB DIN daughterboard.
+"""Generate and finish the Revision B/B2 cores and RGB DIN daughterboard.
 
 The schematics and placed boards are generated deterministically from the
 reviewed connection tables below.  Run with KiCad's Python for ``board`` and
@@ -69,6 +69,23 @@ CXA1645 = {1:"GND1",2:"RIN",3:"GIN",4:"BIN",5:"NC",6:"SCIN",
            19:"VCC2",20:"CVOUT",21:"BOUT",22:"GOUT",23:"ROUT",24:"GND2"}
 DIN8 = {1:"GND",2:"AUDIO",3:"AV",4:"SYNC",5:"YS",6:"RED",7:"GREEN",8:"BLUE"}
 IDC6 = {1:"GND",2:"+5V",3:"RED",4:"GREEN",5:"BLUE",6:"CSYNC"}
+SRAM128K = {
+    1:"NC", 2:"A16", 3:"A14", 4:"A12", 5:"A7", 6:"A6", 7:"A5",
+    8:"A4", 9:"A3", 10:"A2", 11:"A1", 12:"A0", 13:"I/O0",
+    14:"I/O1", 15:"I/O2", 16:"GND", 17:"I/O3", 18:"I/O4",
+    19:"I/O5", 20:"I/O6", 21:"I/O7", 22:"~CE", 23:"A10",
+    24:"~OE", 25:"A11", 26:"A9", 27:"A8", 28:"A13", 29:"~WE",
+    30:"A15", 31:"CE2", 32:"VCC",
+}
+AHCT573 = {
+    1:"~OE", 2:"D0", 3:"D1", 4:"D2", 5:"D3", 6:"D4", 7:"D5",
+    8:"D6", 9:"D7", 10:"GND", 11:"LE", 12:"Q7", 13:"Q6",
+    14:"Q5", 15:"Q4", 16:"Q3", 17:"Q2", 18:"Q1", 19:"Q0", 20:"VCC",
+}
+AHCT08 = {
+    1:"1A", 2:"1B", 3:"1Y", 4:"2A", 5:"2B", 6:"2Y", 7:"GND",
+    8:"3Y", 9:"3A", 10:"3B", 11:"4Y", 12:"4A", 13:"4B", 14:"VCC",
+}
 
 
 def dram_map(bits, cas):
@@ -175,6 +192,57 @@ def revb_components():
     return c
 
 
+def revb2_components():
+    """Revision B2: replace four 41464s with one asynchronous SRAM adapter."""
+    removed = {"U5", "U6", "U7", "U8", "R21", "R22", "R23", "R24", "C12", "C13", "C14", "C15"}
+    c = [item for item in revb_components() if item["ref"] not in removed]
+
+    c.append(comp("U5", "AS6C1008", "AS6C1008-55PCN 128Kx8 SRAM",
+                  "Package_DIP:DIP-32_W15.24mm_Socket_LongPads", {
+        2:"SRAM_CAS0_N", 3:"SRAM_A14", 4:"SRAM_A12", 5:"VA7", 6:"VA6",
+        7:"VA5", 8:"VA4", 9:"VA3", 10:"VA2", 11:"VA1", 12:"VA0",
+        13:"VD0", 14:"VD1", 15:"VD2", 16:"GND", 17:"VD3", 18:"VD4",
+        19:"VD5", 20:"VD6", 21:"VD7", 22:"GND", 23:"SRAM_A10",
+        24:"SRAM_OE_N", 25:"SRAM_A11", 26:"SRAM_A9", 27:"SRAM_A8",
+        28:"SRAM_A13", 29:"SRAM_WE_N", 30:"SRAM_A15", 31:"VCCVDP", 32:"VCCVDP",
+    }))
+    c.append(comp("U6", "SN74AHCT573", "SN74AHCT573N row-address latch",
+                  "Package_DIP:DIP-20_W7.62mm_Socket_LongPads", {
+        1:"GND", 2:"VA0", 3:"VA1", 4:"VA2", 5:"VA3", 6:"VA4", 7:"VA5",
+        8:"VA6", 9:"VA7", 10:"GND", 11:"SRAM_RAS_N", 12:"SRAM_A15",
+        13:"SRAM_A14", 14:"SRAM_A13", 15:"SRAM_A12", 16:"SRAM_A11",
+        17:"SRAM_A10", 18:"SRAM_A9", 19:"SRAM_A8", 20:"VCCVDP",
+    }))
+    c.append(comp("U7", "SN74AHCT08", "SN74AHCT08N CAS-to-OE gate",
+                  "Package_DIP:DIP-14_W7.62mm_Socket_LongPads", {
+        1:"SRAM_CAS0_N", 2:"SRAM_CAS1_N", 3:"SRAM_OE_N",
+        4:"GND", 5:"GND", 7:"GND", 9:"GND", 10:"GND",
+        12:"GND", 13:"GND", 14:"VCCVDP",
+    }))
+
+    axial = "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
+    disc = "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
+    for ref, raw, clean in [
+        ("R21", "VWR_RAW", "SRAM_WE_N"),
+        ("R22", "CAS0_RAW", "SRAM_CAS0_N"),
+        ("R23", "CAS1_RAW", "SRAM_CAS1_N"),
+        ("R24", "RAS_RAW", "SRAM_RAS_N"),
+    ]:
+        c.append(comp(ref, "R", "47", axial, {1:raw, 2:clean}))
+    for ref, value in [
+        ("C12", "100n SRAM"), ("C13", "100n U6"), ("C14", "100n U7"),
+    ]:
+        c.append(comp(ref, "C", value, disc, {1:"VCCVDP", 2:"GND"}))
+    for ref, value, net in [
+        ("TP8", "RAS", "SRAM_RAS_N"), ("TP9", "CAS0", "SRAM_CAS0_N"),
+        ("TP10", "CAS1", "SRAM_CAS1_N"), ("TP11", "SRAM OE", "SRAM_OE_N"),
+        ("TP12", "SRAM WE", "SRAM_WE_N"),
+    ]:
+        c.append(comp(ref, "TestPoint", value,
+                      "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm", {1:net}))
+    return c
+
+
 def daughter_components():
     c = []
     c.append(comp("J1","IDC_2x3","FROM REV B",
@@ -266,6 +334,50 @@ PROJECTS = {
         "full_zone_pads":[("U8","18"),("C9","2"),("U6","1"),("U6","18"),("A1","28"),("C2","2"),("U3","20"),("U7","1"),("U7","18")],
         "power_nets":["/+5V","/+3V3","/VCCVDP","/VBUS_USB","/GND"],
     },
+    "revb2": {
+        "name":"V9958-Tester-RevB2-SRAM", "directory":REPO/"revision-b2-sram",
+        "title":"V9958 Pico Tester Revision B2 SRAM", "rev":"B2 PROTOTYPE",
+        "company":"(c) salvogendut 2026", "components":revb2_components(),
+        "size":(160,110),
+        "positions": {
+            "A1":(156,76,270), "U1":(131,14,0), "U4":(131,42,0), "U3":(63,55,0),
+            "U5":(20,18,90), "U6":(68,14,90), "U7":(100,14,90),
+            "RN1":(8,31,90), "Y1":(35,39,0), "C1":(24.5,45,0), "C2":(48,39,0), "R1":(13,64,90), "R2":(35,34,0),
+            "R3":(99,55,90), "R4":(105,55,90), "R5":(111,55,90), "R6":(117,55,90), "R7":(123,55,90),
+            "R8":(99,67,90), "R9":(105,67,90), "R10":(111,67,90), "R11":(117,67,90), "R12":(123,67,90),
+            "R13":(96,79,90), "R14":(103,79,90),
+            "R15":(96,41,90), "R16":(102,41,90), "R17":(108,41,90), "R18":(114,41,90), "R19":(120,41,90), "R20":(96,29,90),
+            "R21":(20,34,0), "R22":(46,34,0), "R23":(68,34,0), "R24":(84,34,0),
+            "R25":(20,75,0), "R26":(32,75,0), "R27":(44,75,0), "C3":(54,75,0),
+            "R28":(20,84,0), "R29":(32,84,0), "R30":(44,84,0), "C4":(54,84,0),
+            "R31":(20,93,0), "R32":(32,93,0), "R33":(44,93,0), "C5":(54,93,0),
+            "R34":(62,84,0), "D1":(73,84,0), "R35":(62,93,0), "D2":(73,93,0),
+            "F1":(122,102,0), "L1":(87,102,0), "C6":(78,102,0), "C7":(77,70,0), "C8":(87,70,0), "C9":(86,39,0),
+            "C10":(121,23,0), "C11":(131,68,0), "C12":(26,28,0), "C13":(74,27,0), "C14":(105,27,0), "C16":(16,80,0),
+            "J1":(8,89,90),
+            "TP1":(152,10,0), "TP2":(152,16,0), "TP3":(152,24,0), "TP4":(152,30,0),
+            "TP5":(85,78,0), "TP6":(85,86,0), "TP7":(85,94,0),
+            "TP8":(5,42,0), "TP9":(5,50,0), "TP10":(5,58,0), "TP11":(5,66,0), "TP12":(5,74,0),
+            "H1":(4,4,0), "H2":(156,4,0), "H3":(4,106,0), "H4":(56,106,0),
+        },
+        "silk":[
+            ("V9958 TESTER REVISION B2 / SRAM",63,52,1.2,0),("EXPERIMENTAL PROTOTYPE",130,8,0.85,0),
+            ("POWER OFF BEFORE CHANGING DUT",63,61,0.8,0),("VIDEO OUT",8,77,0.8,0),
+            ("J1: 1 GND  2 +5V  3 R",30,104,0.8,0),("4 G  5 B  6 CSYNC",30,107,0.8,0),
+            ("PASS",73,88,0.8,0),("FAIL",73,97,0.8,0),("USB POWER / SERIAL",156,59,0.8,90),
+            ("(c) salvogendut 2026",128,107,0.85,0),
+        ],
+        "plus":[(78.5,84),(78.5,93),(74,102)],
+        "ref_positions":{
+            "U3":(63,67), "U5":(39,23.8), "U6":(79,18.8), "U7":(108,18.8),
+            "U1":(135,26), "U4":(135,54), "A1":(142,91), "C11":(135,72),
+            "C16":(16,77), "R28":(20,87), "Y1":(37,43), "C2":(48,30),
+        },
+        "hide_refs":["H1","H2","H3","H4"],
+        "full_zone_pads":[("C9","2"),("U5","16"),("U6","10"),("U7","7"),("A1","23"),("A1","28"),("A1","33"),("C2","2"),("U3","20"),("R12","2"),("U4","19"),("U1","10"),("D1","1")],
+        "power_nets":["/+5V","/+3V3","/VCCVDP","/VBUS_USB"],
+        "ground_plane_only":True,
+    },
     "daughter": {
         "name":"V9958-Video-Daughterboard", "directory":REPO/"video-daughterboard",
         "title":"V9958 RGB DIN Daughterboard", "rev":"B0 PROTOTYPE",
@@ -301,6 +413,7 @@ SYMBOL_PINS = {
     "V9958":V9958, "RaspberryPi_Pico":PICO, "D41464":DRAM,
     "SN74LVC245A":LVC245, "SN74LVC244A":LVC244, "RN_Bussed_10":RN10,
     "CXA1645":CXA1645, "DIN8_Omega":DIN8, "IDC_2x3":IDC6,
+    "AS6C1008":SRAM128K, "SN74AHCT573":AHCT573, "SN74AHCT08":AHCT08,
 }
 
 
@@ -387,7 +500,7 @@ def generate_schematic(spec):
         current=copy.deepcopy(symbol); current[1]=key; standalone.append(dump(current))
     (directory/f'{name}.kicad_sym').write_text('(kicad_symbol_lib (version 20250114) (generator "kicad_symbol_editor")\n'+"\n".join(standalone)+'\n)\n')
     (directory/"sym-lib-table").write_text(f'(sym_lib_table (version 7) (lib (name "{name}")(type "KiCad")(uri "${{KIPRJMOD}}/{name}.kicad_sym")(options "")(descr "Local symbols")))\n')
-    fp_extra='  (lib (name "V9958-Tester")(type "KiCad")(uri "${KIPRJMOD}/../V9958-Tester.pretty")(options "")(descr "V9958 tester footprints"))\n' if name.endswith("RevB") else '  (lib (name "V9958-Video-Daughterboard")(type "KiCad")(uri "${KIPRJMOD}/V9958-Video-Daughterboard.pretty")(options "")(descr "Daughterboard footprints"))\n'
+    fp_extra='  (lib (name "V9958-Tester")(type "KiCad")(uri "${KIPRJMOD}/../V9958-Tester.pretty")(options "")(descr "V9958 tester footprints"))\n' if name.startswith("V9958-Tester-RevB") else '  (lib (name "V9958-Video-Daughterboard")(type "KiCad")(uri "${KIPRJMOD}/V9958-Video-Daughterboard.pretty")(options "")(descr "Daughterboard footprints"))\n'
     (directory/"fp-lib-table").write_text('(fp_lib_table\n  (version 7)\n'+fp_extra+')\n')
     project={"board":{},"boards":[],"cvpcb":{},"erc":{},"libraries":{},"meta":{"filename":f"{name}.kicad_pro","version":1},"net_settings":{"classes":[],"meta":{"version":3}},"pcbnew":{},"schematic":{},"text_variables":{}}
     (directory/f'{name}.kicad_pro').write_text(json.dumps(project,indent=2)+"\n")
@@ -419,6 +532,10 @@ def generate_board(spec):
     power=p.NETCLASS("Power"); power.SetClearance(M(0.30)); power.SetTrackWidth(M(0.60)); power.SetViaDiameter(M(0.80)); power.SetViaDrill(M(0.40)); settings.m_NetSettings.SetNetclass("Power",power)
     for netname in spec["power_nets"]:
         if netname in nets: nets[netname].SetNetClass(power); settings.m_NetSettings.SetNetclassPatternAssignment(netname,"Power")
+    if spec.get("ground_plane_only"):
+        ground=p.NETCLASS("Ground"); ground.SetClearance(M(0.30)); ground.SetTrackWidth(M(0.60)); ground.SetViaDiameter(M(0.80)); ground.SetViaDrill(M(0.40)); settings.m_NetSettings.SetNetclass("Ground",ground)
+        if "/GND" in nets:
+            nets["/GND"].SetNetClass(ground); settings.m_NetSettings.SetNetclassPatternAssignment("/GND","Ground")
     components={c.attrib["ref"]:c for c in tree.findall("./components/comp")}
     if set(components)!=set(spec["positions"]): raise RuntimeError(f"placement mismatch {set(components)^set(spec['positions'])}")
     libroot=pathlib.Path("/app/share/kicad/footprints")
@@ -454,14 +571,14 @@ def finish_board(spec):
     name=spec["name"]; directory=spec["directory"]; M=p.FromMM
     board=p.LoadBoard(str(directory/f"{name}.kicad_pcb")); session=directory/"docs"/"routed.ses"
     if not p.ImportSpecctraSES(board,str(session)): raise RuntimeError(f"could not import {session}")
+    footprints=list(board.GetFootprints()); pads={(item.GetReference(),pad.GetNumber()):pad for item in footprints for pad in item.Pads()}
     settings=board.GetDesignSettings(); settings.m_NetSettings.GetDefaultNetclass().SetClearance(M(0.20))
     try: settings.m_NetSettings.GetNetclass("Power").SetClearance(M(0.20))
     except Exception: pass
     for track in board.GetTracks():
         if not isinstance(track,p.PCB_VIA) and track.GetWidth()<M(0.25): track.SetWidth(M(0.25))
     for ref,number in spec["full_zone_pads"]:
-        footprint=board.FindFootprintByReference(ref)
-        pad=next(item for item in footprint.Pads() if item.GetNumber()==number)
+        pad=pads[(ref,number)]
         pad.SetLocalZoneConnection(p.ZONE_CONNECTION_FULL)
     gnd=board.FindNet("/GND"); width,height=spec["size"]
     for layer in (p.F_Cu,p.B_Cu):
@@ -469,6 +586,7 @@ def finish_board(spec):
         poly=zone.Outline(); poly.NewOutline()
         for x,y in ((0.5,0.5),(width-0.5,0.5),(width-0.5,height-0.5),(0.5,height-0.5)): poly.Append(M(x),M(y))
         board.Add(zone)
+    p.ZONE_FILLER(board).Fill(board.Zones())
     p.SaveBoard(str(directory/f"{name}.kicad_pcb"),board)
     print(f"Finished {name} with {len(list(board.GetTracks()))} tracks/vias")
 
@@ -478,8 +596,8 @@ def polish_board(spec):
     import pcbnew as p
     name=spec["name"]; directory=spec["directory"]; M=p.FromMM
     def V(x,y): return p.VECTOR2I(M(round(x,5)),M(round(y,5)))
-    board=p.LoadBoard(str(directory/f"{name}.kicad_pcb"))
-    for footprint in board.GetFootprints():
+    board=p.LoadBoard(str(directory/f"{name}.kicad_pcb")); footprints=list(board.GetFootprints()); pads={(item.GetReference(),pad.GetNumber()):pad for item in footprints for pad in item.Pads()}
+    for footprint in footprints:
         ref=footprint.GetReference(); field=footprint.Reference()
         field.SetVisible(ref not in spec["hide_refs"]); field.SetTextSize(V(0.8,0.8)); field.SetTextThickness(M(0.13)); field.SetKeepUpright(True)
         if ref in spec["ref_positions"]:
@@ -493,16 +611,16 @@ def polish_board(spec):
     for x,y in spec["plus"]:
         drawing=p.PCB_TEXT(board); drawing.SetText("+"); drawing.SetPosition(V(x,y)); drawing.SetTextSize(V(1.2,1.2)); drawing.SetTextThickness(M(0.18)); drawing.SetLayer(p.F_SilkS); board.Add(drawing)
     for ref,number in spec["full_zone_pads"]:
-        footprint=board.FindFootprintByReference(ref)
-        pad=next(item for item in footprint.Pads() if item.GetNumber()==number)
+        pad=pads[(ref,number)]
         pad.SetLocalZoneConnection(p.ZONE_CONNECTION_FULL)
+    p.ZONE_FILLER(board).Fill(board.Zones())
     p.SaveBoard(str(directory/f"{name}.kicad_pcb"),board)
     print(f"Polished {name} without changing routes")
 
 
 def main():
     if len(sys.argv)<3 or sys.argv[1] not in PROJECTS or sys.argv[2] not in ("schematic","board","finish","polish","bom"):
-        raise SystemExit("usage: aux_projects.py revb|daughter schematic|board|finish|polish|bom")
+        raise SystemExit("usage: aux_projects.py revb|revb2|daughter schematic|board|finish|polish|bom")
     spec=PROJECTS[sys.argv[1]]; mode=sys.argv[2]
     {"schematic":generate_schematic,"board":generate_board,"finish":finish_board,"polish":polish_board,"bom":generate_bom}[mode](spec)
 
