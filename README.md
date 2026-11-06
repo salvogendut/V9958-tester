@@ -14,6 +14,30 @@ Isometric KiCad 3D rendering of the assembled all-THT carrier board. The custom 
 
 Orthographic top rendering showing component placement, test points, socket orientation, controls, and front silkscreen.
 
+## Minimal Revision B and video daughterboard
+
+Revision B separates the functional tester from the optional monitor output. The
+[Revision B core](revision-b/) keeps the V9958, four 41464 VRAMs, one
+SN74LVC245 data transceiver, one SN74LVC244 monitor buffer, the oscillator,
+power integrity, RGB loads and Pico. The Pico drives the V9958 control inputs
+directly through 330-ohm series resistors. The CXA1645 and DIN connector have
+moved to a separate [RGB DIN daughterboard](video-daughterboard/).
+
+![Revision B core isometric mockup](revision-b/docs/V9958-Tester-RevB-3D.png)
+
+![Revision B core top mockup](revision-b/docs/V9958-Tester-RevB-top.png)
+
+![RGB DIN daughterboard isometric mockup](video-daughterboard/docs/V9958-Video-Daughterboard-3D.png)
+
+![RGB DIN daughterboard top mockup](video-daughterboard/docs/V9958-Video-Daughterboard-top.png)
+
+The two boards use a keyed, straight-through 2x3 IDC cable: pin 1 GND, pin 2
++5 V, pin 3 red, pin 4 green, pin 5 blue and pin 6 composite sync. Revision B
+passes or fails without the daughterboard; connect it only when an Omega-style
+15.6 kHz RGB monitor output and on-screen result are wanted. Both designs are
+unbuilt prototypes and have their own BOM, schematic PDF, validation record,
+assembly drawing and Gerber archive.
+
 ## What it tests
 
 - CPU bus operation through 3.3 V/5 V level translation.
@@ -64,6 +88,9 @@ cmake --build firmware/build -j4
 ```
 
 Copy `v9958_tester.uf2` to a Pico in BOOTSEL mode. The program runs once at power-up and again whenever SW1 is pressed. USB CDC serial prints the clock counts, VDP ID, first VRAM mismatch if any, interrupt result, RGB ADC readings, and final stage code. At completion it programs V9958 PAL text mode and shows the same result through J1.
+
+Revision B uses the same source with a separate build in `revision-b/firmware/`.
+It has no TEST button; send `R` over USB serial to repeat the test.
 
 ## Design files and regeneration
 

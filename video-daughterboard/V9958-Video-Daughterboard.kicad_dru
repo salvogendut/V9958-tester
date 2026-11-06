@@ -1,0 +1,4 @@
+(version 1)
+
+(rule "Prototype copper-to-edge clearance"
+  (constraint edge_clearance (min 0.4mm)))

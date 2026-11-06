@@ -14,6 +14,10 @@
 #include "hardware/adc.h"
 #include "hardware/pwm.h"
 
+#ifndef V9958_REV_B
+#define V9958_REV_B 0
+#endif
+
 
 enum {
     PIN_D0 = 0,
@@ -367,7 +371,8 @@ int main(void) {
     stdio_init_all();
     init_pins();
     sleep_ms(1500);
-    puts("\nV9958 Pico functional tester rev 0.3");
+    puts(V9958_REV_B ? "\nV9958 Pico functional tester Revision B"
+                     : "\nV9958 Pico functional tester rev 0.3");
     puts("Behavioral test only; power off before changing DUT/VRAM.");
 
     enum test_error result = run_test();
@@ -377,6 +382,16 @@ int main(void) {
     gpio_put(PIN_LED_RED, result != ERR_NONE);
 
     while (true) {
+#if V9958_REV_B
+        int ch = getchar_timeout_us(0);
+        if (ch == 'r' || ch == 'R') {
+            result = run_test();
+            printf("RESULT: %s (code %u)\n", error_name(result), result);
+            if (!show_result_screen(result)) puts("RGB result screen could not be displayed");
+            gpio_put(PIN_LED_GREEN, result == ERR_NONE);
+            gpio_put(PIN_LED_RED, result != ERR_NONE);
+        }
+#else
         if (!gpio_get(PIN_TEST_N)) {
             sleep_ms(30);
             if (!gpio_get(PIN_TEST_N)) {
@@ -388,6 +403,7 @@ int main(void) {
                 gpio_put(PIN_LED_RED, result != ERR_NONE);
             }
         }
+#endif
         sleep_ms(20);
     }
 }

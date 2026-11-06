@@ -1,0 +1,1142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/var/home/salvogendut/Dev/omega/V9958-Tester/video-daughterboard/V9958-Video-Daughterboard.kicad_sch</source>
+    <date>2026-11-06T12:57:43</date>
+    <tool>Eeschema 10.0.8-1.fc45app1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>V9958 RGB DIN Daughterboard</title>
+        <company>(c) salvogendut 2026</company>
+        <rev>B0 PROTOTYPE</rev>
+        <date>2026-11-06</date>
+        <source>V9958-Video-Daughterboard.kicad_sch</source>
+        <comment number="1" value="UNBUILT PROTOTYPE"/>
+        <comment number="2" value="Power off before changing DUT"/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>100n</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6b6206c7-5ca0-5aa1-be9a-c395cd9d3e59</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C2">
+      <value>100n</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3a0d41b1-da76-5b5b-bbdd-ccfeab3eaf53</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C3">
+      <value>100n</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4c852d5a-8104-57f0-9a7c-c9be8b34075b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C4">
+      <value>100n YCLP</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3c513a95-06cd-52e5-b8a9-8ca466643699</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C5">
+      <value>100n IREF</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7a4225dc-b939-593b-a1ed-812cb9aed3b7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C6">
+      <value>10uF</value>
+      <footprint>Capacitor_THT:CP_Radial_D5.0mm_P2.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:CP_Radial_D5.0mm_P2.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="CP" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a984f4dc-ae5c-55c8-b840-2233b9d16fa0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C7">
+      <value>100n VCC1</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d159c3d4-22a5-5025-866f-7f8c45391846</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C8">
+      <value>47uF VCC1</value>
+      <footprint>Capacitor_THT:CP_Radial_D5.0mm_P2.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:CP_Radial_D5.0mm_P2.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="CP" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a481c19e-b7fb-5064-b4d1-a850a3c60d2c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C9">
+      <value>100n VCC2</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>71351b91-f9c1-5e33-a019-c8809c97e1cd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C10">
+      <value>47uF VCC2</value>
+      <footprint>Capacitor_THT:CP_Radial_D5.0mm_P2.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:CP_Radial_D5.0mm_P2.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="CP" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>71fa2178-d20b-539d-9484-978a3a05d402</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C11">
+      <value>220uF</value>
+      <footprint>Capacitor_THT:CP_Radial_D8.0mm_P3.50mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:CP_Radial_D8.0mm_P3.50mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="CP" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c9e50bd5-597a-592f-ac03-c5ea0e5d9a29</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C12">
+      <value>220uF</value>
+      <footprint>Capacitor_THT:CP_Radial_D8.0mm_P3.50mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:CP_Radial_D8.0mm_P3.50mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="CP" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4fb9ffab-6169-53d9-bb15-3dd914c289c5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C13">
+      <value>220uF</value>
+      <footprint>Capacitor_THT:CP_Radial_D8.0mm_P3.50mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:CP_Radial_D8.0mm_P3.50mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="CP" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ac2bef5b-d6ff-5b81-89a3-1604ca9f1b66</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H1">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="MountingHole" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cf57d99d-9c5c-5adc-adc7-5fb0dabac4c3</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H2">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="MountingHole" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>634b811e-5c96-588d-843c-236d5e115a37</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H3">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="MountingHole" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5faef246-3ce1-5048-9281-c21edefb07b8</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H4">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="MountingHole" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>27577428-25e1-54ee-a0fe-048dbb4019f5</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J1">
+      <value>FROM REV B</value>
+      <footprint>Connector_IDC:IDC-Header_2x03_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Connector_IDC:IDC-Header_2x03_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="IDC_2x3" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5b4b4e3a-15ce-56a3-b617-6f2f7e6d280c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J2">
+      <value>OMEGA RGB DIN-8</value>
+      <footprint>V9958-Video-Daughterboard:DIN8_Omega_THT</footprint>
+      <fields>
+        <field name="Footprint">V9958-Video-Daughterboard:DIN8_Omega_THT</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="DIN8_Omega" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a6990486-0ecd-5c98-acef-a7f8bb813e88</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>47k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d7e1801f-6601-51e0-9409-0604cf02c02c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>16k 1% PAL</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9451d619-6ad0-5335-95e2-059c7afbda76</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R3">
+      <value>75</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f0eb8bda-ff2d-5971-bbbe-e039cc2ef2e4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R4">
+      <value>75</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>96a3e67e-434b-5a38-9312-5562ad85587e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>75</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>26261da7-d76c-53e4-a64a-975641b07305</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R6">
+      <value>1k sync/75R load</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9d9611cf-7206-570d-ad8f-24a93011a7d1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R7">
+      <value>1k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>29592ddd-cdea-5ca7-9d9c-d57347bcae10</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R8">
+      <value>10k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a5c24616-8e33-5fff-9ca3-ccde6ad8f717</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R9">
+      <value>120</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dc002ee4-88ca-5db5-a978-483923112f31</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R10">
+      <value>180</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cfa51a30-d7a6-5c09-958c-1f3567472dcc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP1">
+      <value>5V</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dd9728ee-b949-599c-87cb-dffcfef86250</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP2">
+      <value>GND</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cc2c2b4a-dc11-56e2-8f23-2df856a7b21a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP3">
+      <value>SYNC</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a3521a0b-43e8-5c4b-838e-c1784587ea93</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP4">
+      <value>RED</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ee57d1fc-1060-51e8-8640-76be46149e05</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP5">
+      <value>GREEN</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>820e8317-4fbd-5d6c-a6d1-b89d46e8827f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP6">
+      <value>BLUE</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5db2078c-3e82-5e70-9896-4ea24935d98c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>CXA1645P RGB buffer</value>
+      <footprint>Package_DIP:DIP-24_W10.16mm_Socket_LongPads</footprint>
+      <fields>
+        <field name="Footprint">Package_DIP:DIP-24_W10.16mm_Socket_LongPads</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Video-Daughterboard" part="CXA1645" description=""/>
+      <property name="Sheetname" value="V9958-Video-Daughterboard"/>
+      <property name="Sheetfile" value="V9958-Video-Daughterboard.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>164f183a-1f0a-5bc4-9000-586c623bf43a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="20"/>
+            <pin num="21"/>
+            <pin num="22"/>
+            <pin num="23"/>
+            <pin num="24"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="V9958-Video-Daughterboard" part="C">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Video-Daughterboard" part="CP">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CP</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Video-Daughterboard" part="CXA1645">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">CXA1645</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="GND1" type="passive"/>
+        <pin num="2" name="RIN" type="passive"/>
+        <pin num="3" name="GIN" type="passive"/>
+        <pin num="4" name="BIN" type="passive"/>
+        <pin num="5" name="NC" type="passive"/>
+        <pin num="6" name="SCIN" type="passive"/>
+        <pin num="7" name="NPIN" type="passive"/>
+        <pin num="8" name="BFOUT" type="passive"/>
+        <pin num="9" name="YCLPC" type="passive"/>
+        <pin num="10" name="SYNCIN" type="passive"/>
+        <pin num="11" name="NC" type="passive"/>
+        <pin num="12" name="VCC1" type="passive"/>
+        <pin num="13" name="IREF" type="passive"/>
+        <pin num="14" name="VREF" type="passive"/>
+        <pin num="15" name="COUT" type="passive"/>
+        <pin num="16" name="YOUT" type="passive"/>
+        <pin num="17" name="YTRAP" type="passive"/>
+        <pin num="18" name="FO" type="passive"/>
+        <pin num="19" name="VCC2" type="passive"/>
+        <pin num="20" name="CVOUT" type="passive"/>
+        <pin num="21" name="BOUT" type="passive"/>
+        <pin num="22" name="GOUT" type="passive"/>
+        <pin num="23" name="ROUT" type="passive"/>
+        <pin num="24" name="GND2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Video-Daughterboard" part="DIN8_Omega">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">DIN8_Omega</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="passive"/>
+        <pin num="2" name="AUDIO" type="passive"/>
+        <pin num="3" name="AV" type="passive"/>
+        <pin num="4" name="SYNC" type="passive"/>
+        <pin num="5" name="YS" type="passive"/>
+        <pin num="6" name="RED" type="passive"/>
+        <pin num="7" name="GREEN" type="passive"/>
+        <pin num="8" name="BLUE" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Video-Daughterboard" part="IDC_2x3">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">IDC_2x3</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="passive"/>
+        <pin num="2" name="+5V" type="passive"/>
+        <pin num="3" name="RED" type="passive"/>
+        <pin num="4" name="GREEN" type="passive"/>
+        <pin num="5" name="BLUE" type="passive"/>
+        <pin num="6" name="CSYNC" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Video-Daughterboard" part="MountingHole">
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="V9958-Video-Daughterboard" part="R">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Video-Daughterboard" part="TestPoint">
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TestPoint</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="V9958-Video-Daughterboard">
+      <uri>${KIPRJMOD}/V9958-Video-Daughterboard.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/+5V" class="Default">
+      <node ref="C10" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C7" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C8" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C9" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="J1" pin="2" pinfunction="+5V_2" pintype="passive"/>
+      <node ref="R7" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R9" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="TP1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="12" pinfunction="VCC1_12" pintype="passive"/>
+      <node ref="U1" pin="19" pinfunction="VCC2_19" pintype="passive"/>
+    </net>
+    <net code="2" name="/BLUE_IN" class="Default">
+      <node ref="C3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="J1" pin="5" pinfunction="BLUE_5" pintype="passive"/>
+    </net>
+    <net code="3" name="/CSYNC_IN" class="Default">
+      <node ref="J1" pin="6" pinfunction="CSYNC_6" pintype="passive"/>
+      <node ref="R6" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="TP3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="SYNCIN_10" pintype="passive"/>
+    </net>
+    <net code="4" name="/CXA_B_IN" class="Default">
+      <node ref="C3" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="BIN_4" pintype="passive"/>
+    </net>
+    <net code="5" name="/CXA_B_OUT" class="Default">
+      <node ref="R5" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="21" pinfunction="BOUT_21" pintype="passive"/>
+    </net>
+    <net code="6" name="/CXA_FO" class="Default">
+      <node ref="R2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="18" pinfunction="FO_18" pintype="passive"/>
+    </net>
+    <net code="7" name="/CXA_G_IN" class="Default">
+      <node ref="C2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="GIN_3" pintype="passive"/>
+    </net>
+    <net code="8" name="/CXA_G_OUT" class="Default">
+      <node ref="R4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="22" pinfunction="GOUT_22" pintype="passive"/>
+    </net>
+    <net code="9" name="/CXA_IREF" class="Default">
+      <node ref="C5" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="13" pinfunction="IREF_13" pintype="passive"/>
+    </net>
+    <net code="10" name="/CXA_R_IN" class="Default">
+      <node ref="C1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="RIN_2" pintype="passive"/>
+    </net>
+    <net code="11" name="/CXA_R_OUT" class="Default">
+      <node ref="R3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="23" pinfunction="ROUT_23" pintype="passive"/>
+    </net>
+    <net code="12" name="/CXA_VREF" class="Default">
+      <node ref="C6" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="14" pinfunction="VREF_14" pintype="passive"/>
+    </net>
+    <net code="13" name="/CXA_YCLP" class="Default">
+      <node ref="C4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="9" pinfunction="YCLPC_9" pintype="passive"/>
+    </net>
+    <net code="14" name="/DIN_AV" class="Default">
+      <node ref="J2" pin="3" pinfunction="AV_3" pintype="passive"/>
+      <node ref="R7" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R8" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="15" name="/DIN_B" class="Default">
+      <node ref="C13" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="J2" pin="8" pinfunction="BLUE_8" pintype="passive"/>
+      <node ref="TP6" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="16" name="/DIN_B_AC" class="Default">
+      <node ref="C13" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R5" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="17" name="/DIN_G" class="Default">
+      <node ref="C12" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="J2" pin="7" pinfunction="GREEN_7" pintype="passive"/>
+      <node ref="TP5" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="18" name="/DIN_G_AC" class="Default">
+      <node ref="C12" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R4" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="19" name="/DIN_R" class="Default">
+      <node ref="C11" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="J2" pin="6" pinfunction="RED_6" pintype="passive"/>
+      <node ref="TP4" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="20" name="/DIN_R_AC" class="Default">
+      <node ref="C11" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R3" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="21" name="/DIN_SYNC" class="Default">
+      <node ref="J2" pin="4" pinfunction="SYNC_4" pintype="passive"/>
+      <node ref="R6" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="22" name="/DIN_YS" class="Default">
+      <node ref="J2" pin="5" pinfunction="YS_5" pintype="passive"/>
+      <node ref="R10" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R9" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="23" name="/GND" class="Default">
+      <node ref="C10" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C4" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C5" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C6" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C7" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C8" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C9" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="J1" pin="1" pinfunction="GND_1" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="GND_1" pintype="passive"/>
+      <node ref="R1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R10" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R8" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="TP2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="GND1_1" pintype="passive"/>
+      <node ref="U1" pin="24" pinfunction="GND2_24" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="NPIN_7" pintype="passive"/>
+    </net>
+    <net code="24" name="/GREEN_IN" class="Default">
+      <node ref="C2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="J1" pin="4" pinfunction="GREEN_4" pintype="passive"/>
+    </net>
+    <net code="25" name="/RED_IN" class="Default">
+      <node ref="C1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="J1" pin="3" pinfunction="RED_3" pintype="passive"/>
+    </net>
+    <net code="26" name="unconnected-(J2-AUDIO-Pad2)" class="Default">
+      <node ref="J2" pin="2" pinfunction="AUDIO_2" pintype="passive+no_connect"/>
+    </net>
+    <net code="27" name="unconnected-(U1-BFOUT-Pad8)" class="Default">
+      <node ref="U1" pin="8" pinfunction="BFOUT_8" pintype="passive+no_connect"/>
+    </net>
+    <net code="28" name="unconnected-(U1-COUT-Pad15)" class="Default">
+      <node ref="U1" pin="15" pinfunction="COUT_15" pintype="passive+no_connect"/>
+    </net>
+    <net code="29" name="unconnected-(U1-CVOUT-Pad20)" class="Default">
+      <node ref="U1" pin="20" pinfunction="CVOUT_20" pintype="passive+no_connect"/>
+    </net>
+    <net code="30" name="unconnected-(U1-NC-Pad5)" class="Default">
+      <node ref="U1" pin="5" pinfunction="NC_5" pintype="passive+no_connect"/>
+    </net>
+    <net code="31" name="unconnected-(U1-NC-Pad11)" class="Default">
+      <node ref="U1" pin="11" pinfunction="NC_11" pintype="passive+no_connect"/>
+    </net>
+    <net code="32" name="unconnected-(U1-SCIN-Pad6)" class="Default">
+      <node ref="U1" pin="6" pinfunction="SCIN_6" pintype="passive+no_connect"/>
+    </net>
+    <net code="33" name="unconnected-(U1-YOUT-Pad16)" class="Default">
+      <node ref="U1" pin="16" pinfunction="YOUT_16" pintype="passive+no_connect"/>
+    </net>
+    <net code="34" name="unconnected-(U1-YTRAP-Pad17)" class="Default">
+      <node ref="U1" pin="17" pinfunction="YTRAP_17" pintype="passive+no_connect"/>
+    </net>
+  </nets>
+</export>
