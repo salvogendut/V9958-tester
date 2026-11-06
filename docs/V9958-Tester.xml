@@ -1,0 +1,2906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/var/home/salvogendut/Dev/omega/V9958-Tester/V9958-Tester.kicad_sch</source>
+    <date>2026-11-06T10:21:11</date>
+    <tool>Eeschema 10.0.8-1.fc45app1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>V9958 Pico Functional Tester</title>
+        <company>Omega side project</company>
+        <rev>0.1 - PROTOTYPE</rev>
+        <date>2026-11-06</date>
+        <source>V9958-Tester.kicad_sch</source>
+        <comment number="1" value="Unbuilt prototype; verify socket and parts before fabrication"/>
+        <comment number="2" value="Power off before inserting or removing DUT"/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="A1">
+      <value>Raspberry Pi Pico</value>
+      <footprint>Module:RaspberryPi_Pico_Common_THT</footprint>
+      <fields>
+        <field name="Footprint">Module:RaspberryPi_Pico_Common_THT</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="RaspberryPi_Pico" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a8e22b02-fd69-513f-82b5-135e93e70cc8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="20"/>
+            <pin num="21"/>
+            <pin num="22"/>
+            <pin num="23"/>
+            <pin num="24"/>
+            <pin num="25"/>
+            <pin num="26"/>
+            <pin num="27"/>
+            <pin num="28"/>
+            <pin num="29"/>
+            <pin num="30"/>
+            <pin num="31"/>
+            <pin num="32"/>
+            <pin num="33"/>
+            <pin num="34"/>
+            <pin num="35"/>
+            <pin num="36"/>
+            <pin num="37"/>
+            <pin num="38"/>
+            <pin num="39"/>
+            <pin num="40"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C1">
+      <value>30pF trimmer</value>
+      <footprint>V9958-Tester:C_Trim_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">V9958-Tester:C_Trim_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d4809d19-397b-50fd-b746-ad9d2ddd72b0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C2">
+      <value>22pF</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d576f41a-77db-5795-9051-2b9a33c7aaf6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C3">
+      <value>10n</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>96f5d625-622c-5eda-a1cf-1fb54690d890</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C4">
+      <value>10n</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>894dd9fe-5dac-5e08-8e77-409be29933d0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C5">
+      <value>10n</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c27e9f55-c44a-50aa-be9e-6cc171940d37</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C6">
+      <value>100uF</value>
+      <footprint>Capacitor_THT:CP_Radial_D5.0mm_P2.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:CP_Radial_D5.0mm_P2.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="CP" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>134ed89f-bb5e-57c7-a2be-15a7ecb18caa</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C7">
+      <value>100n</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>458621d0-d049-577e-bcce-0a6c13474fd3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C8">
+      <value>100n VBB</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>18c51e32-7570-5717-b5f5-664b3edb60af</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C9">
+      <value>100n</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7c8a23c4-61f3-5cf9-aeee-3207c6fc8cf7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C10">
+      <value>100n</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9715d9f6-0a09-5ef2-9583-707bfd82f90d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C11">
+      <value>100n</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>790dc27e-f92b-517f-9104-6847d7a14e8d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C12">
+      <value>100n</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0b121c9c-ff92-58d0-8729-2a6b8c14d103</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C13">
+      <value>100n</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>08e1ca4a-62c4-5fcc-80a8-7769e85f87f0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C14">
+      <value>100n</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>16d229e0-9f86-5e57-89b2-4bc0a6112d60</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C15">
+      <value>100n</value>
+      <footprint>Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</footprint>
+      <fields>
+        <field name="Footprint">Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="C" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f4e10433-8388-507c-ba1f-ce8d9c8b7666</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D1">
+      <value>GREEN PASS</value>
+      <footprint>LED_THT:LED_D5.0mm</footprint>
+      <fields>
+        <field name="Footprint">LED_THT:LED_D5.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="LED" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>77397036-017c-5872-abbe-440722eaac94</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D2">
+      <value>RED FAIL</value>
+      <footprint>LED_THT:LED_D5.0mm</footprint>
+      <fields>
+        <field name="Footprint">LED_THT:LED_D5.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="LED" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>536be78f-2eaa-586d-8c2d-3f0dc3623a72</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="F1">
+      <value>Bourns MF-RHT100 PTC 1.0A</value>
+      <footprint>Fuse:Fuse_Bourns_MF-RHT100</footprint>
+      <fields>
+        <field name="Footprint">Fuse:Fuse_Bourns_MF-RHT100</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="Fuse" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>edd3e486-fc09-5da5-8e3f-67d6e7967ff1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H1">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="MountingHole" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7aff234b-32c4-55be-b014-20315e48a286</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H2">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="MountingHole" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1659e5b0-1ea9-58aa-a581-00432377f878</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H3">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="MountingHole" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9060975f-d80a-5a11-aef2-6f813409a9f0</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H4">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="MountingHole" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9f19c6b7-06f6-5385-b332-4a8496bb4f30</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="L1">
+      <value>5.6uH</value>
+      <footprint>Inductor_THT:L_Axial_L14.0mm_D4.5mm_P15.24mm_Horizontal_Fastron_LACC</footprint>
+      <fields>
+        <field name="Footprint">Inductor_THT:L_Axial_L14.0mm_D4.5mm_P15.24mm_Horizontal_Fastron_LACC</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="L" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c57e6363-026f-556e-80b0-9310c430019e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>10k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a07c22bd-d75f-5512-9bd0-3275386e8b66</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>10k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>44398951-f5d0-5d03-aa2e-035dec763a04</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R3">
+      <value>10k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4d251039-93f0-5c33-8fc7-a8669e37628d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R4">
+      <value>470k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4b60b7d7-e350-525a-87e3-3d1c5af81525</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>100</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>34f8c27f-5361-5152-9630-62dc7c05b94c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R6">
+      <value>100</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>67ea28da-6400-54c7-a42c-0338a4a2bbdc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R7">
+      <value>100</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>40780c24-5e87-5b2c-9f7f-e95a9cdbc8e1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R8">
+      <value>100</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6b80e34a-e367-54a0-8ed6-2d4ec0f75230</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R9">
+      <value>1k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d3e54efb-6210-511f-a951-17b94361f505</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R10">
+      <value>1k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>72f2cd2a-f3b7-5512-a91a-0251478cae62</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R11">
+      <value>1k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ce65b7ec-4a06-5b45-8965-ebbf45de7979</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R12">
+      <value>1k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>95091c81-60e0-58a0-b5d6-facd51487449</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R13">
+      <value>1k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c66c897d-6639-52d9-b4b3-9574ae72563e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R14">
+      <value>10k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1986f035-404b-593e-8fc2-f4f3c0bee3c7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R15">
+      <value>10k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e8e2306a-57cd-5a62-b160-3ea1ca64cdd4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R16">
+      <value>10k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b2ba19a4-26bd-567f-b422-6308e62b1cec</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R17">
+      <value>10k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>32f806ac-696f-5136-b382-d40f287ce9a8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R18">
+      <value>10k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>949ba88a-cae9-5e92-8299-a2bb68c77f1e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R19">
+      <value>10k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>787cae78-a22b-5ae6-b801-9ccc7ea2f72f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R20">
+      <value>10k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fdf7668b-3864-5401-8c9e-c7cc1234da73</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R21">
+      <value>470</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7cea20d3-2af4-5d70-9bad-dee04f20b0fc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R22">
+      <value>22k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>20be322f-9c04-5df8-a44b-b13e2ecae962</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R23">
+      <value>22k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c04097b8-b965-5ab4-90ce-3ec3589e879e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R24">
+      <value>470</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0710845c-d6c8-5d7a-bd6e-457a2303a517</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R25">
+      <value>22k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a7a3ba84-dc00-5a69-8786-4ccff81e007a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R26">
+      <value>22k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>95044b78-c4a1-5ad2-bdbc-2c55b7e479cc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R27">
+      <value>470</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6d0aee96-750e-53b7-97b5-e3b0afb88934</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R28">
+      <value>22k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b3b8a499-b29f-50e1-a5d8-38df69bb6052</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R29">
+      <value>22k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5aeaea09-4d99-5953-a863-126a7b2f86ee</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R30">
+      <value>1k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>353ee8a8-d7fd-5eec-9005-2ec7f95af974</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R31">
+      <value>1k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>067fd59b-7fc6-5f2f-8d23-e0abfc106396</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R32">
+      <value>10k</value>
+      <footprint>Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="R" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>332292cf-a711-5085-82d8-d6f98aa35491</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="RN1">
+      <value>10k bussed</value>
+      <footprint>Resistor_THT:R_Array_SIP10</footprint>
+      <fields>
+        <field name="Footprint">Resistor_THT:R_Array_SIP10</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="RN_Bussed_10" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>31fa5be0-790f-5f36-9d6b-df7e5ae5bdb6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW1">
+      <value>TEST</value>
+      <footprint>Button_Switch_THT:SW_PUSH_6mm_H7.3mm</footprint>
+      <fields>
+        <field name="Footprint">Button_Switch_THT:SW_PUSH_6mm_H7.3mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="SW_Push" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ddab90af-dd1b-5da3-83f6-e170f52710c9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP1">
+      <value>5V</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9332c4d0-54c2-596e-a23a-2eba5ae4f2e9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP2">
+      <value>3V3</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d37240a9-6555-58c7-970a-1036ccfad46f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP3">
+      <value>GND</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>52225df4-b8cf-5e83-aee6-d594e6481da8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP4">
+      <value>CPUCLK</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a6ab86d6-8f10-533c-bc39-d4407d7176af</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP5">
+      <value>HSYNC</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>275875a6-4c78-5a8c-8770-d6cb77d05d8f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP6">
+      <value>CSYNC</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>47b2748b-416b-59dd-a641-c766e1c6ab96</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP7">
+      <value>RED</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d0b2ac74-4ec4-5d11-8c0e-5b0cf8b9b454</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP8">
+      <value>GREEN</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>30af9a35-ab01-5688-b7c3-81c2b10afd88</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP9">
+      <value>BLUE</value>
+      <footprint>TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</footprint>
+      <fields>
+        <field name="Footprint">TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="TestPoint" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>97ca7ad6-4231-5a44-8eba-e06527f7c552</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>SN74LVC245AN</value>
+      <footprint>Package_DIP:DIP-20_W7.62mm_Socket_LongPads</footprint>
+      <fields>
+        <field name="Footprint">Package_DIP:DIP-20_W7.62mm_Socket_LongPads</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="SN74LVC245A" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3dd65f1b-f848-522f-b22f-885415b87903</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="20"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U2">
+      <value>SN74AHCT244N</value>
+      <footprint>Package_DIP:DIP-20_W7.62mm_Socket_LongPads</footprint>
+      <fields>
+        <field name="Footprint">Package_DIP:DIP-20_W7.62mm_Socket_LongPads</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="SN74AHCT244" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ce94f8f7-7a21-5cb2-a95e-db23c2fcc187</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="20"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U3">
+      <value>V9958 DUT</value>
+      <footprint>V9958-Tester:SDIP-64_W19.05mm_P1.778mm_Socket</footprint>
+      <fields>
+        <field name="Footprint">V9958-Tester:SDIP-64_W19.05mm_P1.778mm_Socket</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="V9958" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c0cc35dc-6b4f-5812-8f76-54516cfb7c04</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="20"/>
+            <pin num="21"/>
+            <pin num="22"/>
+            <pin num="23"/>
+            <pin num="24"/>
+            <pin num="25"/>
+            <pin num="26"/>
+            <pin num="27"/>
+            <pin num="28"/>
+            <pin num="29"/>
+            <pin num="30"/>
+            <pin num="31"/>
+            <pin num="32"/>
+            <pin num="33"/>
+            <pin num="34"/>
+            <pin num="35"/>
+            <pin num="36"/>
+            <pin num="37"/>
+            <pin num="38"/>
+            <pin num="39"/>
+            <pin num="40"/>
+            <pin num="41"/>
+            <pin num="42"/>
+            <pin num="43"/>
+            <pin num="44"/>
+            <pin num="45"/>
+            <pin num="46"/>
+            <pin num="47"/>
+            <pin num="48"/>
+            <pin num="49"/>
+            <pin num="50"/>
+            <pin num="51"/>
+            <pin num="52"/>
+            <pin num="53"/>
+            <pin num="54"/>
+            <pin num="55"/>
+            <pin num="56"/>
+            <pin num="57"/>
+            <pin num="58"/>
+            <pin num="59"/>
+            <pin num="60"/>
+            <pin num="61"/>
+            <pin num="62"/>
+            <pin num="63"/>
+            <pin num="64"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U4">
+      <value>SN74LVC244AN</value>
+      <footprint>Package_DIP:DIP-20_W7.62mm_Socket_LongPads</footprint>
+      <fields>
+        <field name="Footprint">Package_DIP:DIP-20_W7.62mm_Socket_LongPads</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="SN74LVC244A" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>91f1ebef-e7ac-5432-bd15-c31567afcd2c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="20"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U5">
+      <value>41464 VRAM L0</value>
+      <footprint>Package_DIP:DIP-18_W7.62mm_Socket_LongPads</footprint>
+      <fields>
+        <field name="Footprint">Package_DIP:DIP-18_W7.62mm_Socket_LongPads</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="D41464" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fbc61c72-7c8d-5dc8-87db-c81e72628fd4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U6">
+      <value>41464 VRAM H0</value>
+      <footprint>Package_DIP:DIP-18_W7.62mm_Socket_LongPads</footprint>
+      <fields>
+        <field name="Footprint">Package_DIP:DIP-18_W7.62mm_Socket_LongPads</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="D41464" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5123199a-f979-5d59-8631-8f4434d55c94</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U7">
+      <value>41464 VRAM L1</value>
+      <footprint>Package_DIP:DIP-18_W7.62mm_Socket_LongPads</footprint>
+      <fields>
+        <field name="Footprint">Package_DIP:DIP-18_W7.62mm_Socket_LongPads</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="D41464" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1f59cc9e-bd52-59e8-802a-487ba4e5a5b3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U8">
+      <value>41464 VRAM H1</value>
+      <footprint>Package_DIP:DIP-18_W7.62mm_Socket_LongPads</footprint>
+      <fields>
+        <field name="Footprint">Package_DIP:DIP-18_W7.62mm_Socket_LongPads</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="D41464" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d3102986-1e3c-5a24-b0ea-0171cf9402f9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Y1">
+      <value>21.477270MHz</value>
+      <footprint>Crystal:Crystal_HC49-U_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Crystal:Crystal_HC49-U_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="V9958-Tester" part="Crystal" description=""/>
+      <property name="Sheetname" value="V9958-Tester"/>
+      <property name="Sheetfile" value="V9958-Tester.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4f517c5d-8f91-56ba-b60b-63d297b0be3a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="V9958-Tester" part="C">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="CP">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CP</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="Crystal">
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">Crystal</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="D41464">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">D41464</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="~OE" type="passive"/>
+        <pin num="2" name="DQ0" type="passive"/>
+        <pin num="3" name="DQ1" type="passive"/>
+        <pin num="4" name="~WE" type="passive"/>
+        <pin num="5" name="~RAS" type="passive"/>
+        <pin num="6" name="A6" type="passive"/>
+        <pin num="7" name="A5" type="passive"/>
+        <pin num="8" name="A4" type="passive"/>
+        <pin num="9" name="VCC" type="passive"/>
+        <pin num="10" name="A7" type="passive"/>
+        <pin num="11" name="A3" type="passive"/>
+        <pin num="12" name="A2" type="passive"/>
+        <pin num="13" name="A1" type="passive"/>
+        <pin num="14" name="A0" type="passive"/>
+        <pin num="15" name="DQ2" type="passive"/>
+        <pin num="16" name="~CAS" type="passive"/>
+        <pin num="17" name="DQ3" type="passive"/>
+        <pin num="18" name="GND" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="Fuse">
+      <fields>
+        <field name="Reference">F</field>
+        <field name="Value">Fuse</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="L">
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">L</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="LED">
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="MountingHole">
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="V9958-Tester" part="R">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="RN_Bussed_10">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">RN_Bussed_10</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="COM" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
+        <pin num="5" name="5" type="passive"/>
+        <pin num="6" name="6" type="passive"/>
+        <pin num="7" name="7" type="passive"/>
+        <pin num="8" name="8" type="passive"/>
+        <pin num="9" name="9" type="passive"/>
+        <pin num="10" name="10" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="RaspberryPi_Pico">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">RaspberryPi_Pico</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="GP0" type="passive"/>
+        <pin num="2" name="GP1" type="passive"/>
+        <pin num="3" name="GND" type="passive"/>
+        <pin num="4" name="GP2" type="passive"/>
+        <pin num="5" name="GP3" type="passive"/>
+        <pin num="6" name="GP4" type="passive"/>
+        <pin num="7" name="GP5" type="passive"/>
+        <pin num="8" name="GND" type="passive"/>
+        <pin num="9" name="GP6" type="passive"/>
+        <pin num="10" name="GP7" type="passive"/>
+        <pin num="11" name="GP8" type="passive"/>
+        <pin num="12" name="GP9" type="passive"/>
+        <pin num="13" name="GND" type="passive"/>
+        <pin num="14" name="GP10" type="passive"/>
+        <pin num="15" name="GP11" type="passive"/>
+        <pin num="16" name="GP12" type="passive"/>
+        <pin num="17" name="GP13" type="passive"/>
+        <pin num="18" name="GND" type="passive"/>
+        <pin num="19" name="GP14" type="passive"/>
+        <pin num="20" name="GP15" type="passive"/>
+        <pin num="21" name="GP16" type="passive"/>
+        <pin num="22" name="GP17" type="passive"/>
+        <pin num="23" name="GND" type="passive"/>
+        <pin num="24" name="GP18" type="passive"/>
+        <pin num="25" name="GP19" type="passive"/>
+        <pin num="26" name="GP20" type="passive"/>
+        <pin num="27" name="GP21" type="passive"/>
+        <pin num="28" name="GND" type="passive"/>
+        <pin num="29" name="GP22" type="passive"/>
+        <pin num="30" name="RUN" type="passive"/>
+        <pin num="31" name="GP26_ADC0" type="passive"/>
+        <pin num="32" name="GP27_ADC1" type="passive"/>
+        <pin num="33" name="AGND" type="passive"/>
+        <pin num="34" name="GP28_ADC2" type="passive"/>
+        <pin num="35" name="ADC_VREF" type="passive"/>
+        <pin num="36" name="3V3_OUT" type="passive"/>
+        <pin num="37" name="3V3_EN" type="passive"/>
+        <pin num="38" name="GND" type="passive"/>
+        <pin num="39" name="VSYS" type="passive"/>
+        <pin num="40" name="VBUS" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="SN74AHCT244">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">SN74AHCT244</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="~1OE" type="passive"/>
+        <pin num="2" name="1A1" type="passive"/>
+        <pin num="3" name="2Y4" type="passive"/>
+        <pin num="4" name="1A2" type="passive"/>
+        <pin num="5" name="2Y3" type="passive"/>
+        <pin num="6" name="1A3" type="passive"/>
+        <pin num="7" name="2Y2" type="passive"/>
+        <pin num="8" name="1A4" type="passive"/>
+        <pin num="9" name="2Y1" type="passive"/>
+        <pin num="10" name="GND" type="passive"/>
+        <pin num="11" name="2A1" type="passive"/>
+        <pin num="12" name="1Y4" type="passive"/>
+        <pin num="13" name="2A2" type="passive"/>
+        <pin num="14" name="1Y3" type="passive"/>
+        <pin num="15" name="2A3" type="passive"/>
+        <pin num="16" name="1Y2" type="passive"/>
+        <pin num="17" name="2A4" type="passive"/>
+        <pin num="18" name="1Y1" type="passive"/>
+        <pin num="19" name="~2OE" type="passive"/>
+        <pin num="20" name="VCC" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="SN74LVC244A">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">SN74LVC244A</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="~1OE" type="passive"/>
+        <pin num="2" name="1A1" type="passive"/>
+        <pin num="3" name="2Y4" type="passive"/>
+        <pin num="4" name="1A2" type="passive"/>
+        <pin num="5" name="2Y3" type="passive"/>
+        <pin num="6" name="1A3" type="passive"/>
+        <pin num="7" name="2Y2" type="passive"/>
+        <pin num="8" name="1A4" type="passive"/>
+        <pin num="9" name="2Y1" type="passive"/>
+        <pin num="10" name="GND" type="passive"/>
+        <pin num="11" name="2A1" type="passive"/>
+        <pin num="12" name="1Y4" type="passive"/>
+        <pin num="13" name="2A2" type="passive"/>
+        <pin num="14" name="1Y3" type="passive"/>
+        <pin num="15" name="2A3" type="passive"/>
+        <pin num="16" name="1Y2" type="passive"/>
+        <pin num="17" name="2A4" type="passive"/>
+        <pin num="18" name="1Y1" type="passive"/>
+        <pin num="19" name="~2OE" type="passive"/>
+        <pin num="20" name="VCC" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="SN74LVC245A">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">SN74LVC245A</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="DIR" type="passive"/>
+        <pin num="2" name="A0" type="passive"/>
+        <pin num="3" name="A1" type="passive"/>
+        <pin num="4" name="A2" type="passive"/>
+        <pin num="5" name="A3" type="passive"/>
+        <pin num="6" name="A4" type="passive"/>
+        <pin num="7" name="A5" type="passive"/>
+        <pin num="8" name="A6" type="passive"/>
+        <pin num="9" name="A7" type="passive"/>
+        <pin num="10" name="GND" type="passive"/>
+        <pin num="11" name="B7" type="passive"/>
+        <pin num="12" name="B6" type="passive"/>
+        <pin num="13" name="B5" type="passive"/>
+        <pin num="14" name="B4" type="passive"/>
+        <pin num="15" name="B3" type="passive"/>
+        <pin num="16" name="B2" type="passive"/>
+        <pin num="17" name="B1" type="passive"/>
+        <pin num="18" name="B0" type="passive"/>
+        <pin num="19" name="~OE" type="passive"/>
+        <pin num="20" name="VCC" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="SW_Push">
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_Push</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="TestPoint">
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TestPoint</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="V9958-Tester" part="V9958">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">V9958</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="passive"/>
+        <pin num="2" name="~DHCLK" type="passive"/>
+        <pin num="3" name="~DLCLK" type="passive"/>
+        <pin num="4" name="~VRESET" type="passive"/>
+        <pin num="5" name="~HSYNC" type="passive"/>
+        <pin num="6" name="~CSYNC" type="passive"/>
+        <pin num="7" name="BLEO" type="passive"/>
+        <pin num="8" name="CPUCLK/~VDS" type="passive"/>
+        <pin num="9" name="~RESET" type="passive"/>
+        <pin num="10" name="~YS" type="passive"/>
+        <pin num="11" name="CBDR" type="passive"/>
+        <pin num="12" name="C7" type="passive"/>
+        <pin num="13" name="C6" type="passive"/>
+        <pin num="14" name="C5" type="passive"/>
+        <pin num="15" name="C4" type="passive"/>
+        <pin num="16" name="C3" type="passive"/>
+        <pin num="17" name="C2" type="passive"/>
+        <pin num="18" name="C1" type="passive"/>
+        <pin num="19" name="C0" type="passive"/>
+        <pin num="20" name="GND_DAC" type="passive"/>
+        <pin num="21" name="VDD_DAC" type="passive"/>
+        <pin num="22" name="G" type="passive"/>
+        <pin num="23" name="R" type="passive"/>
+        <pin num="24" name="B" type="passive"/>
+        <pin num="25" name="~INT" type="passive"/>
+        <pin num="26" name="~WAIT" type="passive"/>
+        <pin num="27" name="~HRESET" type="passive"/>
+        <pin num="28" name="MODE1" type="passive"/>
+        <pin num="29" name="MODE0" type="passive"/>
+        <pin num="30" name="~CSW" type="passive"/>
+        <pin num="31" name="~CSR" type="passive"/>
+        <pin num="32" name="CD7" type="passive"/>
+        <pin num="33" name="VBB" type="passive"/>
+        <pin num="34" name="CD6" type="passive"/>
+        <pin num="35" name="CD5" type="passive"/>
+        <pin num="36" name="CD4" type="passive"/>
+        <pin num="37" name="CD3" type="passive"/>
+        <pin num="38" name="CD2" type="passive"/>
+        <pin num="39" name="CD1" type="passive"/>
+        <pin num="40" name="CD0" type="passive"/>
+        <pin num="41" name="RD0" type="passive"/>
+        <pin num="42" name="RD1" type="passive"/>
+        <pin num="43" name="RD2" type="passive"/>
+        <pin num="44" name="RD3" type="passive"/>
+        <pin num="45" name="RD4" type="passive"/>
+        <pin num="46" name="RD5" type="passive"/>
+        <pin num="47" name="RD6" type="passive"/>
+        <pin num="48" name="RD7" type="passive"/>
+        <pin num="49" name="AD0" type="passive"/>
+        <pin num="50" name="AD1" type="passive"/>
+        <pin num="51" name="AD2" type="passive"/>
+        <pin num="52" name="AD3" type="passive"/>
+        <pin num="53" name="AD4" type="passive"/>
+        <pin num="54" name="AD5" type="passive"/>
+        <pin num="55" name="AD6" type="passive"/>
+        <pin num="56" name="AD7" type="passive"/>
+        <pin num="57" name="R/~W" type="passive"/>
+        <pin num="58" name="VDD" type="passive"/>
+        <pin num="59" name="~CASX" type="passive"/>
+        <pin num="60" name="~CAS1" type="passive"/>
+        <pin num="61" name="~CAS0" type="passive"/>
+        <pin num="62" name="~RAS" type="passive"/>
+        <pin num="63" name="XTAL1" type="passive"/>
+        <pin num="64" name="XTAL2" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="V9958-Tester">
+      <uri>${KIPRJMOD}/V9958-Tester.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/+3V3" class="Default">
+      <node ref="A1" pin="36" pinfunction="3V3_OUT_36" pintype="passive"/>
+      <node ref="C11" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C9" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R16" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R17" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R20" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R32" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="TP2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="20" pinfunction="VCC_20" pintype="passive"/>
+      <node ref="U4" pin="20" pinfunction="VCC_20" pintype="passive"/>
+    </net>
+    <net code="2" name="/+5V" class="Default">
+      <node ref="C10" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="F1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="L1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="RN1" pin="1" pinfunction="COM_1" pintype="passive"/>
+      <node ref="TP1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="20" pinfunction="VCC_20" pintype="passive"/>
+    </net>
+    <net code="3" name="/ADC_B" class="Default">
+      <node ref="A1" pin="34" pinfunction="GP28_ADC2_34" pintype="passive"/>
+      <node ref="C5" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R28" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R29" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="4" name="/ADC_G" class="Default">
+      <node ref="A1" pin="32" pinfunction="GP27_ADC1_32" pintype="passive"/>
+      <node ref="C4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R25" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R26" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="5" name="/ADC_R" class="Default">
+      <node ref="A1" pin="31" pinfunction="GP26_ADC0_31" pintype="passive"/>
+      <node ref="C3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R22" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R23" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="6" name="/BLUE_RAW" class="Default">
+      <node ref="R27" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R28" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="TP9" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="24" pinfunction="B_24" pintype="passive"/>
+    </net>
+    <net code="7" name="/BUS_DIR" class="Default">
+      <node ref="A1" pin="16" pinfunction="GP12_16" pintype="passive"/>
+      <node ref="R19" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="DIR_1" pintype="passive"/>
+    </net>
+    <net code="8" name="/BUS_OE_N" class="Default">
+      <node ref="A1" pin="17" pinfunction="GP13_17" pintype="passive"/>
+      <node ref="R20" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="19" pinfunction="~OE_19" pintype="passive"/>
+    </net>
+    <net code="9" name="/CAS0" class="Default">
+      <node ref="R6" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U5" pin="16" pinfunction="~CAS_16" pintype="passive"/>
+      <node ref="U6" pin="16" pinfunction="~CAS_16" pintype="passive"/>
+    </net>
+    <net code="10" name="/CAS0_RAW" class="Default">
+      <node ref="R6" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="61" pinfunction="~CAS0_61" pintype="passive"/>
+    </net>
+    <net code="11" name="/CAS1" class="Default">
+      <node ref="R7" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U7" pin="16" pinfunction="~CAS_16" pintype="passive"/>
+      <node ref="U8" pin="16" pinfunction="~CAS_16" pintype="passive"/>
+    </net>
+    <net code="12" name="/CAS1_RAW" class="Default">
+      <node ref="R7" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="60" pinfunction="~CAS1_60" pintype="passive"/>
+    </net>
+    <net code="13" name="/CASX" class="Default">
+      <node ref="R2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U3" pin="59" pinfunction="~CASX_59" pintype="passive"/>
+    </net>
+    <net code="14" name="/CB0" class="Default">
+      <node ref="RN1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U3" pin="19" pinfunction="C0_19" pintype="passive"/>
+    </net>
+    <net code="15" name="/CB1" class="Default">
+      <node ref="RN1" pin="3" pinfunction="3_3" pintype="passive"/>
+      <node ref="U3" pin="18" pinfunction="C1_18" pintype="passive"/>
+    </net>
+    <net code="16" name="/CB2" class="Default">
+      <node ref="RN1" pin="4" pinfunction="4_4" pintype="passive"/>
+      <node ref="U3" pin="17" pinfunction="C2_17" pintype="passive"/>
+    </net>
+    <net code="17" name="/CB3" class="Default">
+      <node ref="RN1" pin="5" pinfunction="5_5" pintype="passive"/>
+      <node ref="U3" pin="16" pinfunction="C3_16" pintype="passive"/>
+    </net>
+    <net code="18" name="/CB4" class="Default">
+      <node ref="RN1" pin="6" pinfunction="6_6" pintype="passive"/>
+      <node ref="U3" pin="15" pinfunction="C4_15" pintype="passive"/>
+    </net>
+    <net code="19" name="/CB5" class="Default">
+      <node ref="RN1" pin="7" pinfunction="7_7" pintype="passive"/>
+      <node ref="U3" pin="14" pinfunction="C5_14" pintype="passive"/>
+    </net>
+    <net code="20" name="/CB6" class="Default">
+      <node ref="RN1" pin="8" pinfunction="8_8" pintype="passive"/>
+      <node ref="U3" pin="13" pinfunction="C6_13" pintype="passive"/>
+    </net>
+    <net code="21" name="/CB7" class="Default">
+      <node ref="RN1" pin="9" pinfunction="9_9" pintype="passive"/>
+      <node ref="U3" pin="12" pinfunction="C7_12" pintype="passive"/>
+    </net>
+    <net code="22" name="/CPUCLK_5" class="Default">
+      <node ref="R9" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U4" pin="2" pinfunction="1A1_2" pintype="passive"/>
+    </net>
+    <net code="23" name="/CPUCLK_RAW" class="Default">
+      <node ref="R9" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="TP4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="8" pinfunction="CPUCLK/~VDS_8" pintype="passive"/>
+    </net>
+    <net code="24" name="/CSYNC_5" class="Default">
+      <node ref="R11" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U4" pin="6" pinfunction="1A3_6" pintype="passive"/>
+    </net>
+    <net code="25" name="/CSYNC_RAW" class="Default">
+      <node ref="R11" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="TP6" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="6" pinfunction="~CSYNC_6" pintype="passive"/>
+    </net>
+    <net code="26" name="/CTRL_CSR_IN" class="Default">
+      <node ref="A1" pin="15" pinfunction="GP11_15" pintype="passive"/>
+      <node ref="R17" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="8" pinfunction="1A4_8" pintype="passive"/>
+    </net>
+    <net code="27" name="/CTRL_CSW_IN" class="Default">
+      <node ref="A1" pin="14" pinfunction="GP10_14" pintype="passive"/>
+      <node ref="R16" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="6" pinfunction="1A3_6" pintype="passive"/>
+    </net>
+    <net code="28" name="/CTRL_MODE0_IN" class="Default">
+      <node ref="A1" pin="11" pinfunction="GP8_11" pintype="passive"/>
+      <node ref="R14" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="2" pinfunction="1A1_2" pintype="passive"/>
+    </net>
+    <net code="29" name="/CTRL_MODE1_IN" class="Default">
+      <node ref="A1" pin="12" pinfunction="GP9_12" pintype="passive"/>
+      <node ref="R15" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="4" pinfunction="1A2_4" pintype="passive"/>
+    </net>
+    <net code="30" name="/CTRL_RESET_IN" class="Default">
+      <node ref="A1" pin="19" pinfunction="GP14_19" pintype="passive"/>
+      <node ref="R18" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="11" pinfunction="2A1_11" pintype="passive"/>
+    </net>
+    <net code="31" name="/GND" class="Default">
+      <node ref="A1" pin="13" pinfunction="GND_13" pintype="passive"/>
+      <node ref="A1" pin="18" pinfunction="GND_18" pintype="passive"/>
+      <node ref="A1" pin="23" pinfunction="GND_23" pintype="passive"/>
+      <node ref="A1" pin="28" pinfunction="GND_28" pintype="passive"/>
+      <node ref="A1" pin="3" pinfunction="GND_3" pintype="passive"/>
+      <node ref="A1" pin="33" pinfunction="AGND_33" pintype="passive"/>
+      <node ref="A1" pin="38" pinfunction="GND_38" pintype="passive"/>
+      <node ref="A1" pin="8" pinfunction="GND_8" pintype="passive"/>
+      <node ref="C1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C10" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C11" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C12" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C13" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C14" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C15" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C3" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C4" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C5" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C6" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C7" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C8" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C9" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="D1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="D2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R14" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R15" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R18" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R19" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R21" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R23" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R24" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R26" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R27" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R29" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="SW1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="TP3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="GND_10" pintype="passive"/>
+      <node ref="U2" pin="1" pinfunction="~1OE_1" pintype="passive"/>
+      <node ref="U2" pin="10" pinfunction="GND_10" pintype="passive"/>
+      <node ref="U2" pin="13" pinfunction="2A2_13" pintype="passive"/>
+      <node ref="U2" pin="15" pinfunction="2A3_15" pintype="passive"/>
+      <node ref="U2" pin="17" pinfunction="2A4_17" pintype="passive"/>
+      <node ref="U2" pin="19" pinfunction="~2OE_19" pintype="passive"/>
+      <node ref="U3" pin="1" pinfunction="GND_1" pintype="passive"/>
+      <node ref="U3" pin="20" pinfunction="GND_DAC_20" pintype="passive"/>
+      <node ref="U4" pin="1" pinfunction="~1OE_1" pintype="passive"/>
+      <node ref="U4" pin="10" pinfunction="GND_10" pintype="passive"/>
+      <node ref="U4" pin="13" pinfunction="2A2_13" pintype="passive"/>
+      <node ref="U4" pin="15" pinfunction="2A3_15" pintype="passive"/>
+      <node ref="U4" pin="17" pinfunction="2A4_17" pintype="passive"/>
+      <node ref="U4" pin="19" pinfunction="~2OE_19" pintype="passive"/>
+      <node ref="U5" pin="1" pinfunction="~OE_1" pintype="passive"/>
+      <node ref="U5" pin="18" pinfunction="GND_18" pintype="passive"/>
+      <node ref="U6" pin="1" pinfunction="~OE_1" pintype="passive"/>
+      <node ref="U6" pin="18" pinfunction="GND_18" pintype="passive"/>
+      <node ref="U7" pin="1" pinfunction="~OE_1" pintype="passive"/>
+      <node ref="U7" pin="18" pinfunction="GND_18" pintype="passive"/>
+      <node ref="U8" pin="1" pinfunction="~OE_1" pintype="passive"/>
+      <node ref="U8" pin="18" pinfunction="GND_18" pintype="passive"/>
+    </net>
+    <net code="32" name="/GREEN_RAW" class="Default">
+      <node ref="R24" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R25" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="TP8" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="22" pinfunction="G_22" pintype="passive"/>
+    </net>
+    <net code="33" name="/HRESET" class="Default">
+      <node ref="R1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U3" pin="27" pinfunction="~HRESET_27" pintype="passive"/>
+    </net>
+    <net code="34" name="/HSYNC_5" class="Default">
+      <node ref="R10" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U4" pin="4" pinfunction="1A2_4" pintype="passive"/>
+    </net>
+    <net code="35" name="/HSYNC_RAW" class="Default">
+      <node ref="R10" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="TP5" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="5" pinfunction="~HSYNC_5" pintype="passive"/>
+    </net>
+    <net code="36" name="/INT_5" class="Default">
+      <node ref="R13" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U4" pin="11" pinfunction="2A1_11" pintype="passive"/>
+    </net>
+    <net code="37" name="/INT_RAW" class="Default">
+      <node ref="R13" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R3" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U3" pin="25" pinfunction="~INT_25" pintype="passive"/>
+    </net>
+    <net code="38" name="/LED_GREEN" class="Default">
+      <node ref="A1" pin="20" pinfunction="GP15_20" pintype="passive"/>
+      <node ref="R30" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="39" name="/LED_GREEN_A" class="Default">
+      <node ref="D1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R30" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="40" name="/LED_RED" class="Default">
+      <node ref="A1" pin="21" pinfunction="GP16_21" pintype="passive"/>
+      <node ref="R31" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="41" name="/LED_RED_A" class="Default">
+      <node ref="D2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R31" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="42" name="/MON_CPUCLK" class="Default">
+      <node ref="A1" pin="22" pinfunction="GP17_22" pintype="passive"/>
+      <node ref="U4" pin="18" pinfunction="1Y1_18" pintype="passive"/>
+    </net>
+    <net code="43" name="/MON_CSYNC" class="Default">
+      <node ref="A1" pin="27" pinfunction="GP21_27" pintype="passive"/>
+      <node ref="U4" pin="14" pinfunction="1Y3_14" pintype="passive"/>
+    </net>
+    <net code="44" name="/MON_HSYNC" class="Default">
+      <node ref="A1" pin="25" pinfunction="GP19_25" pintype="passive"/>
+      <node ref="U4" pin="16" pinfunction="1Y2_16" pintype="passive"/>
+    </net>
+    <net code="45" name="/MON_INT" class="Default">
+      <node ref="A1" pin="26" pinfunction="GP20_26" pintype="passive"/>
+      <node ref="U4" pin="9" pinfunction="2Y1_9" pintype="passive"/>
+    </net>
+    <net code="46" name="/MON_WAIT" class="Default">
+      <node ref="A1" pin="24" pinfunction="GP18_24" pintype="passive"/>
+      <node ref="U4" pin="12" pinfunction="1Y4_12" pintype="passive"/>
+    </net>
+    <net code="47" name="/P_D0" class="Default">
+      <node ref="A1" pin="1" pinfunction="GP0_1" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="A0_2" pintype="passive"/>
+    </net>
+    <net code="48" name="/P_D1" class="Default">
+      <node ref="A1" pin="2" pinfunction="GP1_2" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="A1_3" pintype="passive"/>
+    </net>
+    <net code="49" name="/P_D2" class="Default">
+      <node ref="A1" pin="4" pinfunction="GP2_4" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="A2_4" pintype="passive"/>
+    </net>
+    <net code="50" name="/P_D3" class="Default">
+      <node ref="A1" pin="5" pinfunction="GP3_5" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="A3_5" pintype="passive"/>
+    </net>
+    <net code="51" name="/P_D4" class="Default">
+      <node ref="A1" pin="6" pinfunction="GP4_6" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="A4_6" pintype="passive"/>
+    </net>
+    <net code="52" name="/P_D5" class="Default">
+      <node ref="A1" pin="7" pinfunction="GP5_7" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="A5_7" pintype="passive"/>
+    </net>
+    <net code="53" name="/P_D6" class="Default">
+      <node ref="A1" pin="9" pinfunction="GP6_9" pintype="passive"/>
+      <node ref="U1" pin="8" pinfunction="A6_8" pintype="passive"/>
+    </net>
+    <net code="54" name="/P_D7" class="Default">
+      <node ref="A1" pin="10" pinfunction="GP7_10" pintype="passive"/>
+      <node ref="U1" pin="9" pinfunction="A7_9" pintype="passive"/>
+    </net>
+    <net code="55" name="/RAS" class="Default">
+      <node ref="R8" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U5" pin="5" pinfunction="~RAS_5" pintype="passive"/>
+      <node ref="U6" pin="5" pinfunction="~RAS_5" pintype="passive"/>
+      <node ref="U7" pin="5" pinfunction="~RAS_5" pintype="passive"/>
+      <node ref="U8" pin="5" pinfunction="~RAS_5" pintype="passive"/>
+    </net>
+    <net code="56" name="/RAS_RAW" class="Default">
+      <node ref="R8" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="62" pinfunction="~RAS_62" pintype="passive"/>
+    </net>
+    <net code="57" name="/RED_RAW" class="Default">
+      <node ref="R21" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R22" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="TP7" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="23" pinfunction="R_23" pintype="passive"/>
+    </net>
+    <net code="58" name="/TEST_BUTTON" class="Default">
+      <node ref="A1" pin="29" pinfunction="GP22_29" pintype="passive"/>
+      <node ref="R32" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="SW1" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="59" name="/VA0" class="Default">
+      <node ref="U3" pin="49" pinfunction="AD0_49" pintype="passive"/>
+      <node ref="U5" pin="14" pinfunction="A0_14" pintype="passive"/>
+      <node ref="U6" pin="14" pinfunction="A0_14" pintype="passive"/>
+      <node ref="U7" pin="14" pinfunction="A0_14" pintype="passive"/>
+      <node ref="U8" pin="14" pinfunction="A0_14" pintype="passive"/>
+    </net>
+    <net code="60" name="/VA1" class="Default">
+      <node ref="U3" pin="50" pinfunction="AD1_50" pintype="passive"/>
+      <node ref="U5" pin="13" pinfunction="A1_13" pintype="passive"/>
+      <node ref="U6" pin="13" pinfunction="A1_13" pintype="passive"/>
+      <node ref="U7" pin="13" pinfunction="A1_13" pintype="passive"/>
+      <node ref="U8" pin="13" pinfunction="A1_13" pintype="passive"/>
+    </net>
+    <net code="61" name="/VA2" class="Default">
+      <node ref="U3" pin="51" pinfunction="AD2_51" pintype="passive"/>
+      <node ref="U5" pin="12" pinfunction="A2_12" pintype="passive"/>
+      <node ref="U6" pin="12" pinfunction="A2_12" pintype="passive"/>
+      <node ref="U7" pin="12" pinfunction="A2_12" pintype="passive"/>
+      <node ref="U8" pin="12" pinfunction="A2_12" pintype="passive"/>
+    </net>
+    <net code="62" name="/VA3" class="Default">
+      <node ref="U3" pin="52" pinfunction="AD3_52" pintype="passive"/>
+      <node ref="U5" pin="11" pinfunction="A3_11" pintype="passive"/>
+      <node ref="U6" pin="11" pinfunction="A3_11" pintype="passive"/>
+      <node ref="U7" pin="11" pinfunction="A3_11" pintype="passive"/>
+      <node ref="U8" pin="11" pinfunction="A3_11" pintype="passive"/>
+    </net>
+    <net code="63" name="/VA4" class="Default">
+      <node ref="U3" pin="53" pinfunction="AD4_53" pintype="passive"/>
+      <node ref="U5" pin="8" pinfunction="A4_8" pintype="passive"/>
+      <node ref="U6" pin="8" pinfunction="A4_8" pintype="passive"/>
+      <node ref="U7" pin="8" pinfunction="A4_8" pintype="passive"/>
+      <node ref="U8" pin="8" pinfunction="A4_8" pintype="passive"/>
+    </net>
+    <net code="64" name="/VA5" class="Default">
+      <node ref="U3" pin="54" pinfunction="AD5_54" pintype="passive"/>
+      <node ref="U5" pin="7" pinfunction="A5_7" pintype="passive"/>
+      <node ref="U6" pin="7" pinfunction="A5_7" pintype="passive"/>
+      <node ref="U7" pin="7" pinfunction="A5_7" pintype="passive"/>
+      <node ref="U8" pin="7" pinfunction="A5_7" pintype="passive"/>
+    </net>
+    <net code="65" name="/VA6" class="Default">
+      <node ref="U3" pin="55" pinfunction="AD6_55" pintype="passive"/>
+      <node ref="U5" pin="6" pinfunction="A6_6" pintype="passive"/>
+      <node ref="U6" pin="6" pinfunction="A6_6" pintype="passive"/>
+      <node ref="U7" pin="6" pinfunction="A6_6" pintype="passive"/>
+      <node ref="U8" pin="6" pinfunction="A6_6" pintype="passive"/>
+    </net>
+    <net code="66" name="/VA7" class="Default">
+      <node ref="U3" pin="56" pinfunction="AD7_56" pintype="passive"/>
+      <node ref="U5" pin="10" pinfunction="A7_10" pintype="passive"/>
+      <node ref="U6" pin="10" pinfunction="A7_10" pintype="passive"/>
+      <node ref="U7" pin="10" pinfunction="A7_10" pintype="passive"/>
+      <node ref="U8" pin="10" pinfunction="A7_10" pintype="passive"/>
+    </net>
+    <net code="67" name="/VBB" class="Default">
+      <node ref="C8" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="33" pinfunction="VBB_33" pintype="passive"/>
+    </net>
+    <net code="68" name="/VBUS_USB" class="Default">
+      <node ref="A1" pin="40" pinfunction="VBUS_40" pintype="passive"/>
+      <node ref="F1" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="69" name="/VCCVDP" class="Default">
+      <node ref="C12" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C13" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C14" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C15" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C6" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C7" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="L1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U3" pin="21" pinfunction="VDD_DAC_21" pintype="passive"/>
+      <node ref="U3" pin="58" pinfunction="VDD_58" pintype="passive"/>
+      <node ref="U5" pin="9" pinfunction="VCC_9" pintype="passive"/>
+      <node ref="U6" pin="9" pinfunction="VCC_9" pintype="passive"/>
+      <node ref="U7" pin="9" pinfunction="VCC_9" pintype="passive"/>
+      <node ref="U8" pin="9" pinfunction="VCC_9" pintype="passive"/>
+    </net>
+    <net code="70" name="/VD0" class="Default">
+      <node ref="U3" pin="41" pinfunction="RD0_41" pintype="passive"/>
+      <node ref="U5" pin="2" pinfunction="DQ0_2" pintype="passive"/>
+      <node ref="U7" pin="2" pinfunction="DQ0_2" pintype="passive"/>
+    </net>
+    <net code="71" name="/VD1" class="Default">
+      <node ref="U3" pin="42" pinfunction="RD1_42" pintype="passive"/>
+      <node ref="U5" pin="3" pinfunction="DQ1_3" pintype="passive"/>
+      <node ref="U7" pin="3" pinfunction="DQ1_3" pintype="passive"/>
+    </net>
+    <net code="72" name="/VD2" class="Default">
+      <node ref="U3" pin="43" pinfunction="RD2_43" pintype="passive"/>
+      <node ref="U5" pin="15" pinfunction="DQ2_15" pintype="passive"/>
+      <node ref="U7" pin="15" pinfunction="DQ2_15" pintype="passive"/>
+    </net>
+    <net code="73" name="/VD3" class="Default">
+      <node ref="U3" pin="44" pinfunction="RD3_44" pintype="passive"/>
+      <node ref="U5" pin="17" pinfunction="DQ3_17" pintype="passive"/>
+      <node ref="U7" pin="17" pinfunction="DQ3_17" pintype="passive"/>
+    </net>
+    <net code="74" name="/VD4" class="Default">
+      <node ref="U3" pin="45" pinfunction="RD4_45" pintype="passive"/>
+      <node ref="U6" pin="2" pinfunction="DQ0_2" pintype="passive"/>
+      <node ref="U8" pin="2" pinfunction="DQ0_2" pintype="passive"/>
+    </net>
+    <net code="75" name="/VD5" class="Default">
+      <node ref="U3" pin="46" pinfunction="RD5_46" pintype="passive"/>
+      <node ref="U6" pin="3" pinfunction="DQ1_3" pintype="passive"/>
+      <node ref="U8" pin="3" pinfunction="DQ1_3" pintype="passive"/>
+    </net>
+    <net code="76" name="/VD6" class="Default">
+      <node ref="U3" pin="47" pinfunction="RD6_47" pintype="passive"/>
+      <node ref="U6" pin="15" pinfunction="DQ2_15" pintype="passive"/>
+      <node ref="U8" pin="15" pinfunction="DQ2_15" pintype="passive"/>
+    </net>
+    <net code="77" name="/VD7" class="Default">
+      <node ref="U3" pin="48" pinfunction="RD7_48" pintype="passive"/>
+      <node ref="U6" pin="17" pinfunction="DQ3_17" pintype="passive"/>
+      <node ref="U8" pin="17" pinfunction="DQ3_17" pintype="passive"/>
+    </net>
+    <net code="78" name="/VDP_CSR_N" class="Default">
+      <node ref="U2" pin="12" pinfunction="1Y4_12" pintype="passive"/>
+      <node ref="U3" pin="31" pinfunction="~CSR_31" pintype="passive"/>
+    </net>
+    <net code="79" name="/VDP_CSW_N" class="Default">
+      <node ref="U2" pin="14" pinfunction="1Y3_14" pintype="passive"/>
+      <node ref="U3" pin="30" pinfunction="~CSW_30" pintype="passive"/>
+    </net>
+    <net code="80" name="/VDP_D0" class="Default">
+      <node ref="U1" pin="18" pinfunction="B0_18" pintype="passive"/>
+      <node ref="U3" pin="40" pinfunction="CD0_40" pintype="passive"/>
+    </net>
+    <net code="81" name="/VDP_D1" class="Default">
+      <node ref="U1" pin="17" pinfunction="B1_17" pintype="passive"/>
+      <node ref="U3" pin="39" pinfunction="CD1_39" pintype="passive"/>
+    </net>
+    <net code="82" name="/VDP_D2" class="Default">
+      <node ref="U1" pin="16" pinfunction="B2_16" pintype="passive"/>
+      <node ref="U3" pin="38" pinfunction="CD2_38" pintype="passive"/>
+    </net>
+    <net code="83" name="/VDP_D3" class="Default">
+      <node ref="U1" pin="15" pinfunction="B3_15" pintype="passive"/>
+      <node ref="U3" pin="37" pinfunction="CD3_37" pintype="passive"/>
+    </net>
+    <net code="84" name="/VDP_D4" class="Default">
+      <node ref="U1" pin="14" pinfunction="B4_14" pintype="passive"/>
+      <node ref="U3" pin="36" pinfunction="CD4_36" pintype="passive"/>
+    </net>
+    <net code="85" name="/VDP_D5" class="Default">
+      <node ref="U1" pin="13" pinfunction="B5_13" pintype="passive"/>
+      <node ref="U3" pin="35" pinfunction="CD5_35" pintype="passive"/>
+    </net>
+    <net code="86" name="/VDP_D6" class="Default">
+      <node ref="U1" pin="12" pinfunction="B6_12" pintype="passive"/>
+      <node ref="U3" pin="34" pinfunction="CD6_34" pintype="passive"/>
+    </net>
+    <net code="87" name="/VDP_D7" class="Default">
+      <node ref="U1" pin="11" pinfunction="B7_11" pintype="passive"/>
+      <node ref="U3" pin="32" pinfunction="CD7_32" pintype="passive"/>
+    </net>
+    <net code="88" name="/VDP_MODE0" class="Default">
+      <node ref="U2" pin="18" pinfunction="1Y1_18" pintype="passive"/>
+      <node ref="U3" pin="29" pinfunction="MODE0_29" pintype="passive"/>
+    </net>
+    <net code="89" name="/VDP_MODE1" class="Default">
+      <node ref="U2" pin="16" pinfunction="1Y2_16" pintype="passive"/>
+      <node ref="U3" pin="28" pinfunction="MODE1_28" pintype="passive"/>
+    </net>
+    <net code="90" name="/VDP_RESET_N" class="Default">
+      <node ref="U2" pin="9" pinfunction="2Y1_9" pintype="passive"/>
+      <node ref="U3" pin="9" pinfunction="~RESET_9" pintype="passive"/>
+    </net>
+    <net code="91" name="/VRESET" class="Default">
+      <node ref="RN1" pin="10" pinfunction="10_10" pintype="passive"/>
+      <node ref="U3" pin="4" pinfunction="~VRESET_4" pintype="passive"/>
+    </net>
+    <net code="92" name="/VWR" class="Default">
+      <node ref="R5" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U5" pin="4" pinfunction="~WE_4" pintype="passive"/>
+      <node ref="U6" pin="4" pinfunction="~WE_4" pintype="passive"/>
+      <node ref="U7" pin="4" pinfunction="~WE_4" pintype="passive"/>
+      <node ref="U8" pin="4" pinfunction="~WE_4" pintype="passive"/>
+    </net>
+    <net code="93" name="/VWR_RAW" class="Default">
+      <node ref="R5" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="57" pinfunction="R/~W_57" pintype="passive"/>
+    </net>
+    <net code="94" name="/WAIT_5" class="Default">
+      <node ref="R12" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U4" pin="8" pinfunction="1A4_8" pintype="passive"/>
+    </net>
+    <net code="95" name="/WAIT_RAW" class="Default">
+      <node ref="R12" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="26" pinfunction="~WAIT_26" pintype="passive"/>
+    </net>
+    <net code="96" name="/XTAL1" class="Default">
+      <node ref="C1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="63" pinfunction="XTAL1_63" pintype="passive"/>
+      <node ref="Y1" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="97" name="/XTAL2" class="Default">
+      <node ref="C2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R4" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U3" pin="64" pinfunction="XTAL2_64" pintype="passive"/>
+      <node ref="Y1" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="98" name="unconnected-(A1-3V3_EN-Pad37)" class="Default">
+      <node ref="A1" pin="37" pinfunction="3V3_EN_37" pintype="passive+no_connect"/>
+    </net>
+    <net code="99" name="unconnected-(A1-ADC_VREF-Pad35)" class="Default">
+      <node ref="A1" pin="35" pinfunction="ADC_VREF_35" pintype="passive+no_connect"/>
+    </net>
+    <net code="100" name="unconnected-(A1-RUN-Pad30)" class="Default">
+      <node ref="A1" pin="30" pinfunction="RUN_30" pintype="passive+no_connect"/>
+    </net>
+    <net code="101" name="unconnected-(A1-VSYS-Pad39)" class="Default">
+      <node ref="A1" pin="39" pinfunction="VSYS_39" pintype="passive+no_connect"/>
+    </net>
+    <net code="102" name="unconnected-(U2-2Y2-Pad7)" class="Default">
+      <node ref="U2" pin="7" pinfunction="2Y2_7" pintype="passive+no_connect"/>
+    </net>
+    <net code="103" name="unconnected-(U2-2Y3-Pad5)" class="Default">
+      <node ref="U2" pin="5" pinfunction="2Y3_5" pintype="passive+no_connect"/>
+    </net>
+    <net code="104" name="unconnected-(U2-2Y4-Pad3)" class="Default">
+      <node ref="U2" pin="3" pinfunction="2Y4_3" pintype="passive+no_connect"/>
+    </net>
+    <net code="105" name="unconnected-(U3-BLEO-Pad7)" class="Default">
+      <node ref="U3" pin="7" pinfunction="BLEO_7" pintype="passive+no_connect"/>
+    </net>
+    <net code="106" name="unconnected-(U3-CBDR-Pad11)" class="Default">
+      <node ref="U3" pin="11" pinfunction="CBDR_11" pintype="passive+no_connect"/>
+    </net>
+    <net code="107" name="unconnected-(U3-~DHCLK-Pad2)" class="Default">
+      <node ref="U3" pin="2" pinfunction="~DHCLK_2" pintype="passive+no_connect"/>
+    </net>
+    <net code="108" name="unconnected-(U3-~DLCLK-Pad3)" class="Default">
+      <node ref="U3" pin="3" pinfunction="~DLCLK_3" pintype="passive+no_connect"/>
+    </net>
+    <net code="109" name="unconnected-(U3-~YS-Pad10)" class="Default">
+      <node ref="U3" pin="10" pinfunction="~YS_10" pintype="passive+no_connect"/>
+    </net>
+    <net code="110" name="unconnected-(U4-2Y2-Pad7)" class="Default">
+      <node ref="U4" pin="7" pinfunction="2Y2_7" pintype="passive+no_connect"/>
+    </net>
+    <net code="111" name="unconnected-(U4-2Y3-Pad5)" class="Default">
+      <node ref="U4" pin="5" pinfunction="2Y3_5" pintype="passive+no_connect"/>
+    </net>
+    <net code="112" name="unconnected-(U4-2Y4-Pad3)" class="Default">
+      <node ref="U4" pin="3" pinfunction="2Y4_3" pintype="passive+no_connect"/>
+    </net>
+  </nets>
+</export>
