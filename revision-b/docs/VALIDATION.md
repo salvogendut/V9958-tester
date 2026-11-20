@@ -7,6 +7,7 @@ Checked on 2026-11-20 with KiCad 10.0.8.
 | Schematic ERC | 0 violations |
 | PCB DRC with filled zones | 0 violations |
 | Unconnected items / schematic parity issues | 0 / 0 |
+| Populated component references and BOM values in front Gerber | 74 of 74 pairs |
 | Board | 170 × 118 mm, two copper layers and two filled ground zones |
 | Layout | 85 footprints, 381 pads, 1850 track segments and vias including 84 vias |
 
@@ -14,6 +15,6 @@ The exported netlist passed the independent pin-21 supply, sync receiver, switch
 
 The firmware image is [v9958_tester_revb.uf2](../firmware/v9958_tester_revb.uf2). SHA-256 `826f2566cb332a4429cbb08eea7491cd00bfa5de1e7930c7a94dc476f72dde3a`.
 
-The fabrication archive is [V9958-Tester-RevB-B1-gerbers.zip](../fabrication/V9958-Tester-RevB-B1-gerbers.zip). SHA-256 `935b5f8b86ba19955ae0ba953575b8048d32bdd7fced526795fa44498420a7c5`.
+The fabrication archive is [V9958-Tester-RevB-B1-gerbers.zip](../fabrication/V9958-Tester-RevB-B1-gerbers.zip). SHA-256 `f1c371852d785475507ba1498f8618982735adb99dc42c1bcdbb2fa25579cec3`.
 
 Physical qualification with known-good and known-faulty examples of each model is pending. Check the selector resistance with the socket empty before installing a VDP.

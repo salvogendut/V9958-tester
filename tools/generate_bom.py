@@ -37,7 +37,7 @@ notes = {
     "21.477270MHz": "Parallel-resonant fundamental crystal, HC49/U THT",
     "30pF trimmer": "2-pin ceramic trimmer, 5.0 mm pitch",
     "CXA1645P RGB buffer": "Sony CXA1645P DIP-24; socket recommended; used for buffered DIN RGB only",
-    "OMEGA RGB DIN-8": "Same Sky SDF-80J, date codes after 03/03/2022",
+    "SDS-80J": "Same Sky SDS-80J, standard 270-degree right-angle DIN-8; shielded alternate SDF-80J after 03/03/2022",
     "16k 1% PAL": "1% metal-film resistor for CXA1645 PAL filter reference",
     "1k sync/75R load": "Forms approximately 0.35 V CSYNC when terminated by 75 ohms at the display",
 }

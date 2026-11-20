@@ -10,7 +10,7 @@ The current design is **revision 0.4, an unbuilt prototype**. It passes KiCad ER
 
 ![Revision 0.4 V9938/V9958 tester with the RGB DIN opening facing outward at the upper-right edge](docs/V9958-Tester-3D.png)
 
-The RGB cable plugs into J1 from outside the top edge. The four VRAM sockets sit above the central U3 footprint, and the Pico USB connector faces the right edge.
+The RGB cable plugs into J1 from outside the top edge. The four VRAM sockets sit above the central U3 footprint, and the Pico USB connector faces the right edge. All four boards print component references and BOM values together on the component side, including the 1% resistor tolerances.
 
 ![Top view of the revision 0.4 tester showing the U3 footprint and V9938/V9958 selector](docs/V9958-Tester-top.png)
 
@@ -80,7 +80,7 @@ Important parts:
 - U2: SN74AHCT244N, powered from 5 V.
 - U4: SN74LVC244AN, powered from 3.3 V.
 - U9: CXA1645P in DIP-24, used as the three-channel 75-ohm RGB cable buffer.
-- J1: Same Sky SDF-80J right-angle DIN-8, date codes after 03/03/2022, with Omega RGB assignments.
+- J1 takes a Same Sky **SDS-80J**, a standard full-size 270° right-angle DIN-8 socket. It accepts an Omega-wired RGB cable. The shielded SDF-80J with a date code after 03/03/2022 also fits the PCB drawing. [SDS-80J drawing, p. 5](https://www.sameskydevices.com/product/resource/sds-j.pdf) · [DigiKey Italy](https://www.digikey.it/it/products/detail/same-sky-formerly-cui-devices/SDS-80J/97041)
 - Y1: 21.477270 MHz crystal; C1 is the 30 pF oscillator trimmer.
 - F1: Bourns MF-RHT100 resettable fuse, 1.0 A hold / 1.8 A trip.
 
@@ -114,7 +114,7 @@ button; send `R` over USB serial to repeat the test.
 - `V9958-Tester.kicad_sch`: native KiCad 10 schematic.
 - `V9958-Tester.kicad_pcb`: two-layer routed board with GND pours.
 - `V9958-Tester.kicad_pro`: project settings.
-- `V9958-Tester.pretty/`: custom V9958, trimmer, and Omega DIN-8 footprints.
+- `V9958-Tester.pretty/` contains the VDP socket, trimmer, and Same Sky DIN-8 footprints.
 - `tools/`: deterministic schematic, footprint, placement, finish, and BOM generators.
 
 The routing was completed with Freerouting and then imported and checked by KiCad. The checked-in PCB is the release artifact; rerunning the placement generator intentionally produces an unrouted board.

@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/var/home/salvogendut/Dev/V9958-tester/video-daughterboard/V9958-Video-Daughterboard.kicad_sch</source>
-    <date>2026-11-20T22:48:59</date>
+    <date>2026-11-20T23:55:08</date>
     <tool>Eeschema 10.0.8-1.fc45app1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -417,10 +417,10 @@
       </units>
     </comp>
     <comp ref="J2">
-      <value>OMEGA RGB DIN-8</value>
-      <footprint>V9958-Video-Daughterboard:DIN8_Omega_THT</footprint>
+      <value>SDS-80J</value>
+      <footprint>V9958-Video-Daughterboard:DIN-8_SameSky_SDS-80J</footprint>
       <fields>
-        <field name="Footprint">V9958-Video-Daughterboard:DIN8_Omega_THT</field>
+        <field name="Footprint">V9958-Video-Daughterboard:DIN-8_SameSky_SDS-80J</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>

@@ -97,7 +97,7 @@
     (component "Inductor_THT:L_Axial_L14.0mm_D4.5mm_P15.24mm_Horizontal_Fastron_LACC"
       (place L1 1160000 -1160000 front 0)
     )
-    (component "V9958-Tester:DIN8_Omega_THT"
+    (component "V9958-Tester:DIN-8_SameSky_SDS-80J"
       (place J1 2050000 0 front 0)
     )
     (component "MountingHole:MountingHole_3.2mm_M3"

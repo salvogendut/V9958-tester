@@ -256,8 +256,8 @@ def daughter_components():
         10:"CSYNC_IN",12:"+5V",13:"CXA_IREF",14:"CXA_VREF",18:"CXA_FO",
         19:"+5V",21:"CXA_B_OUT",22:"CXA_G_OUT",23:"CXA_R_OUT",24:"GND",
     }))
-    c.append(comp("J2","DIN8_Omega","OMEGA RGB DIN-8",
-                  "V9958-Video-Daughterboard:DIN8_Omega_THT", {
+    c.append(comp("J2","DIN8_Omega","SDS-80J",
+                  "V9958-Video-Daughterboard:DIN-8_SameSky_SDS-80J", {
         1:"GND",3:"DIN_AV",4:"DIN_SYNC",5:"DIN_YS",6:"DIN_R",7:"DIN_G",8:"DIN_B"}))
     axial = "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
     disc = "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm"
@@ -404,7 +404,7 @@ PROJECTS = {
         },
         "silk":[
             ("V9958 RGB DIN DAUGHTERBOARD",60,5,1.25,0),("REV B1 PROTOTYPE",60,8,0.8,0),
-            ("FROM REV B",9,29,0.8,0),("OMEGA RGB DIN",106,48,0.85,0),
+            ("FROM REV B",9,29,0.8,0),("RGB DIN-8",106,48,0.85,0),
             ("IDC: 1 GND  2 +5V  3 R  4 G  5 B  6 CSYNC",60,77,0.8,0),
             ("(c) salvogendut 2026",60,74,0.85,0),
         ],
@@ -546,6 +546,7 @@ def save_board(path, board):
 
 def generate_board(spec):
     import pcbnew as p
+    from value_silkscreen import apply_value_silkscreen
     name=spec["name"]; directory=spec["directory"]; M=p.FromMM
     def V(x,y): return p.VECTOR2I(M(round(x,5)),M(round(y,5)))
     tree=ET.parse(directory/"docs"/f"{name}.xml").getroot(); board=p.BOARD(); board.SetCopperLayerCount(2)
@@ -587,6 +588,7 @@ def generate_board(spec):
         item=p.PCB_TEXT(board); item.SetText(text_value); item.SetPosition(V(x,y)); item.SetTextSize(V(size,size)); item.SetTextThickness(M(0.14)); item.SetLayer(p.F_SilkS); item.SetTextAngle(p.EDA_ANGLE(angle,p.DEGREES_T)); board.Add(item)
     for x,y in spec["plus"]:
         item=p.PCB_TEXT(board); item.SetText("+"); item.SetPosition(V(x,y)); item.SetTextSize(V(1.2,1.2)); item.SetTextThickness(M(0.18)); item.SetLayer(p.F_SilkS); board.Add(item)
+    apply_value_silkscreen(board)
     boardfile=directory/f"{name}.kicad_pcb"; save_board(boardfile, board)
     if not p.ExportSpecctraDSN(board,str(directory/"docs"/"unrouted.dsn")): raise RuntimeError("DSN export failed")
     print(f"Placed {len(components)} footprints for {name}")
@@ -620,6 +622,7 @@ def finish_board(spec):
 def polish_board(spec):
     """Apply review-only silk/reference/thermal changes without touching routes."""
     import pcbnew as p
+    from value_silkscreen import apply_value_silkscreen
     name=spec["name"]; directory=spec["directory"]; M=p.FromMM
     def V(x,y): return p.VECTOR2I(M(round(x,5)),M(round(y,5)))
     board=p.LoadBoard(str(directory/f"{name}.kicad_pcb")); footprints=list(board.GetFootprints()); pads={(item.GetReference(),pad.GetNumber()):pad for item in footprints for pad in item.Pads()}
@@ -640,6 +643,7 @@ def polish_board(spec):
         pad=pads[(ref,number)]
         pad.SetLocalZoneConnection(p.ZONE_CONNECTION_FULL)
     p.ZONE_FILLER(board).Fill(board.Zones())
+    apply_value_silkscreen(board)
     save_board(directory/f"{name}.kicad_pcb", board)
     print(f"Polished {name} without changing routes")
 

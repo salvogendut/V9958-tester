@@ -308,7 +308,7 @@ add("U9", "CXA1645", "CXA1645P RGB buffer", "Package_DIP:DIP-24_W10.16mm_Socket_
     10:"CSYNC_TTL",12:"+5V",13:"CXA_IREF",14:"CXA_VREF",18:"CXA_FO",
     19:"+5V",21:"CXA_B_OUT",22:"CXA_G_OUT",23:"CXA_R_OUT",24:"GND",
 })
-add("J1", "DIN8_Omega", "OMEGA RGB DIN-8", "V9958-Tester:DIN8_Omega_THT", 14300, 10400, {
+add("J1", "DIN8_Omega", "SDS-80J", "V9958-Tester:DIN-8_SameSky_SDS-80J", 14300, 10400, {
     1:"GND",3:"DIN_AV",4:"DIN_SYNC",5:"DIN_YS",6:"DIN_R",7:"DIN_G",8:"DIN_B",
 })
 

@@ -56,8 +56,8 @@
       (place R2 67000 -58000 front 0 (PN "16k 1% PAL"))
       (place R1 35000 -43000 front 0 (PN 47k))
     )
-    (component "V9958-Video-Daughterboard:DIN8_Omega_THT"
-      (place J2 108000 0 front 0 (PN "OMEGA RGB DIN-8"))
+    (component "V9958-Video-Daughterboard:DIN-8_SameSky_SDS-80J"
+      (place J2 108000 0 front 0 (PN "SDS-80J"))
     )
     (component "Connector_IDC:IDC-Header_2x03_P2.54mm_Vertical"
       (place J1 8000 -40000 front 90 (PN "FROM REV B"))
@@ -192,7 +192,7 @@
       (pin Round[A]Pad_1600.000000_um 1 0 0)
       (pin Round[A]Pad_1600.000000_um 2 7620 0)
     )
-    (image "V9958-Video-Daughterboard:DIN8_Omega_THT"
+    (image "V9958-Video-Daughterboard:DIN-8_SameSky_SDS-80J"
       (outline (polygon signal 0  10745 -19145  -10745 -19145  -10745 395  10745 395))
       (outline (path signal 100  -10350 0  10350 0  10350 -18750  -10350 -18750  -10350 0))
       (outline (path signal 250  -10350 -650  10350 -650  10350 -19150  -10350 -19150  -10350 -650))

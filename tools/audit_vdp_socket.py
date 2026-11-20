@@ -45,15 +45,30 @@ def check_din(board, ref):
     outline = board.GetBoardEdgesBoundingBox()
     assert abs(outline.GetTop() - face) <= pcbnew.FromMM(0.03)
     assert socket.GetOrientationDegrees() == 0 and socket.GetLayer() == pcbnew.F_Cu
-    # Top view of the post-2022 SDF-80J: shield tabs nearest the plug, contact 8 last.
-    pads = list(socket.Pads())
-    depths = sorted(round(pcbnew.ToMM(pad.GetPosition().y - face), 2)
-                    for pad in pads if pad.GetNumber() == "1")
-    assert depths == [2.5, 2.5, 12.5]
+    # SDS-J drawing p.5, top view rotated so the plug enters from the top.
+    assert socket.GetValue() == "SDS-80J"
+    plated = []
+    locating = []
+    for pad in socket.Pads():
+        offset = pad.GetPosition() - socket.GetPosition()
+        drill = pad.GetDrillSize()
+        assert drill.x == drill.y
+        hole = (pcbnew.ToMM(offset.x), pcbnew.ToMM(offset.y), pcbnew.ToMM(drill.x))
+        if pad.GetAttribute() == pcbnew.PAD_ATTRIB_NPTH:
+            locating.append(hole)
+        else:
+            plated.append((pad.GetNumber(), *hole))
+    assert sorted(locating) == [(-7.5, 7.5, 2.4), (7.5, 7.5, 2.4)]
+    assert sorted(plated) == sorted([
+        ("1", -2.5, 2.5, 1.3), ("1", 2.5, 2.5, 1.3),  # E ground terminals
+        ("1", -5, 12.5, 1.3), ("2", 0, 12.5, 1.3), ("3", 5, 12.5, 1.3),
+        ("4", -2.5, 15, 1.3), ("5", 2.5, 15, 1.3), ("6", -7.5, 15, 1.3),
+        ("7", 7.5, 15, 1.3), ("8", 0, 17.5, 1.3),
+    ])
     for pin, net in {1: "GND", 3: "DIN_AV", 4: "DIN_SYNC", 5: "DIN_YS",
                      6: "DIN_R", 7: "DIN_G", 8: "DIN_B"}.items():
-        assert {p.GetNetname() for p in pads if p.GetNumber() == str(pin)} == {"/" + net}
-    assert socket.FindPadByNumber("8").GetPosition().y == face + pcbnew.FromMM(17.5)
+        assert {p.GetNetname() for p in socket.Pads() if p.GetNumber() == str(pin)} == {"/" + net}
+    assert socket.FindPadByNumber("2").GetNetname() == f"unconnected-({ref}-AUDIO-Pad2)"
 
 
 for path in sorted(ROOT.glob("**/*.kicad_pcb")):

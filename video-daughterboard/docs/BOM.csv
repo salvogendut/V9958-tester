@@ -9,7 +9,7 @@ Quantity,References,Value / part,KiCad footprint
 1,C8,47uF VCC1,Capacitor_THT:CP_Radial_D5.0mm_P2.00mm
 1,C9,100n VCC2,Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm
 1,J1,FROM REV B,Connector_IDC:IDC-Header_2x03_P2.54mm_Vertical
-1,J2,OMEGA RGB DIN-8,V9958-Video-Daughterboard:DIN8_Omega_THT
+1,J2,SDS-80J,V9958-Video-Daughterboard:DIN-8_SameSky_SDS-80J
 1,R1,47k,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal
 1,R10,180,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal
 1,R2,16k 1% PAL,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal

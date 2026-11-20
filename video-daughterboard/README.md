@@ -9,7 +9,11 @@ tester core.
 ![Top view of the revision B1 daughterboard showing the keyed J1 header at left and J2 at the upper right](docs/V9958-Video-Daughterboard-top.png)
 
 J1 uses a keyed straight-through 2x3 IDC cable: 1 GND, 2 +5 V, 3 red, 4 green,
-5 blue and 6 CSYNC. J2 faces out through the top board edge on daughterboard B1. It takes a Same Sky SDF-80J (date codes after 03/03/2022). J2 follows the Omega RGB assignments: pin 1 GND, pin 3 AV
+5 blue and 6 CSYNC. J2 faces out through the top board edge on daughterboard B1.
+Fit a Same Sky **SDS-80J**, a standard full-size 270° right-angle DIN-8 socket.
+The shielded SDF-80J with a date code after 03/03/2022 shares the PCB hole pattern. [SDS-80J drawing, p. 5](https://www.sameskydevices.com/product/resource/sds-j.pdf) · [DigiKey Italy](https://www.digikey.it/it/products/detail/same-sky-formerly-cui-devices/SDS-80J/97041)
+
+J2 follows the Omega RGB assignments: pin 1 GND, pin 3 AV
 control, pin 4 composite sync, pin 5 RGB/YS control, pin 6 red, pin 7 green and
 pin 8 blue. Pin 2 is unconnected because the tester has no audio source.
 

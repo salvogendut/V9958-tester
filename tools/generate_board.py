@@ -10,6 +10,7 @@ import uuid
 import xml.etree.ElementTree as ET
 
 import pcbnew as p
+from value_silkscreen import apply_value_silkscreen
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -207,7 +208,7 @@ add_text(board, "FAIL", 76, 105, 0.8)
 add_text(board, "TEST", 100, 101, 0.8)
 add_text(board, "F1 1A PTC", 167, 119, 0.8)
 add_text(board, "USB POWER / SERIAL", 228, 106, 0.8, angle=90)
-add_text(board, "OMEGA RGB DIN", 205, 22, 0.9)
+add_text(board, "RGB DIN-8", 205, 22, 0.9)
 add_text(board, "1:GND  4:SYNC  6:R  7:G  8:B", 205, 25, 0.8)
 add_text(board, "(c) salvogendut 2026", 115, 135, 1.0)
 add_text(board, "SET SW2 TO THE CHIP TYPE BEFORE POWER", 115, 138, 0.8, p.B_SilkS)
@@ -224,6 +225,7 @@ for x, y in ((97.5, 116), (215.5, 84), (184.5, 91), (228.5, 86.5),
              (225.5, 41), (225.5, 51), (225.5, 61)):
     add_text(board, "+", x, y, 1.2)
 
+apply_value_silkscreen(board)
 p.SaveBoard(str(BOARD), board)
 PROJECT.write_bytes(project_bytes)  # pcbnew must not rewrite project constraints.
 dsn = ROOT / "docs" / "unrouted.dsn"

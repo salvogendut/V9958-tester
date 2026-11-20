@@ -25,7 +25,7 @@
       (place R2 670000 -580000 front 0)
       (place R1 350000 -430000 front 0)
     )
-    (component "V9958-Video-Daughterboard:DIN8_Omega_THT"
+    (component "V9958-Video-Daughterboard:DIN-8_SameSky_SDS-80J"
       (place J2 1080000 0 front 0)
     )
     (component "Connector_IDC:IDC-Header_2x03_P2.54mm_Vertical"

@@ -128,8 +128,8 @@
     (component Inductor_THT:L_Axial_L14.0mm_D4.5mm_P15.24mm_Horizontal_Fastron_LACC
       (place L1 116000 -116000 front 0 (PN 5.6uH))
     )
-    (component "V9958-Tester:DIN8_Omega_THT"
-      (place J1 205000 0 front 0 (PN "OMEGA RGB DIN-8"))
+    (component "V9958-Tester:DIN-8_SameSky_SDS-80J"
+      (place J1 205000 0 front 0 (PN "SDS-80J"))
     )
     (component MountingHole:MountingHole_3.2mm_M3
       (place H4 170000 -135000 front 0 (PN M3))
@@ -661,7 +661,7 @@
       (pin Round[A]Pad_2000.000000_um 1 0 0)
       (pin Round[A]Pad_2000.000000_um 2 15240 0)
     )
-    (image "V9958-Tester:DIN8_Omega_THT"
+    (image "V9958-Tester:DIN-8_SameSky_SDS-80J"
       (outline (polygon signal 0  10745 -19145  -10745 -19145  -10745 395  10745 395))
       (outline (path signal 100  -10350 0  10350 0  10350 -18750  -10350 -18750  -10350 0))
       (outline (path signal 250  -10350 -650  10350 -650  10350 -19150  -10350 -19150  -10350 -650))
