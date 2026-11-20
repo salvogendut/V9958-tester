@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="E">
   <design>
-    <source>/var/home/salvogendut/Dev/omega/V9958-Tester/video-daughterboard/V9958-Video-Daughterboard.kicad_sch</source>
-    <date>2026-11-06T12:57:43</date>
+    <source>/var/home/salvogendut/Dev/V9958-tester/video-daughterboard/V9958-Video-Daughterboard.kicad_sch</source>
+    <date>2026-11-20T22:48:59</date>
     <tool>Eeschema 10.0.8-1.fc45app1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>V9958 RGB DIN Daughterboard</title>
         <company>(c) salvogendut 2026</company>
-        <rev>B0 PROTOTYPE</rev>
-        <date>2026-11-06</date>
+        <rev>B1 PROTOTYPE</rev>
+        <date>2026-11-20</date>
         <source>V9958-Video-Daughterboard.kicad_sch</source>
         <comment number="1" value="UNBUILT PROTOTYPE"/>
         <comment number="2" value="Power off before changing DUT"/>

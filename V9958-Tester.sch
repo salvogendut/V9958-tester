@@ -2,12 +2,12 @@ EESchema Schematic File Version 4
 LIBS:V9958-Tester-cache
 EELAYER 30 0
 EELAYER END
-$Descr A3 16535 11693
+$Descr A2 23386 16535
 encoding utf-8
 Sheet 1 1
-Title "V9958 Pico Functional Tester"
-Date "2026-11-06"
-Rev "0.3-prototype"
+Title "V9938/V9958 Pico Functional Tester"
+Date "2026-11-20"
+Rev "0.4-prototype"
 Comp "Omega side project"
 Comment1 "Unbuilt prototype - verify socket and parts before fabrication"
 Comment2 "USB 5V supply must provide at least 1A"
@@ -15,11 +15,11 @@ Comment3 "Never insert or remove DUT while powered"
 Comment4 "V9958 behavioral tester, not forensic authentication"
 $EndDescr
 Text Notes 900 700 0    100  ~ 20
-V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.3
+V9938/V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.4
 Text Notes 900 900 0    60   ~ 12
-Checks V9958 ID, CPU interface, 128 KiB VRAM, sync/clock frequencies, interrupt and RGB response; buffered DIN RGB output.
+Checks V9938/V9958 ID, CPU interface, 128 KiB VRAM, sync/clock frequencies, interrupt and RGB response; buffered DIN RGB output.
 Text Notes 900 1100 0    60   ~ 12
-WARNING: power off before inserting/removing V9958 or VRAM. Use a current-limited 5V USB supply.
+WARNING: power off before setting SW2 or inserting/removing DUT or VRAM. Use a current-limited 5V USB supply.
 $Comp
 L V9958-Tester-cache:RaspberryPi_Pico A1
 U 1 1 6A000001
@@ -439,7 +439,7 @@ L V9958-Tester-cache:V9958 U3
 U 1 1 6A000005
 P 8200 4800
 F 0 "U3" H 8200 4650 50  0000 C CNN
-F 1 "V9958 DUT" H 8200 4950 50  0000 C CNN
+F 1 "V9938/V9958 DUT" H 8200 4950 50  0000 C CNN
 F 2 "V9958-Tester:SDIP-64_W19.05mm_P1.778mm_Socket" H 8200 4800 50  0001 C CNN
 F 3 "" H 8200 4800 50  0001 C CNN
 	1    8200 4800
@@ -513,7 +513,7 @@ GND
 Wire Wire Line
 	7600 5250 7400 5250
 Text Label 7400 5250 2    40   ~ 0
-VCCVDP
+VDP_PIN21
 Wire Wire Line
 	7600 5350 7400 5350
 Text Label 7400 5350 2    40   ~ 0
@@ -1311,7 +1311,7 @@ $EndComp
 Wire Wire Line
 	4900 8100 4700 8100
 Text Label 4700 8100 2    40   ~ 0
-HSYNC_RAW
+HSYNC_TTL
 Wire Wire Line
 	5500 8100 5700 8100
 Text Label 5700 8100 0    40   ~ 0
@@ -1330,7 +1330,7 @@ $EndComp
 Wire Wire Line
 	4900 8400 4700 8400
 Text Label 4700 8400 2    40   ~ 0
-CSYNC_RAW
+CSYNC_TTL
 Wire Wire Line
 	5500 8400 5700 8400
 Text Label 5700 8400 0    40   ~ 0
@@ -1775,7 +1775,7 @@ CXA_YCLP
 Wire Wire Line
 	9700 10750 9500 10750
 Text Label 9500 10750 2    40   ~ 0
-CSYNC_RAW
+CSYNC_TTL
 NoConn ~ 9700 10850
 Wire Wire Line
 	9700 10950 9500 10950
@@ -2213,7 +2213,7 @@ $EndComp
 Wire Wire Line
 	11700 10700 11500 10700
 Text Label 11500 10700 2    40   ~ 0
-CSYNC_RAW
+CSYNC_TTL
 Wire Wire Line
 	12300 10700 12500 10700
 Text Label 12500 10700 0    40   ~ 0
@@ -2710,7 +2710,7 @@ $EndComp
 Wire Wire Line
 	6500 9800 6500 10000
 Text Label 6500 10000 3    40   ~ 0
-HSYNC_RAW
+HSYNC_TTL
 $Comp
 L V9958-Tester-cache:TestPoint TP6
 U 1 1 6A00005E
@@ -2725,7 +2725,7 @@ $EndComp
 Wire Wire Line
 	7100 9800 7100 10000
 Text Label 7100 10000 3    40   ~ 0
-CSYNC_RAW
+CSYNC_TTL
 $Comp
 L V9958-Tester-cache:TestPoint TP7
 U 1 1 6A00005F
@@ -2772,8 +2772,197 @@ Wire Wire Line
 Text Label 7100 10500 3    40   ~ 0
 BLUE_RAW
 $Comp
-L V9958-Tester-cache:MountingHole H1
+L V9958-Tester-cache:VDP_Select SW2
 U 1 1 6A000062
+P 17800 2200
+F 0 "SW2" H 17800 2050 50  0000 C CNN
+F 1 "JS202011CQN" H 17800 2350 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_CK_JS202011CQN_DPDT_Straight" H 17800 2200 50  0001 C CNN
+F 3 "" H 17800 2200 50  0001 C CNN
+	1    17800 2200
+	1    0    0    -1
+$EndComp
+NoConn ~ 17200 2100
+Wire Wire Line
+	17200 2200 17000 2200
+Text Label 17000 2200 2    40   ~ 0
+VDP_PIN21
+Wire Wire Line
+	17200 2300 17000 2300
+Text Label 17000 2300 2    40   ~ 0
+VCCVDP
+Wire Wire Line
+	18400 2100 18600 2100
+Text Label 18600 2100 0    40   ~ 0
+REF_58
+Wire Wire Line
+	18400 2200 18600 2200
+Text Label 18600 2200 0    40   ~ 0
+SYNC_REF
+Wire Wire Line
+	18400 2300 18600 2300
+Text Label 18600 2300 0    40   ~ 0
+REF_38
+$Comp
+L V9958-Tester-cache:MAX942 U10
+U 1 1 6A000063
+P 20800 2200
+F 0 "U10" H 20800 2050 50  0000 C CNN
+F 1 "MAX942CPA+" H 20800 2350 50  0000 C CNN
+F 2 "Package_DIP:DIP-8_W7.62mm" H 20800 2200 50  0001 C CNN
+F 3 "" H 20800 2200 50  0001 C CNN
+	1    20800 2200
+	1    0    0    -1
+$EndComp
+Wire Wire Line
+	20200 2050 20000 2050
+Text Label 20000 2050 2    40   ~ 0
+HSYNC_TTL
+Wire Wire Line
+	20200 2150 20000 2150
+Text Label 20000 2150 2    40   ~ 0
+SYNC_REF
+Wire Wire Line
+	20200 2250 20000 2250
+Text Label 20000 2250 2    40   ~ 0
+HSYNC_RAW
+Wire Wire Line
+	20200 2350 20000 2350
+Text Label 20000 2350 2    40   ~ 0
+GND
+Wire Wire Line
+	21400 2050 21600 2050
+Text Label 21600 2050 0    40   ~ 0
+CSYNC_RAW
+Wire Wire Line
+	21400 2150 21600 2150
+Text Label 21600 2150 0    40   ~ 0
+SYNC_REF
+Wire Wire Line
+	21400 2250 21600 2250
+Text Label 21600 2250 0    40   ~ 0
+CSYNC_TTL
+Wire Wire Line
+	21400 2350 21600 2350
+Text Label 21600 2350 0    40   ~ 0
+VCCVDP
+$Comp
+L V9958-Tester-cache:R R43
+U 1 1 6A000064
+P 17800 3200
+F 0 "R43" H 17800 3050 50  0000 C CNN
+F 1 "470" H 17800 3350 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 17800 3200 50  0001 C CNN
+F 3 "" H 17800 3200 50  0001 C CNN
+	1    17800 3200
+	1    0    0    -1
+$EndComp
+Wire Wire Line
+	17500 3200 17300 3200
+Text Label 17300 3200 2    40   ~ 0
+VCCVDP
+Wire Wire Line
+	18100 3200 18300 3200
+Text Label 18300 3200 0    40   ~ 0
+VDP_PIN21
+$Comp
+L V9958-Tester-cache:R R44
+U 1 1 6A000065
+P 17800 3800
+F 0 "R44" H 17800 3650 50  0000 C CNN
+F 1 "2.2k 1%" H 17800 3950 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 17800 3800 50  0001 C CNN
+F 3 "" H 17800 3800 50  0001 C CNN
+	1    17800 3800
+	1    0    0    -1
+$EndComp
+Wire Wire Line
+	17500 3800 17300 3800
+Text Label 17300 3800 2    40   ~ 0
+VCCVDP
+Wire Wire Line
+	18100 3800 18300 3800
+Text Label 18300 3800 0    40   ~ 0
+REF_38
+$Comp
+L V9958-Tester-cache:R R45
+U 1 1 6A000066
+P 17800 4400
+F 0 "R45" H 17800 4250 50  0000 C CNN
+F 1 "6.2k 1%" H 17800 4550 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 17800 4400 50  0001 C CNN
+F 3 "" H 17800 4400 50  0001 C CNN
+	1    17800 4400
+	1    0    0    -1
+$EndComp
+Wire Wire Line
+	17500 4400 17300 4400
+Text Label 17300 4400 2    40   ~ 0
+REF_38
+Wire Wire Line
+	18100 4400 18300 4400
+Text Label 18300 4400 0    40   ~ 0
+REF_58
+$Comp
+L V9958-Tester-cache:R R46
+U 1 1 6A000067
+P 17800 5000
+F 0 "R46" H 17800 4850 50  0000 C CNN
+F 1 "3.9k 1%" H 17800 5150 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 17800 5000 50  0001 C CNN
+F 3 "" H 17800 5000 50  0001 C CNN
+	1    17800 5000
+	1    0    0    -1
+$EndComp
+Wire Wire Line
+	17500 5000 17300 5000
+Text Label 17300 5000 2    40   ~ 0
+REF_58
+Wire Wire Line
+	18100 5000 18300 5000
+Text Label 18300 5000 0    40   ~ 0
+GND
+$Comp
+L V9958-Tester-cache:R R47
+U 1 1 6A000068
+P 20800 3200
+F 0 "R47" H 20800 3050 50  0000 C CNN
+F 1 "10k" H 20800 3350 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 20800 3200 50  0001 C CNN
+F 3 "" H 20800 3200 50  0001 C CNN
+	1    20800 3200
+	1    0    0    -1
+$EndComp
+Wire Wire Line
+	20500 3200 20300 3200
+Text Label 20300 3200 2    40   ~ 0
+VCCVDP
+Wire Wire Line
+	21100 3200 21300 3200
+Text Label 21300 3200 0    40   ~ 0
+WAIT_RAW
+$Comp
+L V9958-Tester-cache:C C29
+U 1 1 6A000069
+P 20800 3800
+F 0 "C29" H 20800 3650 50  0000 C CNN
+F 1 "100n U10" H 20800 3950 50  0000 C CNN
+F 2 "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm" H 20800 3800 50  0001 C CNN
+F 3 "" H 20800 3800 50  0001 C CNN
+	1    20800 3800
+	1    0    0    -1
+$EndComp
+Wire Wire Line
+	20500 3800 20300 3800
+Text Label 20300 3800 2    40   ~ 0
+VCCVDP
+Wire Wire Line
+	21100 3800 21300 3800
+Text Label 21300 3800 0    40   ~ 0
+GND
+$Comp
+L V9958-Tester-cache:MountingHole H1
+U 1 1 6A00006A
 P 1200 10800
 F 0 "H1" H 1200 10650 50  0000 C CNN
 F 1 "M3" H 1200 10950 50  0000 C CNN
@@ -2785,7 +2974,7 @@ $EndComp
 NoConn ~ 1200 11100
 $Comp
 L V9958-Tester-cache:MountingHole H2
-U 1 1 6A000063
+U 1 1 6A00006B
 P 2200 10800
 F 0 "H2" H 2200 10650 50  0000 C CNN
 F 1 "M3" H 2200 10950 50  0000 C CNN
@@ -2797,7 +2986,7 @@ $EndComp
 NoConn ~ 2200 11100
 $Comp
 L V9958-Tester-cache:MountingHole H3
-U 1 1 6A000064
+U 1 1 6A00006C
 P 3200 10800
 F 0 "H3" H 3200 10650 50  0000 C CNN
 F 1 "M3" H 3200 10950 50  0000 C CNN
@@ -2809,7 +2998,7 @@ $EndComp
 NoConn ~ 3200 11100
 $Comp
 L V9958-Tester-cache:MountingHole H4
-U 1 1 6A000065
+U 1 1 6A00006D
 P 4200 10800
 F 0 "H4" H 4200 10650 50  0000 C CNN
 F 1 "M3" H 4200 10950 50  0000 C CNN

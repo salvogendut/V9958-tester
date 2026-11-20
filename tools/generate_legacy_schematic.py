@@ -9,7 +9,10 @@ V9958 symbol independently auditable.
 from pathlib import Path
 
 
+import vdp_socket
+
 ROOT = Path(__file__).resolve().parents[1]
+
 NAME = "V9958-Tester"
 
 
@@ -79,12 +82,12 @@ def one_pin_symbol(name, ref, drawing):
 
 
 v9958_names = {
-    1: "GND", 2: "~DHCLK", 3: "~DLCLK", 4: "~VRESET", 5: "~HSYNC",
+    1: "GND", 2: "~DHCLK", 3: "~DLCLK", 4: "~VRESET/~VDS", 5: "~HSYNC",
     6: "~CSYNC", 7: "BLEO", 8: "CPUCLK/~VDS", 9: "~RESET", 10: "~YS",
     11: "CBDR", 12: "C7", 13: "C6", 14: "C5", 15: "C4", 16: "C3",
-    17: "C2", 18: "C1", 19: "C0", 20: "GND_DAC", 21: "VDD_DAC",
-    22: "G", 23: "R", 24: "B", 25: "~INT", 26: "~WAIT",
-    27: "~HRESET", 28: "MODE1", 29: "MODE0", 30: "~CSW", 31: "~CSR",
+    17: "C2", 18: "C1", 19: "C0", 20: "GND_DAC", 21: "VDD_DAC/VIDEO",
+    22: "G", 23: "R", 24: "B", 25: "~INT", 26: "~WAIT/~LPS",
+    27: "~HRESET/~LPD", 28: "MODE1", 29: "MODE0", 30: "~CSW", 31: "~CSR",
     32: "CD7", 33: "VBB", 34: "CD6", 35: "CD5", 36: "CD4", 37: "CD3",
     38: "CD2", 39: "CD1", 40: "CD0", 41: "RD0", 42: "RD1", 43: "RD2",
     44: "RD3", 45: "RD4", 46: "RD5", 47: "RD6", 48: "RD7", 49: "AD0",
@@ -146,6 +149,8 @@ def pin_list(names):
 symbols = {}
 lib_parts = []
 for name, ref, names, left_count in [
+    ("VDP_Select", "SW", vdp_socket.SELECTOR, 3),
+    ("MAX942", "U", vdp_socket.MAX942, 4),
     ("V9958", "U", v9958_names, 32),
     ("RaspberryPi_Pico", "A", pico_names, 20),
     ("D41464", "U", dram_names, 9),
@@ -223,14 +228,14 @@ add("U4", "SN74LVC244A", "SN74LVC244AN", "Package_DIP:DIP-20_W7.62mm_Socket_Long
 vdp_nets = {
     1:"GND",4:"VRESET",5:"HSYNC_RAW",6:"CSYNC_RAW",8:"CPUCLK_RAW",9:"VDP_RESET_N",
     12:"CB7",13:"CB6",14:"CB5",15:"CB4",16:"CB3",17:"CB2",18:"CB1",19:"CB0",
-    20:"GND",21:"VCCVDP",22:"GREEN_RAW",23:"RED_RAW",24:"BLUE_RAW",25:"INT_RAW",
+    20:"GND",21:"VDP_PIN21",22:"GREEN_RAW",23:"RED_RAW",24:"BLUE_RAW",25:"INT_RAW",
     26:"WAIT_RAW",27:"HRESET",28:"VDP_MODE1",29:"VDP_MODE0",30:"VDP_CSW_N",31:"VDP_CSR_N",
     32:"VDP_D7",33:"VBB",34:"VDP_D6",35:"VDP_D5",36:"VDP_D4",37:"VDP_D3",38:"VDP_D2",39:"VDP_D1",40:"VDP_D0",
     41:"VD0",42:"VD1",43:"VD2",44:"VD3",45:"VD4",46:"VD5",47:"VD6",48:"VD7",
     49:"VA0",50:"VA1",51:"VA2",52:"VA3",53:"VA4",54:"VA5",55:"VA6",56:"VA7",
     57:"VWR_RAW",58:"VCCVDP",59:"CASX",60:"CAS1_RAW",61:"CAS0_RAW",62:"RAS_RAW",63:"XTAL1",64:"XTAL2",
 }
-add("U3", "V9958", "V9958 DUT", "V9958-Tester:SDIP-64_W19.05mm_P1.778mm_Socket", 8200, 4800, vdp_nets)
+add("U3", "V9958", "V9938/V9958 DUT", "V9958-Tester:SDIP-64_W19.05mm_P1.778mm_Socket", 8200, 4800, vdp_nets)
 
 # 128 KiB VRAM, two 64 Ki x 8 banks built from four 64 Ki x 4 DRAMs.
 def dram_map(bits, cas):
@@ -265,8 +270,8 @@ for ref, y, a, b in [
 
 # Monitor-input series resistors.
 for ref, y, a, b in [
-    ("R9",7800,"CPUCLK_RAW","CPUCLK_5"),("R10",8100,"HSYNC_RAW","HSYNC_5"),
-    ("R11",8400,"CSYNC_RAW","CSYNC_5"),("R12",8700,"WAIT_RAW","WAIT_5"),
+    ("R9",7800,"CPUCLK_RAW","CPUCLK_5"),("R10",8100,"HSYNC_TTL","HSYNC_5"),
+    ("R11",8400,"CSYNC_TTL","CSYNC_5"),("R12",8700,"WAIT_RAW","WAIT_5"),
     ("R13",9000,"INT_RAW","INT_5"),
 ]:
     add(ref, "R", "1k", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 5200, y, {1:a,2:b})
@@ -300,7 +305,7 @@ for ch in ("R","G","B"):
 # cable-control voltages so the same RGB lead can be used.
 add("U9", "CXA1645", "CXA1645P RGB buffer", "Package_DIP:DIP-24_W10.16mm_Socket_LongPads", 10300, 10400, {
     1:"GND",2:"CXA_R_IN",3:"CXA_G_IN",4:"CXA_B_IN",7:"GND",9:"CXA_YCLP",
-    10:"CSYNC_RAW",12:"+5V",13:"CXA_IREF",14:"CXA_VREF",18:"CXA_FO",
+    10:"CSYNC_TTL",12:"+5V",13:"CXA_IREF",14:"CXA_VREF",18:"CXA_FO",
     19:"+5V",21:"CXA_B_OUT",22:"CXA_G_OUT",23:"CXA_R_OUT",24:"GND",
 })
 add("J1", "DIN8_Omega", "OMEGA RGB DIN-8", "V9958-Tester:DIN8_Omega_THT", 14300, 10400, {
@@ -332,7 +337,7 @@ for ref, y, source, mid, capref, target in [
     add(ref, "R", "75", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 12000, y, {1:source,2:mid})
     add(capref, "CP", "220uF", "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm", 13200, y, {1:mid,2:target})
 
-add("R38", "R", "1k sync/75R load", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 12000, 10700, {1:"CSYNC_RAW",2:"DIN_SYNC"})
+add("R38", "R", "1k sync/75R load", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 12000, 10700, {1:"CSYNC_TTL",2:"DIN_SYNC"})
 add("R39", "R", "1k", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 14600, 9800, {1:"+5V",2:"DIN_AV"})
 add("R40", "R", "10k", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 15400, 9800, {1:"DIN_AV",2:"GND"})
 add("R41", "R", "120", "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal", 14600, 10100, {1:"+5V",2:"DIN_YS"})
@@ -364,10 +369,16 @@ for idx, (ref, net) in enumerate(decouple):
 # Test points.
 for idx, (ref, label, net) in enumerate([
     ("TP1","5V","+5V"),("TP2","3V3","+3V3"),("TP3","GND","GND"),
-    ("TP4","CPUCLK","CPUCLK_RAW"),("TP5","HSYNC","HSYNC_RAW"),("TP6","CSYNC","CSYNC_RAW"),
+    ("TP4","CPUCLK","CPUCLK_RAW"),("TP5","HSYNC","HSYNC_TTL"),("TP6","CSYNC","CSYNC_TTL"),
     ("TP7","RED","RED_RAW"),("TP8","GREEN","GREEN_RAW"),("TP9","BLUE","BLUE_RAW"),
 ]):
     add(ref, "TestPoint", label, "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm", 5900 + (idx%3)*600, 9000 + (idx//3)*500, {1:net})
+
+# Put the model selector and sync receiver together at the top of the sheet.
+for part, (x, y) in zip(vdp_socket.PARTS, [(17800,2200),(20800,2200),
+        (17800,3200),(17800,3800),(17800,4400),(17800,5000),(20800,3200),(20800,3800)]):
+    ref, symbol, value, footprint, nets = part
+    add(ref, symbol, value, footprint, x, y, nets)
 
 # Mounting holes are represented on the schematic for PCB parity.
 for ref, x, y in [("H1",1200,10800),("H2",2200,10800),("H3",3200,10800),("H4",4200,10800)]:
@@ -402,12 +413,12 @@ sch = [
     f"LIBS:{NAME}-cache",
     "EELAYER 30 0",
     "EELAYER END",
-    "$Descr A3 16535 11693",
+    "$Descr A2 23386 16535",
     "encoding utf-8",
     "Sheet 1 1",
-    'Title "V9958 Pico Functional Tester"',
-    'Date "2026-11-06"',
-    'Rev "0.3-prototype"',
+    'Title "V9938/V9958 Pico Functional Tester"',
+    'Date "2026-11-20"',
+    'Rev "0.4-prototype"',
     'Comp "Omega side project"',
     'Comment1 "Unbuilt prototype - verify socket and parts before fabrication"',
     'Comment2 "USB 5V supply must provide at least 1A"',
@@ -415,11 +426,11 @@ sch = [
     'Comment4 "V9958 behavioral tester, not forensic authentication"',
     "$EndDescr",
     "Text Notes 900 700 0    100  ~ 20",
-    "V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.3",
+    "V9938/V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.4",
     "Text Notes 900 900 0    60   ~ 12",
-    "Checks V9958 ID, CPU interface, 128 KiB VRAM, sync/clock frequencies, interrupt and RGB response; buffered DIN RGB output.",
+    "Checks V9938/V9958 ID, CPU interface, 128 KiB VRAM, sync/clock frequencies, interrupt and RGB response; buffered DIN RGB output.",
     "Text Notes 900 1100 0    60   ~ 12",
-    "WARNING: power off before inserting/removing V9958 or VRAM. Use a current-limited 5V USB supply.",
+    "WARNING: power off before setting SW2 or inserting/removing DUT or VRAM. Use a current-limited 5V USB supply.",
 ]
 
 for idx, c in enumerate(components, 1):

@@ -1,17 +1,17 @@
-# RGB DIN daughterboard validation record
+# V9958-Video-Daughterboard validation, revision B1
 
-Date: 2026-11-06
+Checked on 2026-11-20 with KiCad 10.0.8.
 
-- KiCad version: 10.0.8.
-- Schematic ERC: 0 violations.
-- PCB DRC: 0 violations.
-- Unconnected PCB items: 0.
-- Schematic/PCB parity issues: 0.
-- Board: 120 x 80 mm, 36 footprints, 98 pads and 0 SMD pads.
-- Route: 213 tracks/vias, including 2 vias, and two filled GND zones.
-- 3D/top renders and the assembly SVG were visually inspected.
-- Gerber archive SHA-256: `07dd638bc96e5c94f20ed7453a713fc367b8748f9f50ecfc94e680a39f0738a5`.
+| Check | Result |
+|---|---|
+| Schematic ERC | 0 violations |
+| PCB DRC with filled zones | 0 violations |
+| Unconnected items / schematic parity issues | 0 / 0 |
+| Board | 120 × 80 mm, two copper layers and two filled ground zones |
+| Layout | 36 footprints, 98 pads, 216 track segments and vias including 1 vias |
 
-The board remains **PROTOTYPE / UNVALIDATED** until the exact DIN socket, IDC
-cable orientation, CXA1645 levels and compatibility with the intended Omega RGB
-cable/display have been physically verified.
+The layout audit located the DIN face on the top board edge. The ten copper flashes on each copper layer coincide with the plated drills, and the two alignment holes coincide with the non-plated drill file. The cable approaches from outside the board.
+
+The fabrication archive is [V9958-Video-Daughterboard-B1-gerbers.zip](../fabrication/V9958-Video-Daughterboard-B1-gerbers.zip). SHA-256 `dc69e9fefc03e0307ed6db2286e335fc77b4c41f7d61959857542e21f74352c0`.
+
+Cable fit and terminated output levels still require a physical prototype.

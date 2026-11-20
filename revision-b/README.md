@@ -1,13 +1,15 @@
 # V9958 Tester Revision B
 
-Revision B is the minimal all-through-hole V9958 functional tester. It is a
+**Use PCB B1 for V9938 or V9958.** Disconnect USB, set SW2 to the package marking, then insert the DUT. Earlier boards without SW2 connect pin 21 directly to 5 V and can damage a V9938. See the [selector checks](docs/TEST-PROCEDURE.md).
+
+Revision B is the minimal all-through-hole V9938/V9958 functional tester. It is a
 170 x 118 mm, two-layer core board powered through the Pico USB connector. It
-performs the same V9958 identification, CPU bus, 128 KiB VRAM, sync, interrupt
-and RGB-response tests as revision 0.3 without requiring a CXA1645 or monitor.
+performs the same VDP identification, CPU bus, 128 KiB VRAM, sync, interrupt
+and RGB-response tests as revision 0.4 without requiring a CXA1645 or monitor.
 
-![Revision B isometric mockup](docs/V9958-Tester-RevB-3D.png)
+![Revision B1 DRAM tester with four VRAM sockets and a keyed video header](docs/V9958-Tester-RevB-3D.png)
 
-![Revision B top mockup](docs/V9958-Tester-RevB-top.png)
+![Top view of the revision B1 DRAM tester showing the V9938/V9958 selector](docs/V9958-Tester-RevB-top.png)
 
 ## What was simplified
 
@@ -27,4 +29,4 @@ The grouped [BOM](docs/BOM.csv), [schematic PDF](docs/V9958-Tester-RevB-Schemati
 [test procedure](docs/TEST-PROCEDURE.md), [design notes](docs/DESIGN-NOTES.md)
 and [validation record](docs/VALIDATION.md) are included. This is an unbuilt,
 unvalidated prototype; zero ERC/DRC violations do not substitute for physical
-qualification with known-good and known-bad V9958 samples.
+qualification with known-good and known-bad samples of both models.

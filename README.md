@@ -1,50 +1,52 @@
-# V9958 Pico Functional Tester
+# V9938 / V9958 Pico Functional Tester
 
-This is an all-through-hole carrier board that performs a behavioral test of a socketed Yamaha V9958 video display processor. An original RP2040 Raspberry Pi Pico controls the VDP, tests its dedicated 128 KiB VRAM, measures its clocks and analog RGB outputs, and reports the result on green/red LEDs, USB serial, and an on-screen message through an Omega-compatible DIN RGB output.
+This is an all-through-hole carrier board that performs a behavioral test of a socketed Yamaha V9938 or V9958 video display processor. An original RP2040 Raspberry Pi Pico controls the VDP, tests its dedicated 128 KiB VRAM, measures its clocks and analog RGB outputs, and reports the result on green/red LEDs, USB serial, and an on-screen message through an Omega-compatible DIN RGB output.
 
-The current design is **revision 0.3, an unbuilt prototype**. It passes KiCad ERC, DRC, connectivity, and schematic/PCB parity checks, but it still needs physical assembly and calibration before it should be treated as a proven fixture.
+The current design is **revision 0.4, an unbuilt prototype**. It passes KiCad ERC, DRC, connectivity, and schematic/PCB parity checks, but it still needs physical assembly and calibration before it should be treated as a proven fixture.
 
-## Board mockups
+**Disconnect USB and set SW2 to the model printed on the chip before inserting it in U3.** The V9938 uses pin 21 as a video output. Selecting V9958 connects that pin directly to the filtered 5 V rail and can damage a V9938. The original 0.3, B0 and B2 tester PCBs have this direct connection permanently. Use a board marked **0.4**, **B1** or **B2.1 SRAM** for V9938 testing.
 
-![V9958 tester isometric 3D mockup](docs/V9958-Tester-3D.png)
+## Board renderings
 
-Isometric KiCad 3D rendering of the assembled all-THT carrier board. The custom V9958 socket footprint is shown in the center; the four VRAM sockets are along the upper edge, the DIN RGB socket is at the upper-right edge, and the Pico USB connector projects at the right edge for unobstructed cable access.
+![Revision 0.4 V9938/V9958 tester with the RGB DIN opening facing outward at the upper-right edge](docs/V9958-Tester-3D.png)
 
-![V9958 tester top 3D mockup](docs/V9958-Tester-top.png)
+The RGB cable plugs into J1 from outside the top edge. The four VRAM sockets sit above the central U3 footprint, and the Pico USB connector faces the right edge.
 
-Orthographic top rendering showing component placement, test points, socket orientation, controls, and front silkscreen.
+![Top view of the revision 0.4 tester showing the U3 footprint and V9938/V9958 selector](docs/V9958-Tester-top.png)
+
+SW2, just above the TEST button, selects V9938 or V9958 with USB power disconnected.
 
 ## Revision B family and video daughterboard
 
 Revision B separates the functional tester from the optional monitor output. The
-[Revision B core](revision-b/) keeps the V9958, four 41464 VRAMs, one
+[Revision B core](revision-b/) keeps the socketed VDP, four 41464 VRAMs, one
 SN74LVC245 data transceiver, one SN74LVC244 monitor buffer, the oscillator,
-power integrity, RGB loads and Pico. The Pico drives the V9958 control inputs
+power integrity, RGB loads and Pico. The Pico drives the VDP control inputs
 directly through 330-ohm series resistors. The CXA1645 and DIN connector have
 moved to a separate [RGB DIN daughterboard](video-daughterboard/).
 
-![Revision B core isometric mockup](revision-b/docs/V9958-Tester-RevB-3D.png)
+![Revision B1 DRAM tester with four VRAM sockets and a keyed video header](revision-b/docs/V9958-Tester-RevB-3D.png)
 
-![Revision B core top mockup](revision-b/docs/V9958-Tester-RevB-top.png)
+![Top view of the revision B1 DRAM tester showing the V9938/V9958 selector](revision-b/docs/V9958-Tester-RevB-top.png)
 
 The experimental [Revision B2 SRAM board](revision-b2-sram/) replaces the four
 41464 DRAMs with one AS6C1008-55PCN 128Kx8 SRAM, an SN74AHCT573 row-address
 latch and an SN74AHCT08 CAS-to-output-enable gate. The Pico still controls and
-tests the V9958; it does not emulate the timing-critical video RAM bus.
+tests the selected VDP; it does not emulate the timing-critical video RAM bus.
 
-![Revision B2 SRAM isometric mockup](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-3D.png)
+![Revision B2.1 tester with a single SRAM socket](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-3D.png)
 
-![Revision B2 SRAM top mockup](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-top.png)
+![Top view of the revision B2.1 SRAM tester showing the V9938/V9958 selector](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-top.png)
 
 B2 is smaller at 160 x 110 mm and remains entirely through-hole. It includes
 dedicated `/RAS`, `/CAS0`, `/CAS1`, SRAM `/OE` and SRAM `/WE` test points. Its
 static KiCad checks pass, but its narrow SRAM timing margin has not been
-qualified on hardware. Do not use an unqualified B2 fixture to reject a V9958;
-confirm failures on the DRAM-based Revision B or a working Omega.
+qualified on hardware. Do not use an unqualified B2 fixture to reject a VDP;
+confirm failures on a qualified DRAM fixture or a working Omega configured for that chip.
 
-![RGB DIN daughterboard isometric mockup](video-daughterboard/docs/V9958-Video-Daughterboard-3D.png)
+![Revision B1 video daughterboard with the DIN socket J2 opening toward the top edge](video-daughterboard/docs/V9958-Video-Daughterboard-3D.png)
 
-![RGB DIN daughterboard top mockup](video-daughterboard/docs/V9958-Video-Daughterboard-top.png)
+![Top view of the revision B1 daughterboard showing the keyed J1 header at left and J2 at the upper right](video-daughterboard/docs/V9958-Video-Daughterboard-top.png)
 
 The two boards use a keyed, straight-through 2x3 IDC cable: pin 1 GND, pin 2
 +5 V, pin 3 red, pin 4 green, pin 5 blue and pin 6 composite sync. Revision B
@@ -56,7 +58,7 @@ assembly drawing and Gerber archive.
 ## What it tests
 
 - CPU bus operation through 3.3 V/5 V level translation.
-- V9958 identification field in status register 1. A V9938 should fail this check.
+- VDP identification through status register 1, bits 5–1. ID 0 selects V9938 tests and ID 2 selects V9958 tests. Other IDs fail identification.
 - Two full address-dependent passes over 128 KiB of local VRAM.
 - Approximately 3.58 MHz CPUCLK and 15.6 kHz HSYNC/CSYNC.
 - Vertical-blank interrupt assertion and status acknowledgement.
@@ -64,11 +66,11 @@ assembly drawing and Gerber archive.
 
 A green LED means all behavioral checks passed. A red LED means at least one check failed; USB serial gives the stage and measurements. A pass is **not forensic proof** that the package was manufactured by Yamaha. A sufficiently compatible clone could pass.
 
-The firmware also leaves a 40-column PAL result screen visible on the DIN RGB output. It shows `PASS` or `FAIL`, the numeric stage code, and the failed subsystem. This gives the V9958 a real display-generation test rather than testing only static RGB levels.
+The firmware also leaves a 40-column PAL result screen visible on the DIN RGB output. It shows `PASS` or `FAIL`, the numeric stage code, and the failed subsystem. The screen and USB result identify the detected model. Compare it with the package marking.
 
 ## Construction
 
-The tester PCB itself uses no SMD parts. Fit the Pico on two 1x20 through-hole socket strips; the Pico module is, of course, an already assembled module containing SMD components. Use sockets for U1–U9 and especially the V9958 DUT.
+The tester PCB itself uses no SMD parts. Fit the Pico on two 1x20 through-hole socket strips; the Pico module is, of course, an already assembled module containing SMD components. Use sockets for U1–U9, including a suitable SDIP-64 socket at U3. Fit U10 (MAX942CPA+) and the model selector SW2 (C&K JS202011CQN).
 
 Important parts:
 
@@ -78,7 +80,7 @@ Important parts:
 - U2: SN74AHCT244N, powered from 5 V.
 - U4: SN74LVC244AN, powered from 3.3 V.
 - U9: CXA1645P in DIP-24, used as the three-channel 75-ohm RGB cable buffer.
-- J1: Omega-compatible 8-pin DIN RGB socket using the original Omega footprint and pin numbering.
+- J1: Same Sky SDF-80J right-angle DIN-8, date codes after 03/03/2022, with Omega RGB assignments.
 - Y1: 21.477270 MHz crystal; C1 is the 30 pF oscillator trimmer.
 - F1: Bourns MF-RHT100 resettable fuse, 1.0 A hold / 1.8 A trip.
 
@@ -102,10 +104,9 @@ cmake -S firmware -B firmware/build -DPICO_BOARD=pico
 cmake --build firmware/build -j4
 ```
 
-Copy `v9958_tester.uf2` to a Pico in BOOTSEL mode. The program runs once at power-up and again whenever SW1 is pressed. USB CDC serial prints the clock counts, VDP ID, first VRAM mismatch if any, interrupt result, RGB ADC readings, and final stage code. At completion it programs V9958 PAL text mode and shows the same result through J1.
+Copy the supplied [full-size tester UF2](firmware/v9958_tester.uf2) or your local build to a Pico in BOOTSEL mode. The program runs once at power-up and again whenever SW1 is pressed. USB CDC serial prints the clock counts, VDP ID, first VRAM mismatch if any, interrupt result, RGB ADC readings, and final stage code. At completion it programs the VDP for PAL text mode and shows the same result through J1.
 
-Revision B and B2 use the same source with separate builds in
-`revision-b/firmware/` and `revision-b2-sram/firmware/`. They have no TEST
+The compact boards use the shared source. Their images are [B1 DRAM](revision-b/firmware/v9958_tester_revb.uf2) and [B2.1 SRAM](revision-b2-sram/firmware/v9958_tester_revb2.uf2). They have no TEST
 button; send `R` over USB serial to repeat the test.
 
 ## Design files and regeneration
@@ -120,7 +121,7 @@ The routing was completed with Freerouting and then imported and checked by KiCa
 
 ## Known prototype limitations
 
-- RGB pass thresholds are conservative defaults and must be calibrated on known-good V9958 samples.
+- RGB pass thresholds are conservative defaults and must be calibrated on known-good samples of both models.
 - The full VRAM test and VDP port timing must be verified on physical hardware.
 - Socket/ZIF mechanical fit must be checked against the exact part you intend to buy.
 - CXA1645 RGB amplitude, sync attenuation, DIN socket fit, and compatibility with the intended Omega RGB cable must be confirmed on the first prototype.

@@ -16,6 +16,22 @@ The CXA1645 is strapped for PAL and its unused composite/Y/C outputs are left un
 
 All footprint references are printed on the front silkscreen. D1/D2 use the KiCad LED convention of pad 1 cathode and pad 2 anode; the explicit `+` is beside the anode. Polarized capacitors C6, C21, C23, C25, and C26–C28 use pad 1 positive and each has an explicit `+` assembly mark.
 
+
+## Model selector and sync
+
+SW2 is a two-pole slide switch. Disconnect USB before moving it. On all three tester layouts the actuator moves toward the corresponding V9938 or V9958 legend.
+
+| DUT connection | V9938 position | V9958 position |
+|---|---|---|
+| U3 pin 21 | Composite VIDEO, pulled up to VCCVDP through R43 (470 Ω) | DAC supply, SW2 bypasses R43 |
+| U3 pins 5 and 6 | U10 compares tri-level HSYNC/CSYNC against 4.11 V nominal | U10 compares logic-level HSYNC/CSYNC against 1.59 V nominal |
+| U3 pin 26 | R47 holds the unused light-pen switch input high | Buffered WAIT output to GP18, enabled after identification |
+| U3 pins 4, 8 and 27 | VDS sees a 10 kΩ pull-up, pin 8 supplies CPUCLK, LPD is pulled high | VRESET and HRESET are pulled high, pin 8 defaults to CPUCLK |
+
+R44/R45/R46 (2.2 kΩ, 6.2 kΩ, 3.9 kΩ, all 1%) derive both thresholds from VCCVDP. The V9938 specifies 2.7–3.7 V for the middle sync level and at least 4.5 V for high at nominal supply. U10 is a rail-to-rail dual MAX942 with push-pull outputs. Its outputs feed the Pico monitor buffer and its CSYNC output also drives the cable circuit. The DIN carries attenuated CSYNC on contact 4 in both modes. The V9938 composite encoder and light-pen inputs are outside the automated test coverage. [Yamaha V9938 data book](https://www.bitsavers.org/pdf/yamaha/Yamaha_V9938_MSX-Video_Technical_Data_Book_Aug85.pdf) · [Yamaha V9958 data book, section 6](https://map.grauw.nl/resources/video/yamaha_v9958.pdf) · [MAX942 datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/max941-max944.pdf) · [Omega pin-21 selection](https://github.com/skiselev/omega/blob/master/Mainboard.md#jp3-jp4---v9938v9958)
+
+The DIN footprint origin is the connector face. J1 on the full board and J2 on the daughterboard sit at y = 0 with the contact tails at positive y. The cable approaches from outside the top edge. The two shield tabs are grounded with DIN contact 1. Use the post-March-2022 SDF-80J mounting pattern. [Connector drawing, page 7](https://www.sameskydevices.com/product/resource/sdf-j.pdf)
+
 ## PCB constraints
 
 - Two copper layers, 1.6 mm nominal thickness.
@@ -31,5 +47,4 @@ The V9958 footprint uses 1.40 mm x 1.80 mm pads with 0.90 mm drills. Along the 1
 
 ## Validation status
 
-KiCad 10.0.6 reports zero ERC violations, zero PCB DRC violations, zero unconnected items, and zero schematic/PCB parity issues. Firmware C syntax was checked with warnings-as-errors and its Pico API names were checked against official Pico SDK 2.3.1. An ARM cross-compiler was not available in the design environment, so the UF2 has not been built here. No physical prototype has yet been assembled.
-
+The release checks and firmware build are recorded in [validation](VALIDATION.md). Qualification on physical samples of both chips is pending.

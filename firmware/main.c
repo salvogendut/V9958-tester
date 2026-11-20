@@ -1,9 +1,8 @@
 /*
- * V9958 Pico functional tester, prototype firmware.
+ * V9938/V9958 Pico functional tester, prototype firmware.
  *
- * A PASS is behavioral evidence that the DUT responds as a V9958.  It is not
- * forensic proof of manufacturer or provenance.  Never insert/remove the DUT
- * or VRAM while the board is powered.
+ * Set SW2 to match the DUT with USB power disconnected.
+ * PASS covers the exercised functions of the identified VDP.
  */
 
 #include <stdio.h>
@@ -13,6 +12,7 @@
 #include "pico/stdlib.h"
 #include "hardware/adc.h"
 #include "hardware/pwm.h"
+#include "hardware/sync.h"
 
 #ifndef V9958_REV_B
 #define V9958_REV_B 0
@@ -54,6 +54,17 @@ enum test_error {
     ERR_RGB = 7,
 };
 
+enum vdp_model { VDP_UNKNOWN, VDP_V9938, VDP_V9958 };
+static enum vdp_model model;
+
+static const char *model_name(void) {
+    switch (model) {
+    case VDP_V9938: return "V9938";
+    case VDP_V9958: return "V9958";
+    default: return "UNKNOWN VDP";
+    }
+}
+
 static void controls_idle(void) {
     gpio_put(PIN_CSW_N, 1);
     gpio_put(PIN_CSR_N, 1);
@@ -68,6 +79,9 @@ static void set_port(unsigned port) {
 }
 
 static bool wait_ready_us(uint32_t timeout_us) {
+    /* Pin 26 is the light-pen switch input on V9938. Identification uses
+       fixed bus timing with the reset-default WAIT function disabled. */
+    if (model != VDP_V9958) return true;
     absolute_time_t deadline = make_timeout_time_us(timeout_us);
     while (!gpio_get(PIN_WAIT_N)) {
         if (absolute_time_diff_us(get_absolute_time(), deadline) <= 0)
@@ -85,10 +99,12 @@ static bool vdp_write_port(unsigned port, uint8_t value) {
     gpio_put_masked(DATA_MASK, value);
     gpio_put(PIN_BUS_OE_N, 0);
     busy_wait_us_32(1);
+    uint32_t irq_state = save_and_disable_interrupts();
     gpio_put(PIN_CSW_N, 0);
     /* 1 us is inside the V9958 186 ns..2 us strobe-width window. */
     busy_wait_us_32(1);
     gpio_put(PIN_CSW_N, 1);
+    restore_interrupts(irq_state);
     /* 8 us also satisfies the longest documented inter-byte high time. */
     busy_wait_us_32(8);
     gpio_put(PIN_BUS_OE_N, 1);
@@ -104,10 +120,12 @@ static bool vdp_read_port(unsigned port, uint8_t *value) {
     gpio_set_dir_in_masked(DATA_MASK);
     gpio_put(PIN_BUS_OE_N, 0);
     busy_wait_us_32(1);
+    uint32_t irq_state = save_and_disable_interrupts();
     gpio_put(PIN_CSR_N, 0);
     busy_wait_us_32(1);
     *value = (uint8_t)(gpio_get_all() & DATA_MASK);
     gpio_put(PIN_CSR_N, 1);
+    restore_interrupts(irq_state);
     busy_wait_us_32(8);
     gpio_put(PIN_BUS_OE_N, 1);
     return wait_ready_us(100);
@@ -120,8 +138,7 @@ static bool vdp_reg(uint8_t reg, uint8_t value) {
 static bool vdp_status(uint8_t index, uint8_t *value) {
     if (!vdp_reg(15, index)) return false;
     bool ok = vdp_read_port(1, value);
-    (void)vdp_reg(15, 0);
-    return ok;
+    return vdp_reg(15, 0) && ok;
 }
 
 static bool vram_address(uint32_t address, bool write) {
@@ -208,7 +225,9 @@ static bool palette(uint8_t index, uint8_t r, uint8_t g, uint8_t b) {
 static bool rgb_test(void) {
     if (!palette(1, 7, 0, 0) || !palette(2, 0, 7, 0) || !palette(3, 0, 0, 7))
         return false;
-    if (!vdp_reg(0, 0x00) || !vdp_reg(1, 0x40)) return false;
+    /* Blank the display so every active pixel takes the programmed backdrop.
+       The preceding inverted VRAM pattern otherwise appears on the ADCs. */
+    if (!vdp_reg(0, 0) || !vdp_reg(1, 0) || !vdp_reg(9, 0x02)) return false;
 
     uint16_t sample[3][3];
     for (unsigned color = 0; color < 3; ++color) {
@@ -223,12 +242,12 @@ static bool rgb_test(void) {
            sample[1][0], sample[1][1], sample[1][2],
            sample[2][0], sample[2][1], sample[2][2]);
     const uint16_t margin = 50; /* About 40 mV at a 3.3 V, 12-bit ADC. */
-    return sample[0][0] > sample[0][1] + margin &&
-           sample[0][0] > sample[0][2] + margin &&
-           sample[1][1] > sample[1][0] + margin &&
-           sample[1][1] > sample[1][2] + margin &&
-           sample[2][2] > sample[2][0] + margin &&
-           sample[2][2] > sample[2][1] + margin;
+    return sample[0][0] > sample[1][0] + margin &&
+           sample[0][0] > sample[2][0] + margin &&
+           sample[1][1] > sample[0][1] + margin &&
+           sample[1][1] > sample[2][1] + margin &&
+           sample[2][2] > sample[0][2] + margin &&
+           sample[2][2] > sample[1][2] + margin;
 }
 
 /* Compact 5x7 font used by the stand-alone DIN RGB result screen. */
@@ -289,13 +308,13 @@ static bool show_result_screen(enum test_error result) {
         if (!vdp_write_port(0, ' ')) return false;
 
     static const char *const stage[] = {
-        "ALL TESTS PASSED", "MASTER CLOCK", "V9958 IDENTIFICATION",
+        "ALL TESTS PASSED", "MASTER CLOCK", "VDP IDENTIFICATION",
         "CPU BUS OR WAIT", "128K VRAM", "HSYNC OR CSYNC",
         "VBLANK INTERRUPT", "RGB ANALOG OUTPUT",
     };
     char code[16];
     snprintf(code, sizeof(code), "RESULT CODE %u", (unsigned)result);
-    if (!text_write(5, 14, "V9958 TESTER") ||
+    if (!text_write(5, 14, model_name()) ||
         !text_write(9, result == ERR_NONE ? 18 : 17,
                     result == ERR_NONE ? "PASS" : "FAIL") ||
         !text_write(12, 12, stage[(unsigned)result]) ||
@@ -304,6 +323,7 @@ static bool show_result_screen(enum test_error result) {
 }
 
 static enum test_error run_test(void) {
+    model = VDP_UNKNOWN;
     gpio_put(PIN_LED_GREEN, 0);
     gpio_put(PIN_LED_RED, 0);
     controls_idle();
@@ -312,30 +332,46 @@ static enum test_error run_test(void) {
     gpio_put(PIN_VDP_RESET_N, 1);
     sleep_ms(50);
 
+    /* PAL, standard sync (S0=1) makes pin 5 horizontal sync during this
+       measurement. At reset V9938 pin 5 carries the colour burst flag. */
+    if (!vdp_reg(9, 0x12)) return ERR_CPU_BUS;
+    sleep_ms(40);
     uint16_t cpu, hs, cs;
     count_monitor_edges(&cpu, &hs, &cs);
     printf("10 ms edge counts: CPUCLK=%u HSYNC=%u CSYNC=%u\n", cpu, hs, cs);
     if (cpu < 30000u || cpu > 42000u) return ERR_CLOCK;
-    if (hs < 130u || hs > 190u || cs < 130u || cs > 190u) return ERR_SYNC;
 
     uint8_t s1;
     if (!vdp_status(1, &s1)) return ERR_CPU_BUS;
     unsigned id = (s1 >> 1) & 0x1fu;
     printf("Status #1=%02x, VDP ID=%u\n", s1, id);
-    if (id != 2u) return ERR_ID;
+    switch (id) {
+    case 0: model = VDP_V9938; break;
+    case 2: model = VDP_V9958; break;
+    default: return ERR_ID;
+    }
+    printf("Detected %s\n", model_name());
+    if (hs < 130u || hs > 190u || cs < 130u || cs > 190u) return ERR_SYNC;
+    /* VR=1 selects 64K DRAM geometry. Disable sprites during the memory
+       checks. Only V9958 implements R#25.WTE and has a WAIT output. */
+    if (!vdp_reg(8, 0x0a)) return ERR_CPU_BUS;
+    if (model == VDP_V9958 && !vdp_reg(25, 0x04)) return ERR_CPU_BUS;
 
     puts("VRAM pass 1/2: address pattern");
     if (!vram_pass(false)) return ERR_VRAM;
     puts("VRAM pass 2/2: inverted address pattern");
     if (!vram_pass(true)) return ERR_VRAM;
 
-    if (!vdp_reg(15, 0) || !vdp_reg(1, 0x60)) return ERR_CPU_BUS;
+    uint8_t s0;
+    if (!vdp_status(0, &s0)) return ERR_CPU_BUS;
+    if (!gpio_get(PIN_INT_N)) return ERR_INTERRUPT;
+    if (!vdp_reg(1, 0x60)) return ERR_CPU_BUS;
     absolute_time_t deadline = make_timeout_time_ms(100);
     while (gpio_get(PIN_INT_N) && absolute_time_diff_us(get_absolute_time(), deadline) > 0)
         tight_loop_contents();
     if (gpio_get(PIN_INT_N)) return ERR_INTERRUPT;
-    uint8_t s0;
-    if (!vdp_read_port(1, &s0) || !(s0 & 0x80u)) return ERR_INTERRUPT;
+    if (!vdp_read_port(1, &s0)) return ERR_CPU_BUS;
+    if (!(s0 & 0x80u) || !gpio_get(PIN_INT_N)) return ERR_INTERRUPT;
     printf("VBlank interrupt/status #0=%02x\n", s0);
 
     if (!rgb_test()) return ERR_RGB;
@@ -344,7 +380,7 @@ static enum test_error run_test(void) {
 
 static const char *error_name(enum test_error error) {
     static const char *const names[] = {
-        "PASS", "master clock", "V9958 identification", "CPU bus/WAIT",
+        "PASS", "master clock", "VDP identification", "CPU bus/WAIT",
         "128 KiB VRAM", "HSYNC/CSYNC", "VBlank interrupt", "RGB analog response"
     };
     return names[(unsigned)error < sizeof(names) / sizeof(names[0]) ? error : 0];
@@ -367,44 +403,38 @@ static void init_pins(void) {
     adc_gpio_init(PIN_ADC_B);
 }
 
+static void test_and_report(void) {
+    enum test_error result = run_test();
+    gpio_put(PIN_LED_GREEN, result == ERR_NONE);
+    gpio_put(PIN_LED_RED, result != ERR_NONE);
+    if (result == ERR_NONE)
+        printf("RESULT: %s PASS (code 0)\n", model_name());
+    else
+        printf("RESULT: %s FAIL (code %u, %s)\n", model_name(), (unsigned)result, error_name(result));
+    if (!show_result_screen(result)) puts("RGB result screen could not be displayed");
+}
+
 int main(void) {
     stdio_init_all();
     init_pins();
     sleep_ms(1500);
-    puts(V9958_REV_B ? "\nV9958 Pico functional tester Revision B"
-                     : "\nV9958 Pico functional tester rev 0.3");
+    puts("\nV9938/V9958 Pico functional tester");
     puts("Behavioral test only; power off before changing DUT/VRAM.");
 
-    enum test_error result = run_test();
-    printf("RESULT: %s (code %u)\n", error_name(result), result);
-    if (!show_result_screen(result)) puts("DIN RGB result screen could not be displayed");
-    gpio_put(PIN_LED_GREEN, result == ERR_NONE);
-    gpio_put(PIN_LED_RED, result != ERR_NONE);
-
+    test_and_report();
     while (true) {
 #if V9958_REV_B
         int ch = getchar_timeout_us(0);
-        if (ch == 'r' || ch == 'R') {
-            result = run_test();
-            printf("RESULT: %s (code %u)\n", error_name(result), result);
-            if (!show_result_screen(result)) puts("RGB result screen could not be displayed");
-            gpio_put(PIN_LED_GREEN, result == ERR_NONE);
-            gpio_put(PIN_LED_RED, result != ERR_NONE);
-        }
+        if (ch == 'r' || ch == 'R') test_and_report();
 #else
         if (!gpio_get(PIN_TEST_N)) {
             sleep_ms(30);
             if (!gpio_get(PIN_TEST_N)) {
                 while (!gpio_get(PIN_TEST_N)) sleep_ms(10);
-                result = run_test();
-                printf("RESULT: %s (code %u)\n", error_name(result), result);
-                if (!show_result_screen(result)) puts("DIN RGB result screen could not be displayed");
-                gpio_put(PIN_LED_GREEN, result == ERR_NONE);
-                gpio_put(PIN_LED_RED, result != ERR_NONE);
+                test_and_report();
             }
         }
 #endif
         sleep_ms(20);
     }
 }
-

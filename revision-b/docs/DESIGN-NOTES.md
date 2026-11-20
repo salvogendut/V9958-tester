@@ -31,7 +31,8 @@ Every active device has a local 100 nF bypass capacitor.
 - 0.25 mm minimum signal tracks; 0.60 mm power tracks.
 - 0.20 mm copper clearance and 0.40 mm copper-to-edge clearance.
 - Ground pours on both sides.
-- 77 footprints, 355 pads and zero SMD pads.
 - Pico USB connector faces the right board edge with an unobstructed cable path.
 - All component references, LED anodes and the electrolytic positive lead are
   identified on the front silkscreen.
+
+U10 conditions both sync signals. SW2 sets its threshold and the pin-21 supply connection together. See the [shared socket circuit and pin table](../../docs/DESIGN-NOTES.md#model-selector-and-sync).

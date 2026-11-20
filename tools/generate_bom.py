@@ -23,7 +23,7 @@ def ref_key(ref):
 
 
 notes = {
-    "V9958 DUT": "DUT; use a quality 64-pin 1.778 mm-pitch, 19.05 mm-row socket/ZIF",
+    "V9938/V9958 DUT": "DUT; use a quality 64-pin 1.778 mm-pitch, 19.05 mm-row socket/ZIF",
     "Raspberry Pi Pico": "Original RP2040 Pico module; fit using two 1x20 THT socket strips",
     "41464 VRAM L0": "64Kx4 DRAM, 120 ns or faster; socket recommended",
     "41464 VRAM H0": "64Kx4 DRAM, 120 ns or faster; socket recommended",
@@ -37,7 +37,7 @@ notes = {
     "21.477270MHz": "Parallel-resonant fundamental crystal, HC49/U THT",
     "30pF trimmer": "2-pin ceramic trimmer, 5.0 mm pitch",
     "CXA1645P RGB buffer": "Sony CXA1645P DIP-24; socket recommended; used for buffered DIN RGB only",
-    "OMEGA RGB DIN-8": "Omega-compatible THT DIN-8 socket; verify the chosen part against the supplied footprint",
+    "OMEGA RGB DIN-8": "Same Sky SDF-80J, date codes after 03/03/2022",
     "16k 1% PAL": "1% metal-film resistor for CXA1645 PAL filter reference",
     "1k sync/75R load": "Forms approximately 0.35 V CSYNC when terminated by 75 ohms at the display",
 }

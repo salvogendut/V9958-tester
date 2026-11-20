@@ -37,7 +37,7 @@ has much less propagation delay.
 The arithmetic above is a datasheet-level feasibility check, not hardware
 qualification. Probe TP8 `/RAS`, TP9 `/CAS0`, TP10 `/CAS1`, TP11 SRAM `/OE`
 and TP12 SRAM `/WE` at the SRAM pins. Confirm data validity and bus turn-around
-with a known-good V9958 before using B2 to judge unknown devices.
+with known-good V9938 and V9958 samples before using B2 to judge unknown devices.
 
 ## Remaining tester architecture
 
@@ -54,3 +54,5 @@ All populated carrier-board parts and sockets are through-hole.
   <https://www.ti.com/product/SN74AHCT573>
 - Texas Instruments, SN74AHCT08 quad two-input AND gate:
   <https://www.ti.com/product/SN74AHCT08>
+
+U10 conditions both sync signals. SW2 sets its threshold and the pin-21 supply connection together. See the [shared socket circuit and pin table](../../docs/DESIGN-NOTES.md#model-selector-and-sync).

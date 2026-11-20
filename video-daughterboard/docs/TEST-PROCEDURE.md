@@ -1,6 +1,6 @@
 # RGB DIN daughterboard test procedure
 
-1. With both boards unpowered, verify capacitor polarity and socket orientation.
+1. With both boards unpowered, verify capacitor polarity and check that the J2 opening sits flush with the top edge. Insert the RGB plug from outside the board.
 2. Check for a short between J1 pins 1 and 2.
 3. Connect J1 to Revision B using a keyed straight-through 2x3 IDC cable. The
    pin-1 stripe must land on pin 1 at both ends. Do not power the daughterboard

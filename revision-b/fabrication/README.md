@@ -1,6 +1,6 @@
 # Revision B fabrication package
 
-`V9958-Tester-RevB-B0-gerbers.zip` contains the final Gerber and separate plated
+`V9958-Tester-RevB-B1-gerbers.zip` contains the final Gerber and separate plated
 and non-plated Excellon drill files.
 
 - Two layers, FR-4, 1.6 mm nominal thickness.

@@ -1,25 +1,21 @@
-# Revision B2 SRAM validation record
+# V9958-Tester-RevB2-SRAM validation, revision B2.1
 
-Date: 2026-11-06
+Checked on 2026-11-20 with KiCad 10.0.8.
 
-This file records CAD checks performed on the generated design. Electrical
-timing remains unvalidated until a physical prototype is measured.
+| Check | Result |
+|---|---|
+| Schematic ERC | 0 violations |
+| PCB DRC with filled zones | 0 violations |
+| Unconnected items / schematic parity issues | 0 / 0 |
+| Board | 160 × 110 mm, two copper layers and two filled ground zones |
+| Layout | 88 footprints, 378 pads, 1667 track segments and vias including 65 vias |
 
-- KiCad version: 10.0.8.
-- Schematic ERC: 0 violations.
-- PCB DRC: 0 violations.
-- Unconnected PCB items: 0.
-- Schematic/PCB parity issues: 0.
-- Board: 160 x 110 mm, 80 footprints, 352 pads and 0 SMD pads.
-- Route: 1,263 tracks/vias, including 77 vias, and two filled GND zones.
-- All populated carrier-board parts are through-hole or through-hole modules.
-- The schematic explicitly ties AS6C1008 pin 31 `CE2` to VCCVDP and pin 22
-  active-low `/CE` to GND.
-- 3D/top renders and the assembly SVG were visually inspected.
-- The B2 firmware variant shares the already syntax-checked Revision B source.
-- Gerber archive SHA-256:
-  `6241d84ab1d5765b144ae080452002d44856cb0155e9f4e38ddbd97a70f7515b`.
-- SRAM/V9958 timing: **not physically qualified**.
+The exported netlist passed the independent pin-21 supply, sync receiver, switch-contact and pin-26 checks. The Pico firmware compiled with Pico SDK 2.2.0 and Arm GNU 14.3.1. Picotool identified the RP2040 image with USB serial. A host model exercised 16 cases across both IDs, unsupported IDs and injected clock, sync, bus/WAIT, memory, interrupt and RGB faults.
 
-The board remains **EXPERIMENTAL / UNBUILT / UNVALIDATED**. Passing ERC, DRC
-and the firmware memory test does not by itself establish worst-case timing.
+The firmware image is [v9958_tester_revb2.uf2](../firmware/v9958_tester_revb2.uf2). SHA-256 `6b28ea2da0371b219dc8ad83acdeecabd55cea1fcb067daad56b7ffed16f150e`.
+
+U5 pin 31 (CE2) connects to VCCVDP and pin 22 (/CE) to GND. SRAM bus timing still requires scope measurements at TP8–TP12 with a known-good sample of each model.
+
+The fabrication archive is [V9958-Tester-RevB2-SRAM-B2.1-gerbers.zip](../fabrication/V9958-Tester-RevB2-SRAM-B2.1-gerbers.zip). SHA-256 `fddde5d5ec509d91d45c4dbbdbefcac226b953c19f847f08d71e578856ff9df4`.
+
+Physical qualification with known-good and known-faulty examples of each model is pending. Check the selector resistance with the socket empty before installing a VDP.

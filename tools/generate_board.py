@@ -56,9 +56,9 @@ default.SetViaDiameter(M(0.70))
 default.SetViaDrill(M(0.35))
 
 title = board.GetTitleBlock()
-title.SetTitle("V9958 Pico functional tester")
-title.SetRevision("0.3 PROTOTYPE")
-title.SetDate("2026-11-06")
+title.SetTitle("V9938/V9958 Pico functional tester")
+title.SetRevision("0.4 PROTOTYPE")
+title.SetDate("2026-11-20")
 title.SetCompany("Omega side project")
 
 nets = {}
@@ -89,6 +89,10 @@ pos = {
     "A1": (228, 120, 270),
     "U1": (127, 35, 0), "U2": (143, 35, 0), "U4": (159, 35, 0),
     "U3": (88, 63, 0),
+    "SW2": (101, 92, 0), "R43": (104, 86, 0),
+    "U10": (30, 57, 0), "C29": (36, 53, 0),
+    "R44": (24, 71, 90), "R45": (30, 76, 90), "R46": (36, 76, 90),
+    "R47": (132, 75, 0),
     "U5": (50, 20, 90), "U6": (80, 20, 90),
     "U7": (110, 20, 90), "U8": (140, 20, 90),
     "RN1": (63, 80, 0),
@@ -117,7 +121,7 @@ pos = {
     "C14": (104, 31, 0), "C15": (134, 31, 0),
     # CXA1645 RGB buffer and Omega-compatible DIN output occupy the added
     # upper-right service area.  Keep 75R output resistors close to U9.
-    "U9": (190, 57, 0), "J1": (205, 20, 180),
+    "U9": (190, 57, 0), "J1": (205, 0, 0),
     "C16": (177, 46, 90), "C17": (177, 57, 90), "C18": (177, 68, 90),
     "C19": (174, 78, 0), "R33": (205, 85, 0), "C20": (205, 92, 0),
     "C21": (219, 84, 0), "R34": (205, 72, 0),
@@ -191,9 +195,12 @@ for a, b in zip(outline, outline[1:] + outline[:1]):
     edge.SetLayer(p.Edge_Cuts); edge.SetWidth(M(0.05))
     board.Add(edge)
 
-add_text(board, "V9958 PICO FUNCTIONAL TESTER", 115, 5, 1.6)
-add_text(board, "REV 0.3  PROTOTYPE / UNVALIDATED", 115, 8, 0.9)
+add_text(board, "V9938/V9958 PICO FUNCTIONAL TESTER", 115, 5, 1.6)
+add_text(board, "REV 0.4  PROTOTYPE / UNVALIDATED", 115, 8, 0.9)
 add_text(board, "POWER OFF BEFORE INSERTING OR REMOVING DUT", 88, 63, 0.9, p.B_SilkS)
+add_text(board, "V9938", 96, 94, 0.8)
+add_text(board, "V9958", 112, 94, 0.8)
+add_text(board, "SELECT WITH POWER OFF", 104, 98, 0.8)
 add_text(board, "PIN 1", 60, 76, 0.8)
 add_text(board, "PASS", 76, 95, 0.8)
 add_text(board, "FAIL", 76, 105, 0.8)
@@ -203,7 +210,7 @@ add_text(board, "USB POWER / SERIAL", 228, 106, 0.8, angle=90)
 add_text(board, "OMEGA RGB DIN", 205, 22, 0.9)
 add_text(board, "1:GND  4:SYNC  6:R  7:G  8:B", 205, 25, 0.8)
 add_text(board, "(c) salvogendut 2026", 115, 135, 1.0)
-add_text(board, "V9958 behavioral tester - not forensic authentication", 115, 138, 0.8, p.B_SilkS)
+add_text(board, "SET SW2 TO THE CHIP TYPE BEFORE POWER", 115, 138, 0.8, p.B_SilkS)
 for label, y in (("5V", 15), ("3V3", 22), ("GND", 29),
                  ("CPUCLK", 45), ("HSYNC", 55), ("CSYNC", 65),
                  ("R", 87), ("G", 98), ("B", 109)):

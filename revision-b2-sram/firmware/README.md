@@ -10,3 +10,5 @@ cmake --build revision-b2-sram/firmware/build -j4
 ```
 
 Send `R` or `r` over the Pico USB CDC serial port to repeat the test.
+
+The supplied [B2.1 UF2](v9958_tester_revb2.uf2) identifies both chips on boards fitted with SW2. Set SW2 before applying power.

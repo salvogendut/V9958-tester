@@ -1,5 +1,13 @@
 # Revision B2 SRAM test procedure
 
+## Confirm the model selector before fitting a chip
+
+With USB disconnected and U3 empty, measure resistance between U3 pins 21 and 58. In the V9938 position expect about 470 Ω. In the V9958 position expect switch continuity (near zero ohms). A direct connection in the V9938 position can damage the video output. With the socket still empty, power up and measure U10 pin 2 against pin 4. Expect about 4.11 V for V9938 or 1.59 V for V9958 at a 5 V rail. Disconnect USB again before moving SW2 or fitting the DUT.
+
+Use known-good samples of **both models** to qualify the fixture. Select the marked model before each insertion. Confirm that USB and the monitor report V9938 (ID 0) or V9958 (ID 2) as expected and that all stages pass. Check the red LED, serial stage and repeatability with a known-faulty sample. Recheck a known-good chip on the same fixture before attributing a failure to the DUT.
+
+If V9938 composite video is required, probe U3 pin 21 with a high-impedance scope and compare with a known-good chip under the same display settings. The automatic verdict covers the shared RGB path.
+
 ## Before applying power
 
 1. Leave A1 and all socketed ICs out. Inspect the board for shorts, offset
@@ -10,7 +18,7 @@
 3. Check resistance between +5 V and GND. Investigate a near short.
 4. Power from a current-limited USB source. Confirm about 5 V at TP1 and 3.3 V
    on Pico pin 36, then power off and discharge the board.
-5. Fit U1, U4-U7, the Pico and a known-good V9958. Match every notch and pin-1
+5. Fit U1, U4–U7 and U10, the Pico and a known-good VDP matching SW2. Match every notch and pin-1
    mark. Never insert or remove a chip while powered.
 
 ## First SRAM-interface qualification
@@ -39,5 +47,4 @@
 5. For an on-screen result, power off and attach the existing RGB DIN
    daughterboard with a keyed straight-through 2x3 IDC cable.
 
-Do not use an unqualified B2 board to reject an expensive V9958. Confirm any
-failure on the proven DRAM-based Revision B or a working Omega computer.
+Confirm any failing V9938 or V9958 on a qualified DRAM-based fixture or a working Omega configured for that chip.

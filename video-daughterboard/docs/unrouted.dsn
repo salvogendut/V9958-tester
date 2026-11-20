@@ -1,4 +1,4 @@
-(pcb "/var/home/salvogendut/Dev/omega/V9958-Tester/video-daughterboard/docs/unrouted.dsn"
+(pcb "/var/home/salvogendut/Dev/V9958-tester/video-daughterboard/docs/unrouted.dsn"
   (parser
     (string_quote ")
     (space_in_quoted_tokens on)
@@ -57,7 +57,7 @@
       (place R1 35000 -43000 front 0 (PN 47k))
     )
     (component "V9958-Video-Daughterboard:DIN8_Omega_THT"
-      (place J2 108000 -23000 front 180 (PN "OMEGA RGB DIN-8"))
+      (place J2 108000 0 front 0 (PN "OMEGA RGB DIN-8"))
     )
     (component "Connector_IDC:IDC-Header_2x03_P2.54mm_Vertical"
       (place J1 8000 -40000 front 90 (PN "FROM REV B"))
@@ -193,20 +193,21 @@
       (pin Round[A]Pad_1600.000000_um 2 7620 0)
     )
     (image "V9958-Video-Daughterboard:DIN8_Omega_THT"
-      (outline (polygon signal 0  -10745 395  10745 395  10745 -19195  -10745 -19195))
-      (outline (path signal 250  -10350 0  10350 0  10350 -19200  -10350 -19200  -10350 0))
-      (pin Round[A]Pad_2300.000000_um 1 -2500 -2700)
-      (pin Round[A]Pad_2300.000000_um 1@1 2500 -2700)
-      (pin Round[A]Pad_4000.000000_um @1 -7500 -7700)
-      (pin Round[A]Pad_4000.000000_um @2 7500 -7700)
-      (pin Round[A]Pad_2300.000000_um 1@2 -5000 -12700)
-      (pin Round[A]Pad_2300.000000_um 2 0 -12700)
-      (pin Round[A]Pad_2300.000000_um 3 5000 -12700)
-      (pin Round[A]Pad_2300.000000_um 4 -2500 -15200)
-      (pin Round[A]Pad_2300.000000_um 5 2500 -15200)
-      (pin Round[A]Pad_2300.000000_um 6 -7500 -15200)
-      (pin Round[A]Pad_2300.000000_um 7 7500 -15200)
-      (pin Round[A]Pad_2300.000000_um 8 0 -17700)
+      (outline (polygon signal 0  10745 -19145  -10745 -19145  -10745 395  10745 395))
+      (outline (path signal 100  -10350 0  10350 0  10350 -18750  -10350 -18750  -10350 0))
+      (outline (path signal 250  -10350 -650  10350 -650  10350 -19150  -10350 -19150  -10350 -650))
+      (pin Round[A]Pad_2300.000000_um 1 -2500 -2500)
+      (pin Round[A]Pad_2300.000000_um 1@1 2500 -2500)
+      (pin Round[A]Pad_4000.000000_um @1 -7500 -7500)
+      (pin Round[A]Pad_4000.000000_um @2 7500 -7500)
+      (pin Round[A]Pad_2300.000000_um 1@2 -5000 -12500)
+      (pin Round[A]Pad_2300.000000_um 2 0 -12500)
+      (pin Round[A]Pad_2300.000000_um 3 5000 -12500)
+      (pin Round[A]Pad_2300.000000_um 4 -2500 -15000)
+      (pin Round[A]Pad_2300.000000_um 5 2500 -15000)
+      (pin Round[A]Pad_2300.000000_um 6 -7500 -15000)
+      (pin Round[A]Pad_2300.000000_um 7 7500 -15000)
+      (pin Round[A]Pad_2300.000000_um 8 0 -17500)
     )
     (image "Connector_IDC:IDC-Header_2x03_P2.54mm_Vertical"
       (outline (polygon signal 0  -3675 -10685  -3675 5595  6215 5595  6215 -10685))

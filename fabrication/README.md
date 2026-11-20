@@ -1,6 +1,6 @@
 # Fabrication package
 
-`V9958-Tester-rev0.3-gerbers.zip` contains the two copper layers, solder masks, front/back silkscreens, board outline, KiCad Gerber job file, and separate plated/non-plated Excellon drill files.
+`V9958-Tester-rev0.4-gerbers.zip` contains the two copper layers, solder masks, front/back silkscreens, board outline, KiCad Gerber job file, and separate plated/non-plated Excellon drill files.
 
 Nominal order parameters:
 
@@ -14,5 +14,5 @@ Nominal order parameters:
 - V9958 socket drill: 0.90 mm
 - Four 3.20 mm NPTH mounting holes
 
-This is revision 0.3, an electrically checked but physically unbuilt prototype. Inspect the Gerber preview and confirm the chosen V9958 socket/ZIF and DIN-8 connector dimensions before ordering.
+This is revision 0.4, an electrically checked but physically unbuilt prototype. Inspect the Gerber preview and confirm the chosen V9958 socket/ZIF and DIN-8 connector dimensions before ordering.
 

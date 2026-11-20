@@ -40,11 +40,13 @@ for track in board.GetTracks():
     if not isinstance(track, p.PCB_VIA) and track.GetWidth() < M(0.25):
         track.SetWidth(M(0.25))
 
-# These three pads sit in locally fragmented plane areas after routing.  A
+# These pads sit in locally fragmented plane areas after routing.  A
 # direct local connection avoids misleading "thermal spoke to island" DRC
 # results while the many other THT ground pads retain normal thermal relief.
 for ref, number in (("A1", "13"), ("A1", "23"),
-                    ("U8", "1"), ("U8", "18"), ("C10", "2")):
+                    ("U8", "1"), ("U8", "18"), ("C10", "2"),
+                    ("C8", "2"), ("U1", "10"), ("U3", "20"),
+                    ("U6", "18"), ("U4", "15"), ("U2", "15")):
     fp = board.FindFootprintByReference(ref)
     pad = next(x for x in fp.Pads() if x.GetNumber() == number)
     pad.SetLocalZoneConnection(p.ZONE_CONNECTION_FULL)

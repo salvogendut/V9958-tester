@@ -1,5 +1,12 @@
 {
-  "board": {},
+  "board": {
+    "design_settings": {
+      "rules": {
+        "min_clearance": 0.2,
+        "min_track_width": 0.25
+      }
+    }
+  },
   "boards": [],
   "cvpcb": {},
   "erc": {},

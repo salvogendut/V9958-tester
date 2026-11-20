@@ -1,20 +1,19 @@
-# Revision B validation record
+# V9958-Tester-RevB validation, revision B1
 
-Date: 2026-11-06
+Checked on 2026-11-20 with KiCad 10.0.8.
 
-- KiCad version: 10.0.8.
-- Schematic ERC: 0 violations.
-- PCB DRC: 0 violations.
-- Unconnected PCB items: 0.
-- Schematic/PCB parity issues: 0.
-- Board: 170 x 118 mm, 77 footprints, 355 pads and 0 SMD pads.
-- Route: 1,709 tracks/vias, including 75 vias, and two filled GND zones.
-- All populated carrier-board parts are through-hole or through-hole modules.
-- 3D/top renders and the assembly SVG were visually inspected.
-- Revision B and revision 0.3 firmware variants passed host C11 syntax checks
-  with warnings treated as errors; no ARM/UF2 build was available here.
-- Gerber archive SHA-256: `25b8768c1a7d2a0bb50880ec7a6e165449d2701acaad91a271968e23a9ee9cec`.
+| Check | Result |
+|---|---|
+| Schematic ERC | 0 violations |
+| PCB DRC with filled zones | 0 violations |
+| Unconnected items / schematic parity issues | 0 / 0 |
+| Board | 170 × 118 mm, two copper layers and two filled ground zones |
+| Layout | 85 footprints, 381 pads, 1850 track segments and vias including 84 vias |
 
-The board is still **PROTOTYPE / UNVALIDATED**. Physical assembly must confirm
-socket fit, oscillator start-up, USB current margin, bus timing, RGB thresholds,
-IDC orientation and known-good/known-bad V9958 discrimination.
+The exported netlist passed the independent pin-21 supply, sync receiver, switch-contact and pin-26 checks. The Pico firmware compiled with Pico SDK 2.2.0 and Arm GNU 14.3.1. Picotool identified the RP2040 image with USB serial. A host model exercised 16 cases across both IDs, unsupported IDs and injected clock, sync, bus/WAIT, memory, interrupt and RGB faults.
+
+The firmware image is [v9958_tester_revb.uf2](../firmware/v9958_tester_revb.uf2). SHA-256 `826f2566cb332a4429cbb08eea7491cd00bfa5de1e7930c7a94dc476f72dde3a`.
+
+The fabrication archive is [V9958-Tester-RevB-B1-gerbers.zip](../fabrication/V9958-Tester-RevB-B1-gerbers.zip). SHA-256 `935b5f8b86ba19955ae0ba953575b8048d32bdd7fced526795fa44498420a7c5`.
+
+Physical qualification with known-good and known-faulty examples of each model is pending. Check the selector resistance with the socket empty before installing a VDP.
