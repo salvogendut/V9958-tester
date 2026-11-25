@@ -1,6 +1,6 @@
 # V9958-Tester-RevB2-SRAM validation, revision B2.1
 
-Checked on 2026-11-20 with KiCad 10.0.8.
+Checked on 2026-11-25 with KiCad 10.0.8.
 
 | Check | Result |
 |---|---|
@@ -8,6 +8,7 @@ Checked on 2026-11-20 with KiCad 10.0.8.
 | PCB DRC with filled zones | 0 violations |
 | Unconnected items / schematic parity issues | 0 / 0 |
 | Populated component references and BOM values in front Gerber | 72 of 72 pairs |
+| Polarity verified on the PCB and in the front Gerber | 1 radial capacitors, 2 LEDs |
 | Board | 160 × 110 mm, two copper layers and two filled ground zones |
 | Layout | 88 footprints, 378 pads, 1667 track segments and vias including 65 vias |
 
@@ -17,6 +18,6 @@ The firmware image is [v9958_tester_revb2.uf2](../firmware/v9958_tester_revb2.uf
 
 U5 pin 31 (CE2) connects to VCCVDP and pin 22 (/CE) to GND. SRAM bus timing still requires scope measurements at TP8–TP12 with a known-good sample of each model.
 
-The fabrication archive is [V9958-Tester-RevB2-SRAM-B2.1-gerbers.zip](../fabrication/V9958-Tester-RevB2-SRAM-B2.1-gerbers.zip). SHA-256 `153284b628bd4fbb7b8eb71fab8d91c34091beff58cd3d2556d002004d8327f9`.
+The fabrication archive is [V9958-Tester-RevB2-SRAM-B2.1-silk2-gerbers.zip](../fabrication/V9958-Tester-RevB2-SRAM-B2.1-silk2-gerbers.zip). SHA-256 `0a99c5af70de33cceb0c43a6eb9179a4eeb6307244616ed4e3ab3912b8d0c68e`.
 
 Physical qualification with known-good and known-faulty examples of each model is pending. Check the selector resistance with the socket empty before installing a VDP.

@@ -1,6 +1,7 @@
 """Place KiCad's reference and value fields together outside populated footprints."""
 
 import pcbnew as p
+from polarity import is_plus
 
 M = p.FromMM
 SIZE = 1.0
@@ -77,6 +78,8 @@ def apply_value_silkscreen(board):
     obstacles = list(bodies.values())
     obstacles.extend(bounds(item.GetBoundingBox()) for item in board.GetDrawings()
                      if item.GetLayer() == p.F_SilkS)
+    obstacles.extend(bounds(item.GetBoundingBox()) for fp in footprints
+                     for item in fp.GraphicalItems() if is_plus(item))
     components = []
     for fp in footprints:
         ref = fp.GetReference()

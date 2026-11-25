@@ -10,6 +10,7 @@ import uuid
 import xml.etree.ElementTree as ET
 
 import pcbnew as p
+from polarity import add_led_anode_marks, check_polarity
 from value_silkscreen import apply_value_silkscreen
 
 
@@ -217,15 +218,9 @@ for label, y in (("5V", 15), ("3V3", 22), ("GND", 29),
                  ("R", 87), ("G", 98), ("B", 109)):
     add_text(board, label, 15, y, 0.80)
 
-# Explicit polarity marks.  KiCad's LED_D5.0mm footprint is K=1, A=2;
-# all polarized capacitor footprints use pad 1 as positive in this design.
-for x, y in ((81.5, 91), (81.5, 101)):
-    add_text(board, "+", x, y, 1.2)
-for x, y in ((97.5, 116), (215.5, 84), (184.5, 91), (228.5, 86.5),
-             (225.5, 41), (225.5, 51), (225.5, 61)):
-    add_text(board, "+", x, y, 1.2)
-
+add_led_anode_marks(board)
 apply_value_silkscreen(board)
+check_polarity(board, NETLIST)
 p.SaveBoard(str(BOARD), board)
 PROJECT.write_bytes(project_bytes)  # pcbnew must not rewrite project constraints.
 dsn = ROOT / "docs" / "unrouted.dsn"

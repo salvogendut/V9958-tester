@@ -4,6 +4,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 
 import pcbnew
+from polarity import check_polarity
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -72,10 +73,13 @@ def check_din(board, ref):
 
 
 for path in sorted(ROOT.glob("**/*.kicad_pcb")):
+    board = pcbnew.LoadBoard(str(path))
+    netlist = path.parent / "docs" / path.with_suffix(".xml").name
+    check_polarity(board, netlist)
     if path.parent.name == "video-daughterboard":
-        check_din(pcbnew.LoadBoard(str(path)), "J2")
+        check_din(board, "J2")
     else:
-        check_socket(path.parent / "docs" / path.with_suffix(".xml").name)
+        check_socket(netlist)
         if path.parent == ROOT:
-            check_din(pcbnew.LoadBoard(str(path)), "J1")
+            check_din(board, "J1")
     print(f"{path.stem}: passed")

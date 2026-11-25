@@ -1,6 +1,6 @@
 # Fabrication package
 
-`V9958-Tester-rev0.4-gerbers.zip` contains the two copper layers, solder masks, front/back silkscreens, board outline, KiCad Gerber job file, and separate plated/non-plated Excellon drill files.
+`V9958-Tester-rev0.4-silk2-gerbers.zip` contains the two copper layers, solder masks, front/back silkscreens, board outline, KiCad Gerber job file, and separate plated/non-plated Excellon drill files.
 
 Nominal order parameters:
 

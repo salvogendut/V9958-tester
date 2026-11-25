@@ -1,6 +1,6 @@
 # Revision B2 SRAM fabrication package
 
-`V9958-Tester-RevB2-SRAM-B2.1-gerbers.zip` contains the final Gerber and separate
+`V9958-Tester-RevB2-SRAM-B2.1-silk2-gerbers.zip` contains the final Gerber and separate
 plated/non-plated Excellon drill files.
 
 - Two layers, FR-4, 1.6 mm nominal thickness.

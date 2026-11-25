@@ -5,7 +5,7 @@
 1. Confirm no chips or sockets are offset by one pin and all notches match the silkscreen.
 2. Confirm RN1 is a **bussed/common** 10 kΩ network and its common pin 1 is in the marked end.
 3. Match the long/anode lead of D1 and D2 to the silkscreen `+`; their flat cathode side/pad 1 goes to ground.
-4. Match the positive lead of C6, C21, C23, C25, and C26–C28 to the nearby silkscreen `+`.
+4. Fit C6, C21, C23, C25 and C26–C28 with the positive lead in rounded-square pad 1 and the striped negative lead in circular pad 2. With the component side facing you and the DIN socket at the upper right, all seven stripes face right. Full-size v0.3 and early v0.4 boards have a misplaced second `+` above-right of C25 and to the right of C26–C28. Ignore those four extra marks. The `silk2` artwork keeps the small footprint `+` beside pad 1.
 5. Check resistance from 5 V to GND. Investigate a near short before continuing.
 6. Leave U3 and U5–U8 out. Power from a current-limited 5 V USB source and verify TP1 is about 5 V and TP2 about 3.3 V.
 7. Power off and discharge the board before inserting parts.

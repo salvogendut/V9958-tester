@@ -1,6 +1,6 @@
 # RGB DIN daughterboard fabrication package
 
-`V9958-Video-Daughterboard-B1-gerbers.zip` contains the final Gerber and
+`V9958-Video-Daughterboard-B1-silk2-gerbers.zip` contains the final Gerber and
 separate plated and non-plated Excellon drill files.
 
 - Two layers, FR-4, 1.6 mm nominal thickness.

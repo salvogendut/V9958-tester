@@ -1,6 +1,6 @@
 # V9958-Tester validation, revision 0.4
 
-Checked on 2026-11-20 with KiCad 10.0.8.
+Checked on 2026-11-25 with KiCad 10.0.8.
 
 | Check | Result |
 |---|---|
@@ -8,6 +8,7 @@ Checked on 2026-11-20 with KiCad 10.0.8.
 | PCB DRC with filled zones | 0 violations |
 | Unconnected items / schematic parity issues | 0 / 0 |
 | Populated component references and BOM values in front Gerber | 96 of 96 pairs |
+| Polarity verified on the PCB and in the front Gerber | 7 radial capacitors, 2 LEDs |
 | Board | 232 × 141 mm, two copper layers and two filled ground zones |
 | Layout | 109 footprints, 475 pads, 2260 track segments and vias including 137 vias |
 
@@ -17,6 +18,6 @@ The exported netlist passed the independent pin-21 supply, sync receiver, switch
 
 The firmware image is [v9958_tester.uf2](../firmware/v9958_tester.uf2). SHA-256 `183095236de97ed0596dc7efb1447e5f6b24492c213e010776b26c111c45b933`.
 
-The fabrication archive is [V9958-Tester-rev0.4-gerbers.zip](../fabrication/V9958-Tester-rev0.4-gerbers.zip). SHA-256 `6a52f9e8d78c34f8839952faefd0edf9d03a70f4c4e37c09729a5f2fc9ea5a0b`.
+The fabrication archive is [V9958-Tester-rev0.4-silk2-gerbers.zip](../fabrication/V9958-Tester-rev0.4-silk2-gerbers.zip). SHA-256 `f02c6804f69ba60667d9241a61307186605030ff61a275fd592cb02a89e828ba`.
 
 Physical qualification with known-good and known-faulty examples of each model is pending. Check the selector resistance with the socket empty before installing a VDP.

@@ -6610,6 +6610,17 @@
 			(layer "F.Fab")
 			(uuid "4ea63993-1bb9-4cf9-8369-fabcdd43c1b8")
 		)
+		(fp_text user "+"
+			(at 5.5 0 0)
+			(layer "F.SilkS")
+			(uuid "42c22e9d-8d74-4bac-a14f-9867ccddde0d")
+			(effects
+				(font
+					(size 1.2 1.2)
+					(thickness 0.18)
+				)
+			)
+		)
 		(pad "1" thru_hole rect
 			(at 0 0)
 			(size 1.8 1.8)
@@ -16500,6 +16511,17 @@
 			(layer "F.Fab")
 			(uuid "0fc1ea23-0ffc-47b5-98ed-5f3ad97ca882")
 		)
+		(fp_text user "+"
+			(at 5.5 0 0)
+			(layer "F.SilkS")
+			(uuid "cdea3e6d-2aba-4782-b1a1-4f52c74eb030")
+			(effects
+				(font
+					(size 1.2 1.2)
+					(thickness 0.18)
+				)
+			)
+		)
 		(pad "1" thru_hole rect
 			(at 0 0)
 			(size 1.8 1.8)
@@ -20950,39 +20972,6 @@
 			(font
 				(size 1.2 1.2)
 				(thickness 0.14)
-			)
-		)
-	)
-	(gr_text "+"
-		(at 74 102 0)
-		(layer "F.SilkS")
-		(uuid "f8eddf80-36eb-4d73-998d-c0ec4f80f532")
-		(effects
-			(font
-				(size 1.2 1.2)
-				(thickness 0.18)
-			)
-		)
-	)
-	(gr_text "+"
-		(at 78.5 84 0)
-		(layer "F.SilkS")
-		(uuid "5bbc3ac2-f834-44c2-9aa9-727320c796ce")
-		(effects
-			(font
-				(size 1.2 1.2)
-				(thickness 0.18)
-			)
-		)
-	)
-	(gr_text "+"
-		(at 78.5 93 0)
-		(layer "F.SilkS")
-		(uuid "a57587df-6b9e-4285-9def-960d460e88df")
-		(effects
-			(font
-				(size 1.2 1.2)
-				(thickness 0.18)
 			)
 		)
 	)

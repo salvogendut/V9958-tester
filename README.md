@@ -6,6 +6,8 @@ The current design is **revision 0.4, an unbuilt prototype**. It passes KiCad ER
 
 **Disconnect USB and set SW2 to the model printed on the chip before inserting it in U3.** The V9938 uses pin 21 as a video output. Selecting V9958 connects that pin directly to the filtered 5 V rail and can damage a V9938. The original 0.3, B0 and B2 tester PCBs have this direct connection permanently. Use a board marked **0.4**, **B1** or **B2.1 SRAM** for V9938 testing.
 
+**Polarity correction for full-size v0.3 and early v0.4 boards.** Four electrolytics (C25, C26, C27 and C28) have an extra printed `+` on the negative side. On all seven radial capacitors, fit the positive lead to the rounded-square pad 1 and the striped negative lead to circular pad 2. With the components facing you and the DIN socket at the upper right, the stripe goes on the **right**. The corrected [v0.4 Gerbers](fabrication/V9958-Tester-rev0.4-silk2-gerbers.zip) have a single `+` beside each positive capacitor pad. [Assembly checks](docs/TEST-PROCEDURE.md)
+
 ## Board renderings
 
 ![Revision 0.4 V9938/V9958 tester with the RGB DIN opening facing outward at the upper-right edge](docs/V9958-Tester-3D.png)

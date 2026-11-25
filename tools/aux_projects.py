@@ -329,7 +329,6 @@ PROJECTS = {
             ("PASS",76,91,0.8,0),("FAIL",76,100,0.8,0),("USB POWER / SERIAL",166,72,0.8,90),
             ("(c) salvogendut 2026",118,115,0.9,0),
         ],
-        "plus":[(81.5,87),(81.5,96),(82,110)],
         "ref_positions":{
             "C29":(32,51), "U10":(24,55), "U3":(68,69), "U5":(35,18.8), "U6":(59,18.8), "U7":(83,18.8), "U8":(107,18.8),
             "U1":(145,30), "U4":(145,60), "A1":(151,98), "C11":(145,78),
@@ -375,7 +374,6 @@ PROJECTS = {
             ("PASS",73,88,0.8,0),("FAIL",73,97,0.8,0),("USB POWER / SERIAL",156,59,0.8,90),
             ("(c) salvogendut 2026",128,107,0.85,0),
         ],
-        "plus":[(78.5,84),(78.5,93),(74,102)],
         "ref_positions":{
             "C29":(32,51), "U10":(24,55), "R43":(98,97), "R47":(110,32.4), "U3":(63,67), "U5":(39,23.8), "U6":(79,18.8), "U7":(108,18.8),
             "U1":(135,26), "U4":(135,54), "A1":(142,91), "C11":(135,72),
@@ -408,7 +406,6 @@ PROJECTS = {
             ("IDC: 1 GND  2 +5V  3 R  4 G  5 B  6 CSYNC",60,77,0.8,0),
             ("(c) salvogendut 2026",60,74,0.85,0),
         ],
-        "plus":[(37,58),(40,70),(66,70),(78.5,15),(78.5,26),(78.5,37)],
         "ref_positions":{"J2":(108,21.5)},
         "hide_refs":["H1","H2","H3","H4"],
         "full_zone_pads":[],
@@ -546,6 +543,7 @@ def save_board(path, board):
 
 def generate_board(spec):
     import pcbnew as p
+    from polarity import add_led_anode_marks, check_polarity
     from value_silkscreen import apply_value_silkscreen
     name=spec["name"]; directory=spec["directory"]; M=p.FromMM
     def V(x,y): return p.VECTOR2I(M(round(x,5)),M(round(y,5)))
@@ -586,9 +584,9 @@ def generate_board(spec):
         edge=p.PCB_SHAPE(board); edge.SetShape(p.SHAPE_T_SEGMENT); edge.SetStart(V(*a)); edge.SetEnd(V(*b)); edge.SetLayer(p.Edge_Cuts); edge.SetWidth(M(0.05)); board.Add(edge)
     for text_value,x,y,size,angle in spec["silk"]:
         item=p.PCB_TEXT(board); item.SetText(text_value); item.SetPosition(V(x,y)); item.SetTextSize(V(size,size)); item.SetTextThickness(M(0.14)); item.SetLayer(p.F_SilkS); item.SetTextAngle(p.EDA_ANGLE(angle,p.DEGREES_T)); board.Add(item)
-    for x,y in spec["plus"]:
-        item=p.PCB_TEXT(board); item.SetText("+"); item.SetPosition(V(x,y)); item.SetTextSize(V(1.2,1.2)); item.SetTextThickness(M(0.18)); item.SetLayer(p.F_SilkS); board.Add(item)
+    add_led_anode_marks(board)
     apply_value_silkscreen(board)
+    check_polarity(board, directory/"docs"/f"{name}.xml")
     boardfile=directory/f"{name}.kicad_pcb"; save_board(boardfile, board)
     if not p.ExportSpecctraDSN(board,str(directory/"docs"/"unrouted.dsn")): raise RuntimeError("DSN export failed")
     print(f"Placed {len(components)} footprints for {name}")
@@ -622,6 +620,7 @@ def finish_board(spec):
 def polish_board(spec):
     """Apply review-only silk/reference/thermal changes without touching routes."""
     import pcbnew as p
+    from polarity import add_led_anode_marks, check_polarity, is_plus
     from value_silkscreen import apply_value_silkscreen
     name=spec["name"]; directory=spec["directory"]; M=p.FromMM
     def V(x,y): return p.VECTOR2I(M(round(x,5)),M(round(y,5)))
@@ -636,14 +635,14 @@ def polish_board(spec):
         if isinstance(drawing,p.PCB_TEXT) and drawing.GetText() in silk:
             x,y,size,angle=silk[drawing.GetText()]; drawing.SetPosition(V(x,y)); drawing.SetTextSize(V(size,size)); drawing.SetTextThickness(M(0.14)); drawing.SetTextAngle(p.EDA_ANGLE(angle,p.DEGREES_T))
     for drawing in list(board.GetDrawings()):
-        if isinstance(drawing,p.PCB_TEXT) and drawing.GetText()=="+": board.Remove(drawing)
-    for x,y in spec["plus"]:
-        drawing=p.PCB_TEXT(board); drawing.SetText("+"); drawing.SetPosition(V(x,y)); drawing.SetTextSize(V(1.2,1.2)); drawing.SetTextThickness(M(0.18)); drawing.SetLayer(p.F_SilkS); board.Add(drawing)
+        if is_plus(drawing): board.Delete(drawing)
+    add_led_anode_marks(board)
     for ref,number in spec["full_zone_pads"]:
         pad=pads[(ref,number)]
         pad.SetLocalZoneConnection(p.ZONE_CONNECTION_FULL)
     p.ZONE_FILLER(board).Fill(board.Zones())
     apply_value_silkscreen(board)
+    check_polarity(board, directory/"docs"/f"{name}.xml")
     save_board(directory/f"{name}.kicad_pcb", board)
     print(f"Polished {name} without changing routes")
 

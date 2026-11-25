@@ -14,7 +14,9 @@ The same raw RGB channels are AC-coupled into U9, a through-hole CXA1645P. U9 su
 
 The CXA1645 is strapped for PAL and its unused composite/Y/C outputs are left unconnected. SCIN is intentionally unused: the subcarrier is needed only for composite/chroma encoding, while the RGB clamp and output path is timed from the TTL composite-sync input. The firmware selects PAL timing and leaves a 40-column result screen visible after the electrical tests.
 
-All footprint references are printed on the front silkscreen. D1/D2 use the KiCad LED convention of pad 1 cathode and pad 2 anode; the explicit `+` is beside the anode. Polarized capacitors C6, C21, C23, C25, and C26–C28 use pad 1 positive and each has an explicit `+` assembly mark.
+All footprint references are printed on the front silkscreen. The radial capacitor footprints carry one `+` at pad 1 (positive). On the LED footprints the `+` follows pad 2 (anode). Both marks follow their footprint when it moves or rotates.
+
+Board generation checks the markings against the schematic pin assignments. After packaging a release, run `python3 tools/polarity.py` with KiCad's Python environment and `kicad-cli` on PATH. It checks all four boards and compares a fresh front silkscreen export with the loose Gerber and the copy inside each fabrication ZIP.
 
 
 ## Model selector and sync
