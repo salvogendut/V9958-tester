@@ -10,9 +10,15 @@ asynchronous SRAM, one SN74AHCT573N row-address latch and one SN74AHCT08N
 CAS-to-output-enable gate. The Pico still performs the test; it does not
 emulate cycle-accurate video RAM.
 
-![Revision B2.2 tester with a single SRAM socket](docs/V9958-Tester-RevB2-SRAM-3D.png)
+## B2.2 board renderings
 
-![Top view of the revision B2.2 SRAM tester showing the V9938/V9958 selector](docs/V9958-Tester-RevB2-SRAM-top.png)
+| Assembled angled view | Assembled top view |
+|---|---|
+| [![Compact SRAM tester B2.2, assembled at an angle](docs/V9958-Tester-RevB2-SRAM-3D.png)](docs/V9958-Tester-RevB2-SRAM-3D.png) | [![Compact SRAM tester B2.2, assembled from above](docs/V9958-Tester-RevB2-SRAM-top.png)](docs/V9958-Tester-RevB2-SRAM-top.png) |
+
+| Bare component side | Bare solder side |
+|---|---|
+| [![Compact SRAM tester B2.2, bare component side](docs/V9958-Tester-RevB2-SRAM-B2.2-bare-top.png)](docs/V9958-Tester-RevB2-SRAM-B2.2-bare-top.png) | [![Compact SRAM tester B2.2, bare solder side](docs/V9958-Tester-RevB2-SRAM-B2.2-bare-bottom.png)](docs/V9958-Tester-RevB2-SRAM-B2.2-bare-bottom.png) |
 
 The V9958 presents each memory address in two halves. U6 captures the row
 address when `/RAS` falls. The live address becomes SRAM A0-A7, the latched

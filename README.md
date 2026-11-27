@@ -12,13 +12,17 @@ For a board already marked **0.4**, fit the MAX942CPA+ specified for that circui
 
 ## Board renderings
 
-![Revision 0.5 V9938/V9958 tester with the RGB DIN opening facing outward at the upper-right edge](docs/V9958-Tester-3D.png)
+Select a view to open the full-resolution KiCad rendering.
 
-The RGB cable plugs into J1 from outside the top edge. The four VRAM sockets sit above the central U3 footprint, and the Pico USB connector faces the right edge. All four boards print component references and BOM values together on the component side, including the 1% resistor tolerances.
+| PCB revision | Assembled | Bare component side | Bare solder side |
+|---|---|---|---|
+| **Full-size tester 0.5** · [Assembled top view](docs/V9958-Tester-top.png) | [![Full-size tester 0.5, assembled at an angle](docs/V9958-Tester-3D.png)](docs/V9958-Tester-3D.png) | [![Full-size tester 0.5, bare component side](docs/V9958-Tester-0.5-bare-top.png)](docs/V9958-Tester-0.5-bare-top.png) | [![Full-size tester 0.5, bare solder side](docs/V9958-Tester-0.5-bare-bottom.png)](docs/V9958-Tester-0.5-bare-bottom.png) |
+| **Compact DRAM tester B1.1** · [Assembled top view](revision-b/docs/V9958-Tester-RevB-top.png) | [![Compact DRAM tester B1.1, assembled at an angle](revision-b/docs/V9958-Tester-RevB-3D.png)](revision-b/docs/V9958-Tester-RevB-3D.png) | [![Compact DRAM tester B1.1, bare component side](revision-b/docs/V9958-Tester-RevB-B1.1-bare-top.png)](revision-b/docs/V9958-Tester-RevB-B1.1-bare-top.png) | [![Compact DRAM tester B1.1, bare solder side](revision-b/docs/V9958-Tester-RevB-B1.1-bare-bottom.png)](revision-b/docs/V9958-Tester-RevB-B1.1-bare-bottom.png) |
+| **Compact SRAM tester B2.2** · [Assembled top view](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-top.png) | [![Compact SRAM tester B2.2, assembled at an angle](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-3D.png)](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-3D.png) | [![Compact SRAM tester B2.2, bare component side](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-B2.2-bare-top.png)](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-B2.2-bare-top.png) | [![Compact SRAM tester B2.2, bare solder side](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-B2.2-bare-bottom.png)](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-B2.2-bare-bottom.png) |
 
-![Top view of the revision 0.5 tester showing the U3 footprint and V9938/V9958 selector](docs/V9958-Tester-top.png)
+On the full-size 0.5, the RGB cable plugs into J1 from outside the top edge. The four VRAM sockets sit above U3, and the Pico USB connector faces right. SW2 sits above the TEST button. Disconnect USB before selecting the VDP model. All four boards print component references and BOM values on the component side, including the 1% resistor tolerances.
 
-SW2, just above the TEST button, selects V9938 or V9958 with USB power disconnected.
+[Earlier renderings for 0.4, B1 and B2.1](https://github.com/salvogendut/V9958-tester/blob/81ad3057a48962fd7bea91b546fce25a6f905914/README.md#board-renderings)
 
 ## Revision B family and video daughterboard
 
@@ -29,18 +33,10 @@ power integrity, RGB loads and Pico. The Pico drives the VDP control inputs
 directly through 330-ohm series resistors. The CXA1645 and DIN connector have
 moved to a separate [RGB DIN daughterboard](video-daughterboard/).
 
-![Revision B1.1 DRAM tester with four VRAM sockets and a keyed video header](revision-b/docs/V9958-Tester-RevB-3D.png)
-
-![Top view of the revision B1.1 DRAM tester showing the V9938/V9958 selector](revision-b/docs/V9958-Tester-RevB-top.png)
-
 The experimental [Revision B2 SRAM board](revision-b2-sram/) replaces the four
 41464 DRAMs with one AS6C1008-55PCN 128Kx8 SRAM, an SN74AHCT573 row-address
 latch and an SN74AHCT08 CAS-to-output-enable gate. The Pico still controls and
 tests the selected VDP; it does not emulate the timing-critical video RAM bus.
-
-![Revision B2.2 tester with a single SRAM socket](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-3D.png)
-
-![Top view of the revision B2.2 SRAM tester showing the V9938/V9958 selector](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-top.png)
 
 B2 is smaller at 160 x 110 mm and remains entirely through-hole. It includes
 dedicated `/RAS`, `/CAS0`, `/CAS1`, SRAM `/OE` and SRAM `/WE` test points. Its

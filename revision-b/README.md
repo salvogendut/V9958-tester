@@ -9,9 +9,15 @@ Revision B is the minimal all-through-hole V9938/V9958 functional tester. It is 
 performs the same VDP identification, CPU bus, 128 KiB VRAM, sync, interrupt
 and RGB-response tests as the full-size tester without requiring a CXA1645 or monitor.
 
-![Revision B1.1 DRAM tester with four VRAM sockets and a keyed video header](docs/V9958-Tester-RevB-3D.png)
+## B1.1 board renderings
 
-![Top view of the revision B1.1 DRAM tester showing the V9938/V9958 selector](docs/V9958-Tester-RevB-top.png)
+| Assembled angled view | Assembled top view |
+|---|---|
+| [![Compact DRAM tester B1.1, assembled at an angle](docs/V9958-Tester-RevB-3D.png)](docs/V9958-Tester-RevB-3D.png) | [![Compact DRAM tester B1.1, assembled from above](docs/V9958-Tester-RevB-top.png)](docs/V9958-Tester-RevB-top.png) |
+
+| Bare component side | Bare solder side |
+|---|---|
+| [![Compact DRAM tester B1.1, bare component side](docs/V9958-Tester-RevB-B1.1-bare-top.png)](docs/V9958-Tester-RevB-B1.1-bare-top.png) | [![Compact DRAM tester B1.1, bare solder side](docs/V9958-Tester-RevB-B1.1-bare-bottom.png)](docs/V9958-Tester-RevB-B1.1-bare-bottom.png) |
 
 ## What was simplified
 
