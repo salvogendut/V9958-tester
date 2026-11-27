@@ -295,14 +295,17 @@ def daughter_components():
 
 PROJECTS = {
     "revb": {
-        "name":"V9958-Tester-RevB", "directory":REPO/"revision-b",
-        "title":"V9938/V9958 Pico Tester Revision B", "rev":"B1 PROTOTYPE",
+        "date":"2026-11-27", "name":"V9958-Tester-RevB", "directory":REPO/"revision-b",
+        "title":"V9938/V9958 Pico Tester Revision B", "rev":"B1.1 PROTOTYPE",
         "company":"(c) salvogendut 2026", "components":revb_components(),
         "size":(170,118),
         "positions": {
             "A1":(166,84,270), "U1":(141,18,0), "U4":(141,48,0), "U3":(68,57,0),
             "SW2":(95,90,0), "R43":(93,100,0), "U10":(20,50,0), "C29":(31.5,53.5,270),
             "R44":(20,70,90), "R45":(26,70,90), "R46":(32,70,90), "R47":(116,29,0),
+            "U11": (16, 53, 180), "C30": (8, 58, 180),
+            "R48": (9, 63, 270), "R49": (4, 63, 270), "R50": (37, 71, 0),
+            "R51": (29, 30, 0), "R52": (15, 33, 90), "R53": (29, 25, 0),
             "U5":(24,15,90), "U6":(48,15,90), "U7":(72,15,90), "U8":(96,15,90),
             "RN1":(9,32,90), "Y1":(38,40,0), "C1":(31,46,0), "C2":(51,40,0), "R1":(14,66,90), "R2":(38,35,0),
             "R3":(108,57,90), "R4":(114.5,57,90), "R5":(121,57,90), "R6":(127.5,57,90), "R7":(134,57,90),
@@ -323,7 +326,7 @@ PROJECTS = {
         },
         "silk":[
             ("V9938",90,92,0.8,0),("V9958",106,92,0.8,0),
-            ("V9938/V9958 TESTER B1",85,3,1.5,0),("MINIMAL CORE / PROTOTYPE",145,8,0.9,0),
+            ("V9938/V9958 TESTER B1.1",85,3,1.5,0),("MINIMAL CORE / PROTOTYPE",145,8,0.9,0),
             ("POWER OFF BEFORE CHANGING DUT",68,57,0.8,31),("VIDEO OUT",9,79,0.8,0),
             ("1 GND  2 +5V  3 R  4 G  5 B  6 CSYNC",50,115,0.8,0),
             ("PASS",76,91,0.8,0),("FAIL",76,100,0.8,0),("USB POWER / SERIAL",166,72,0.8,90),
@@ -335,18 +338,24 @@ PROJECTS = {
             "C16":(18,79), "R28":(20,89), "Y1":(40,44), "C2":(51,36),
         },
         "hide_refs":["H1","H2","H3","H4"],
-        "full_zone_pads":[("U3","1"),("A1","13"),("U4","13"),("U4","15"),("U10","4"),("U8","18"),("C9","2"),("U6","1"),("U6","18"),("A1","28"),("C2","2"),("U3","20"),("U7","1"),("U7","18")],
+        "full_zone_pads": [
+            ("C2", "2"), ("D2", "1"), ("R46", "2"), ("U1", "10"), ("U3", "1"),
+            ("U3", "20"), ("U4", "13"), ("U8", "1"), ("U8", "18"),
+        ],
         "power_nets":["/+5V","/+3V3","/VCCVDP","/VBUS_USB","/GND"],
     },
     "revb2": {
-        "name":"V9958-Tester-RevB2-SRAM", "directory":REPO/"revision-b2-sram",
-        "title":"V9938/V9958 Pico Tester Revision B2 SRAM", "rev":"B2.1 PROTOTYPE",
+        "date":"2026-11-27", "name":"V9958-Tester-RevB2-SRAM", "directory":REPO/"revision-b2-sram",
+        "title":"V9938/V9958 Pico Tester Revision B2 SRAM", "rev":"B2.2 PROTOTYPE",
         "company":"(c) salvogendut 2026", "components":revb2_components(),
         "size":(160,110),
         "positions": {
             "A1":(156,76,270), "U1":(131,14,0), "U4":(131,42,0), "U3":(63,55,0),
             "SW2":(95,86,0), "R43":(94,94,0), "U10":(20,50,0), "C29":(31.5,53.5,270),
             "R44":(20,70,90), "R45":(26,70,90), "R46":(32,70,90), "R47":(106,30,0),
+            "U11": (9, 36, 0), "C30": (14, 31, 90),
+            "R48": (20, 39, 0), "R49": (15, 75, 90), "R50": (36, 68, 0),
+            "R51": (22, 30, 90), "R52": (42, 29, 180), "R53": (47, 68, 0),
             "U5":(20,18,90), "U6":(68,14,90), "U7":(100,14,90),
             "RN1":(8,31,90), "Y1":(35,39,0), "C1":(24.5,45,0), "C2":(48,39,0), "R1":(13,64,90), "R2":(35,34,0),
             "R3":(99,55,90), "R4":(105,55,90), "R5":(111,55,90), "R6":(117,55,90), "R7":(123,55,90),
@@ -368,7 +377,7 @@ PROJECTS = {
         },
         "silk":[
             ("V9938",91,91.8,0.8,0),("V9958",102,91.8,0.8,0),
-            ("V9938/V9958 B2.1 SRAM",63,52,1.2,0),("EXPERIMENTAL PROTOTYPE",130,8,0.85,0),
+            ("V9938/V9958 B2.2 SRAM",63,52,1.2,0),("EXPERIMENTAL PROTOTYPE",130,8,0.85,0),
             ("POWER OFF BEFORE CHANGING DUT",63,61,0.8,0),("VIDEO OUT",8,77,0.8,0),
             ("J1: 1 GND  2 +5V  3 R",30,104,0.8,0),("4 G  5 B  6 CSYNC",30,107,0.8,0),
             ("PASS",73,88,0.8,0),("FAIL",73,97,0.8,0),("USB POWER / SERIAL",156,59,0.8,90),
@@ -380,7 +389,9 @@ PROJECTS = {
             "C16":(16,77), "R28":(20,87), "Y1":(37,43), "C2":(48,30),
         },
         "hide_refs":["H1","H2","H3","H4"],
-        "full_zone_pads":[("C29","2"),("D2","1"),("U5","22"),("C9","2"),("U5","16"),("U6","10"),("U7","7"),("A1","23"),("A1","28"),("A1","33"),("C2","2"),("U3","20"),("R12","2"),("U4","19"),("U1","10"),("D1","1")],
+        "full_zone_pads": [
+            ("C30", "2"), ("D2", "1"), ("U1", "10"), ("U3", "1"), ("U3", "20"),
+        ],
         "power_nets":["/+5V","/+3V3","/VCCVDP","/VBUS_USB"],
         "ground_plane_only":True,
     },
@@ -438,7 +449,7 @@ def symbol_library(name):
     definitions, locations = {}, {}
     symbols = dict(SYMBOL_PINS)
     if name.startswith("V9958-Tester"):
-        symbols.update(VDP_Select=vdp_socket.SELECTOR, MAX942=vdp_socket.MAX942)
+        symbols.update({"VDP_Select": vdp_socket.SELECTOR, "LM393": vdp_socket.LM393, "74HC14": vdp_socket.HC14})
     for sym, pin_names in symbols.items():
         count = len(pin_names); left_count = count // 2
         left = list(range(1, left_count + 1)); right = list(range(left_count + 1, count + 1))
@@ -472,7 +483,10 @@ def generate_schematic(spec):
     has_large=any(item["symbol"] in ("RaspberryPi_Pico","V9958") for item in spec["components"])
     selector_positions = {"SW2": (234.95,64.77), "U10": (309.88,64.77), "C29": (309.88,90.17),
                           "R43": (234.95,90.17), "R44": (384.81,54.61), "R45": (384.81,69.85),
-                          "R46": (384.81,85.09), "R47": (454.66,64.77)}
+                          "R46": (384.81,85.09), "R47": (454.66,64.77),
+                          "U11": (505.46,64.77), "C30": (505.46,91.44),
+                          "R48": (234.95,111.76), "R49": (287.02,111.76), "R50": (340.36,111.76),
+                          "R51": (393.7,111.76), "R52": (447.04,111.76), "R53": (505.46,111.76)}
     for item in spec["components"]:
         ref=item["ref"]; sym=item["symbol"]
         if sym == "RaspberryPi_Pico": x,y=63.5,69.85
@@ -505,7 +519,7 @@ def generate_schematic(spec):
     embedded=[]
     for key,symbol in definitions.items():
         current=copy.deepcopy(symbol); current[1]=f"{name}:{key}"; embedded.append(dump(current))
-    output=f'(kicad_sch (version 20250114) (generator "eeschema") (uuid {root_uuid}) (paper "A2") (title_block (title {q(spec["title"])}) (date "2026-11-20") (rev {q(spec["rev"])}) (company {q(spec["company"])}) (comment 1 "UNBUILT PROTOTYPE") (comment 2 "Power off before changing DUT")) (lib_symbols {" ".join(embedded)}) {" ".join(body)} (sheet_instances (path "/" (page "1"))) (embedded_fonts no))\n'
+    output=f'(kicad_sch (version 20250114) (generator "eeschema") (uuid {root_uuid}) (paper "A2") (title_block (title {q(spec["title"])}) (date {q(spec.get("date","2026-11-20"))}) (rev {q(spec["rev"])}) (company {q(spec["company"])}) (comment 1 "UNBUILT PROTOTYPE") (comment 2 "Power off before changing DUT")) (lib_symbols {" ".join(embedded)}) {" ".join(body)} (sheet_instances (path "/" (page "1"))) (embedded_fonts no))\n'
     (directory/f'{name}.kicad_sch').write_text(output)
     standalone=[]
     for key,symbol in definitions.items():
@@ -549,7 +563,7 @@ def generate_board(spec):
     def V(x,y): return p.VECTOR2I(M(round(x,5)),M(round(y,5)))
     tree=ET.parse(directory/"docs"/f"{name}.xml").getroot(); board=p.BOARD(); board.SetCopperLayerCount(2)
     settings=board.GetDesignSettings(); settings.SetBoardThickness(M(1.6)); default=settings.m_NetSettings.GetDefaultNetclass(); default.SetClearance(M(0.30)); default.SetTrackWidth(M(0.25)); default.SetViaDiameter(M(0.70)); default.SetViaDrill(M(0.35))
-    title=board.GetTitleBlock(); title.SetTitle(spec["title"]); title.SetRevision(spec["rev"]); title.SetDate("2026-11-20"); title.SetCompany(spec["company"])
+    title=board.GetTitleBlock(); title.SetTitle(spec["title"]); title.SetRevision(spec["rev"]); title.SetDate(spec.get("date","2026-11-20")); title.SetCompany(spec["company"])
     nets={}; pad_net={}
     for item in tree.findall("./nets/net"):
         net=p.NETINFO_ITEM(board,item.attrib["name"]); board.Add(net); nets[item.attrib["name"]]=net

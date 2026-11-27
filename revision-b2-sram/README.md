@@ -1,6 +1,8 @@
 # V9958 Tester Revision B2 SRAM
 
-**Use PCB B2.1 for V9938 or V9958.** Disconnect USB, set SW2 to the package marking, then insert the DUT. Earlier boards without SW2 connect pin 21 directly to 5 V and can damage a V9938. See the [selector checks](docs/TEST-PROCEDURE.md).
+**Use PCB B2.1 or B2.2 for V9938 or V9958.** Disconnect USB, set SW2 to the package marking, then insert the DUT. Earlier boards without SW2 connect pin 21 directly to 5 V and can damage a V9938. See the [selector checks](docs/TEST-PROCEDURE.md).
+
+PCB **B2.2** uses an LM393P at U10 and an SN74HC14N at U11. PCB **B2.1** uses a MAX942CPA+ at U10. [B2.2 BOM](docs/BOM.csv) · [B2.2 Gerbers](fabrication/V9958-Tester-RevB2-SRAM-B2.2-gerbers.zip) · [B2.1 BOM](https://github.com/salvogendut/V9958-tester/blob/81ad3057a48962fd7bea91b546fce25a6f905914/revision-b2-sram/docs/BOM.csv)
 
 Revision B2 is an experimental all-through-hole variant of the V9938/V9958 tester.
 It replaces Revision B's four 41464 DRAMs with one AS6C1008-55PCN 128Kx8
@@ -8,9 +10,9 @@ asynchronous SRAM, one SN74AHCT573N row-address latch and one SN74AHCT08N
 CAS-to-output-enable gate. The Pico still performs the test; it does not
 emulate cycle-accurate video RAM.
 
-![Revision B2.1 tester with a single SRAM socket](docs/V9958-Tester-RevB2-SRAM-3D.png)
+![Revision B2.2 tester with a single SRAM socket](docs/V9958-Tester-RevB2-SRAM-3D.png)
 
-![Top view of the revision B2.1 SRAM tester showing the V9938/V9958 selector](docs/V9958-Tester-RevB2-SRAM-top.png)
+![Top view of the revision B2.2 SRAM tester showing the V9938/V9958 selector](docs/V9958-Tester-RevB2-SRAM-top.png)
 
 The V9958 presents each memory address in two halves. U6 captures the row
 address when `/RAS` falls. The live address becomes SRAM A0-A7, the latched

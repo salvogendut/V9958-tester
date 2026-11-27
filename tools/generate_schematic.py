@@ -121,7 +121,8 @@ def custom_zero_pin(name, reference, in_bom="no"):
 
 
 custom_rect("VDP_Select", legacy.vdp_socket.SELECTOR, 3)
-custom_rect("MAX942", legacy.vdp_socket.MAX942, 4)
+custom_rect("LM393", legacy.vdp_socket.LM393, 4)
+custom_rect("74HC14", legacy.vdp_socket.HC14, 7)
 custom_rect("V9958", legacy.v9958_names, 32, 15.24, 2.54)
 custom_rect("RaspberryPi_Pico", legacy.pico_names, 20, 15.24, 2.54)
 custom_rect("D41464", legacy.dram_names, 9, 10.16, 2.54)
@@ -197,7 +198,7 @@ for comp in components:
 
 
 for index, (text, x, y, size) in enumerate([
-    ("V9938/V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.4", 20.32, 17.78, 2.0),
+    ("V9938/V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.5", 20.32, 17.78, 2.0),
     ("Checks V9938/V9958 ID, CPU interface, 128 KiB VRAM, clocks/sync, interrupt and RGB response; buffered DIN RGB output.", 20.32, 22.86, 1.2),
     ("WARNING: power off before setting SW2 or inserting/removing DUT or VRAM. Use a current-limited 5V / 1A USB supply.", 20.32, 27.94, 1.2),
     ("Match SW2 to the package before power-up. V9938 pin 21 is a video output.", 20.32, 33.02, 1.2),
@@ -215,8 +216,8 @@ for key, symbol in symbol_defs.items():
 
 output = (
     f'(kicad_sch (version 20250114) (generator "eeschema") (uuid {ROOT_UUID}) (paper "A2") '
-    f'(title_block (title "V9938/V9958 Pico Functional Tester") (date "2026-11-20") '
-    f'(rev "0.4 - PROTOTYPE") (company "Omega side project") '
+    f'(title_block (title "V9938/V9958 Pico Functional Tester") (date "2026-11-27") '
+    f'(rev "0.5 - PROTOTYPE") (company "Omega side project") '
     f'(comment 1 "Unbuilt prototype; verify socket and parts before fabrication") '
     f'(comment 2 "Power off before inserting or removing DUT")) '
     f'(lib_symbols {" ".join(embedded)}) '

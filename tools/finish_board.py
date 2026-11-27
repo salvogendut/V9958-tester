@@ -43,10 +43,7 @@ for track in board.GetTracks():
 # These pads sit in locally fragmented plane areas after routing.  A
 # direct local connection avoids misleading "thermal spoke to island" DRC
 # results while the many other THT ground pads retain normal thermal relief.
-for ref, number in (("A1", "13"), ("A1", "23"),
-                    ("U8", "1"), ("U8", "18"), ("C10", "2"),
-                    ("C8", "2"), ("U1", "10"), ("U3", "20"),
-                    ("U6", "18"), ("U4", "15"), ("U2", "15")):
+for ref, number in (("A1", "23"), ("A1", "28"), ("U2", "13"), ("U2", "15")):
     fp = board.FindFootprintByReference(ref)
     pad = next(x for x in fp.Pads() if x.GetNumber() == number)
     pad.SetLocalZoneConnection(p.ZONE_CONNECTION_FULL)
@@ -70,6 +67,7 @@ for layer in (p.F_Cu, p.B_Cu):
         poly.Append(M(x), M(y))
     board.Add(zone)
 
+p.ZONE_FILLER(board).Fill(board.Zones())
 p.SaveBoard(str(BOARD), board)
 PROJECT.write_bytes(project_bytes)
 print(f"Imported {SESSION.name}; board now has {len(list(board.GetTracks()))} tracks/vias and two GND planes")

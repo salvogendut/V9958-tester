@@ -4,7 +4,7 @@ Quantity,References,Value / part,KiCad footprint,Notes
 1,C2,22pF,Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm,
 3,C3 C4 C5,10n,Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm,
 1,C6,100uF,Capacitor_THT:CP_Radial_D5.0mm_P2.00mm,
-13,C7 C9 C10 C11 C12 C13 C14 C15 C16 C17 C18 C19 C20,100n,Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm,
+14,C7 C9 C10 C11 C12 C13 C14 C15 C16 C17 C18 C19 C20 C30,100n,Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm,
 1,C8,100n VBB,Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm,
 1,C21,10uF,Capacitor_THT:CP_Radial_D5.0mm_P2.00mm,
 1,C22,100n VCC1,Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm,
@@ -31,9 +31,11 @@ Quantity,References,Value / part,KiCad footprint,Notes
 1,R38,1k sync/75R load,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,Forms approximately 0.35 V CSYNC when terminated by 75 ohms at the display
 1,R41,120,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,
 1,R42,180,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,
-1,R44,2.2k 1%,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,
+1,R44,15k 1%,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,
 1,R45,6.2k 1%,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,
-1,R46,3.9k 1%,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,
+1,R46,4.3k 1%,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,
+4,R48 R49 R50 R51,47k 1%,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,
+2,R52 R53,2.2k,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,
 1,RN1,10k bussed,Resistor_THT:R_Array_SIP10,10-pin bussed/common SIP network; common pin is pin 1
 1,SW1,TEST,Button_Switch_THT:SW_PUSH_6mm_H7.3mm,
 1,SW2,JS202011CQN,Button_Switch_THT:SW_CK_JS202011CQN_DPDT_Straight,
@@ -55,5 +57,6 @@ Quantity,References,Value / part,KiCad footprint,Notes
 1,U7,41464 VRAM L1,Package_DIP:DIP-18_W7.62mm_Socket_LongPads,"64Kx4 DRAM, 120 ns or faster; socket recommended"
 1,U8,41464 VRAM H1,Package_DIP:DIP-18_W7.62mm_Socket_LongPads,"64Kx4 DRAM, 120 ns or faster; socket recommended"
 1,U9,CXA1645P RGB buffer,Package_DIP:DIP-24_W10.16mm_Socket_LongPads,Sony CXA1645P DIP-24; socket recommended; used for buffered DIN RGB only
-1,U10,MAX942CPA+,Package_DIP:DIP-8_W7.62mm,
+1,U10,LM393P,Package_DIP:DIP-8_W7.62mm,
+1,U11,SN74HC14N,Package_DIP:DIP-14_W7.62mm,
 1,Y1,21.477270MHz,Crystal:Crystal_HC49-U_Vertical,"Parallel-resonant fundamental crystal, HC49/U THT"

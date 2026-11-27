@@ -5,13 +5,13 @@
       "Application": "Pcbnew",
       "Version": "10.0.8-1.fc45app1"
     },
-    "CreationDate": "2026-11-20T23:03:38+01:00"
+    "CreationDate": "2026-11-27T08:10:22+01:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
       "Name": "V9958-Tester-RevB",
       "GUID": "56393935-382d-4546-9573-7465722d5265",
-      "Revision": "B1 PROTOTYPE"
+      "Revision": "B1.1 PROTOTYPE"
     },
     "Size": {
       "X": 170.05,

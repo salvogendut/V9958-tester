@@ -8,9 +8,7 @@ translates the bidirectional CD0-CD7 bus. The Pico drives MODE0, MODE1, `/CSW`,
 
 U4 is an SN74LVC244AN powered from 3.3 V. Its 5 V-tolerant inputs buffer
 CPUCLK, HSYNC, CSYNC, WAIT and the open-drain interrupt before those signals
-reach the Pico. Passive dividers were deliberately rejected: the V9958 only
-guarantees some output-high levels at 2.4-2.7 V under light load, leaving poor
-Pico threshold margin after division.
+reach the Pico. U10 and U11 first restore HSYNC and CSYNC to 5 V logic levels.
 
 U5-U8 are four 64Kx4 DRAMs arranged as two 64 KiB x 8 banks. The Pico cannot
 reliably emulate the V9958 multiplexed DRAM cycles and refresh timing, so real
@@ -35,4 +33,4 @@ Every active device has a local 100 nF bypass capacitor.
 - All component references, LED anodes and the electrolytic positive lead are
   identified on the front silkscreen.
 
-U10 conditions both sync signals. SW2 sets its threshold and the pin-21 supply connection together. See the [shared socket circuit and pin table](../../docs/DESIGN-NOTES.md#model-selector-and-sync).
+On B1.1, U10 (LM393P) compares both divided sync signals and U11 (SN74HC14N) drives the monitor buffer and the CSYNC header. SW2 sets its threshold and the pin-21 supply connection together. See the [shared socket circuit and pin table](../../docs/DESIGN-NOTES.md#model-selector-and-sync).

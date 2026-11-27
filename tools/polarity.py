@@ -81,7 +81,7 @@ def check_polarity(board, netlist):
             raise ValueError(f"{ref}: front-silk + must be on the side of positive pad {pos}")
 
 
-def check_fabrication_silk(path):
+def check_fabrication_silk(path, revision):
     """Compare the production front legend, including mask subtraction, with the audited board."""
     from pathlib import Path
     import subprocess
@@ -89,7 +89,8 @@ def check_fabrication_silk(path):
     from zipfile import ZipFile
 
     production = path.parent / "fabrication"
-    archive, = production.glob(f"{path.stem}-*-gerbers.zip")
+    label = "rev" + revision if revision[0].isdigit() else revision
+    archive, = production.glob(f"{path.stem}-{label}-*gerbers.zip")
     legend = path.stem + "-F_Silkscreen.gto"
     with ZipFile(archive) as package:
         released = package.read(legend)
@@ -114,6 +115,7 @@ if __name__ == "__main__":
     directories = [REPO] + [spec["directory"] for spec in PROJECTS.values()]
     for directory in directories:
         path, = directory.glob("*.kicad_pcb")
-        check_polarity(p.LoadBoard(str(path)), directory / "docs" / (path.stem + ".xml"))
-        check_fabrication_silk(path)
+        board = p.LoadBoard(str(path))
+        check_polarity(board, directory / "docs" / (path.stem + ".xml"))
+        check_fabrication_silk(path, board.GetTitleBlock().GetRevision().split()[0])
         print(f"{path.stem}: PCB, schematic pin assignments and packaged front silkscreen passed")

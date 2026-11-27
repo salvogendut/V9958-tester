@@ -34,8 +34,11 @@
     (component "Crystal:Crystal_HC49-U_Vertical"
       (place Y1 38000 -40000 front 0 (PN 21.477270MHz))
     )
+    (component "Package_DIP:DIP-14_W7.62mm"
+      (place U11 16000 -53000 front 180 (PN SN74HC14N))
+    )
     (component "Package_DIP:DIP-8_W7.62mm"
-      (place U10 20000 -50000 front 0 (PN MAX942CPA+))
+      (place U10 20000 -50000 front 0 (PN LM393P))
     )
     (component "Package_DIP:DIP-18_W7.62mm_Socket_LongPads"
       (place U8 96000 -15000 front 90 (PN "41464 VRAM H1"))
@@ -66,6 +69,9 @@
       (place RN1 9000 -32000 front 90 (PN "10k bussed"))
     )
     (component Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal
+      (place R53 29000 -25000 front 0 (PN 2.2k))
+      (place R51 29000 -30000 front 0 (PN "47k 1%"))
+      (place R50 37000 -71000 front 0 (PN "47k 1%"))
       (place R47 116000 -29000 front 0 (PN 10k))
       (place R43 93000 -100000 front 0 (PN 470))
       (place R35 65000 -96000 front 0 (PN 1k))
@@ -86,9 +92,10 @@
       (place R2 38000 -35000 front 0 (PN 470k))
     )
     (component Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal::1
-      (place R46 32000 -70000 front 90 (PN "3.9k 1%"))
+      (place R52 15000 -33000 front 90 (PN 2.2k))
+      (place R46 32000 -70000 front 90 (PN "4.3k 1%"))
       (place R45 26000 -70000 front 90 (PN "6.2k 1%"))
-      (place R44 20000 -70000 front 90 (PN "2.2k 1%"))
+      (place R44 20000 -70000 front 90 (PN "15k 1%"))
       (place R20 102000 -31000 front 90 (PN 10k))
       (place R19 130000 -43000 front 90 (PN 1k))
       (place R18 123000 -43000 front 90 (PN 1k))
@@ -108,6 +115,10 @@
       (place R4 114500 -57000 front 90 (PN 330))
       (place R3 108000 -57000 front 90 (PN 330))
       (place R1 14000 -66000 front 90 (PN 10k))
+    )
+    (component Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal::2
+      (place R49 4000 -63000 front -90 (PN "47k 1%"))
+      (place R48 9000 -63000 front -90 (PN "47k 1%"))
     )
     (component Inductor_THT:L_Axial_L14.0mm_D4.5mm_P15.24mm_Horizontal_Fastron_LACC
       (place L1 95000 -110000 front 0 (PN 5.6uH))
@@ -129,9 +140,12 @@
       (place D1 76000 -87000 front 0 (PN "GREEN PASS"))
     )
     (component Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm
-      (place C29 31500 -53500 front -90 (PN "100n U10"))
+      (place C30 8000 -58000 front 180 (PN 100n))
     )
     (component Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm::1
+      (place C29 31500 -53500 front -90 (PN "100n U10"))
+    )
+    (component Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm::2
       (place C16 18000 -82000 front 0 (PN "100n VIDEO"))
       (place C15 92000 -27000 front 0 (PN "100n VRAM"))
       (place C14 68000 -27000 front 0 (PN "100n VRAM"))
@@ -243,6 +257,45 @@
             5708.13 2275  5565 2275))
       (pin Round[A]Pad_1500.000000_um 1 0 0)
       (pin Round[A]Pad_1500.000000_um 2 4880 0)
+    )
+    (image "Package_DIP:DIP-14_W7.62mm"
+      (outline (polygon signal 0  -1055 1525  8665 1525  8665 -16765  -1055 -16765))
+      (outline (path signal 120  1160 1330  1160 -16570))
+      (outline (path signal 120  1160 -16570  6460 -16570))
+      (outline (path signal 120  2810 1330  1160 1330))
+      (outline (path signal 120  6460 1330  4810 1330))
+      (outline (path signal 120  6460 -16570  6460 1330))
+      (outline (polygon signal 0  4750 1330  4761.46 1365.27  4791.46 1387.06  4828.54 1387.06
+            4858.54 1365.27  4870 1330  4851.95 1135.23  4798.42 947.084
+            4711.23 771.982  4593.35 615.883  4448.79 484.102  4282.48 381.127
+            4100.08 310.465  3907.8 274.522  3712.2 274.522  3519.92 310.465
+            3337.52 381.127  3171.21 484.102  3026.65 615.883  2908.77 771.982
+            2821.58 947.084  2768.05 1135.23  2750 1330  2761.46 1365.27
+            2791.46 1387.06  2828.54 1387.06  2858.54 1365.27  2870 1330
+            2870 1237.42  2906.12 1055.81  2976.98 884.743  3079.86 730.785
+            3210.78 599.855  3364.74 496.983  3535.81 426.124  3717.42 390
+            3902.58 390  4084.19 426.124  4255.26 496.983  4409.22 599.855
+            4540.15 730.785  4643.02 884.743  4713.88 1055.81  4750 1237.42
+            4750 1330))
+      (outline (path signal 100  635 270  1635 1270))
+      (outline (path signal 100  635 -16510  635 270))
+      (outline (path signal 100  1635 1270  6985 1270))
+      (outline (path signal 100  6985 1270  6985 -16510))
+      (outline (path signal 100  6985 -16510  635 -16510))
+      (pin RoundRect[A]Pad_1600.000000x1600.000000_250.951000_um_0.000000_0 1 0 0)
+      (pin Round[A]Pad_1600.000000_um 2 0 -2540)
+      (pin Round[A]Pad_1600.000000_um 3 0 -5080)
+      (pin Round[A]Pad_1600.000000_um 4 0 -7620)
+      (pin Round[A]Pad_1600.000000_um 5 0 -10160)
+      (pin Round[A]Pad_1600.000000_um 6 0 -12700)
+      (pin Round[A]Pad_1600.000000_um 7 0 -15240)
+      (pin Round[A]Pad_1600.000000_um 8 7620 -15240)
+      (pin Round[A]Pad_1600.000000_um 9 7620 -12700)
+      (pin Round[A]Pad_1600.000000_um 10 7620 -10160)
+      (pin Round[A]Pad_1600.000000_um 11 7620 -7620)
+      (pin Round[A]Pad_1600.000000_um 12 7620 -5080)
+      (pin Round[A]Pad_1600.000000_um 13 7620 -2540)
+      (pin Round[A]Pad_1600.000000_um 14 7620 0)
     )
     (image "Package_DIP:DIP-8_W7.62mm"
       (outline (polygon signal 0  8665 -9135  -1055 -9135  -1055 1515  8665 1515))
@@ -538,6 +591,20 @@
       (pin Round[A]Pad_1600.000000_um 1 0 0)
       (pin Round[A]Pad_1600.000000_um 2 7620 0)
     )
+    (image Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal::2
+      (outline (polygon signal 0  8665 1495  8665 -1495  -1045 -1495  -1045 1495))
+      (outline (path signal 120  540 1370  7080 1370))
+      (outline (path signal 120  540 1040  540 1370))
+      (outline (path signal 120  540 -1040  540 -1370))
+      (outline (path signal 120  540 -1370  7080 -1370))
+      (outline (path signal 120  7080 1370  7080 1040))
+      (outline (path signal 120  7080 -1370  7080 -1040))
+      (outline (path signal 100  0 0  660 0))
+      (outline (path signal 100  7620 0  6960 0))
+      (outline (path signal 100  660 1250  660 -1250  6960 -1250  6960 1250  660 1250))
+      (pin Round[A]Pad_1600.000000_um 1 0 0)
+      (pin Round[A]Pad_1600.000000_um 2 7620 0)
+    )
     (image Inductor_THT:L_Axial_L14.0mm_D4.5mm_P15.24mm_Horizontal_Fastron_LACC
       (outline (polygon signal 0  16495 -2495  -1245 -2495  -1245 2495  16495 2495))
       (outline (path signal 120  500 2370  14740 2370))
@@ -723,6 +790,18 @@
       (pin Round[A]Pad_1800.000000_um 2 2540 0)
     )
     (image Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm
+      (outline (polygon signal 0  -1045 1495  6045 1495  6045 -1495  -1045 -1495))
+      (outline (path signal 120  -120 1370  5120 1370))
+      (outline (path signal 120  -120 1033  -120 1370))
+      (outline (path signal 120  -120 -1370  -120 -1033))
+      (outline (path signal 120  5120 1370  5120 1033))
+      (outline (path signal 120  5120 -1033  5120 -1370))
+      (outline (path signal 120  5120 -1370  -120 -1370))
+      (outline (path signal 100  0 1250  5000 1250  5000 -1250  0 -1250  0 1250))
+      (pin Round[A]Pad_1600.000000_um 1 0 0)
+      (pin Round[A]Pad_1600.000000_um 2 5000 0)
+    )
+    (image Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm::1
       (outline (polygon signal 0  6045 1495  6045 -1495  -1045 -1495  -1045 1495))
       (outline (path signal 120  -120 1370  5120 1370))
       (outline (path signal 120  -120 1033  -120 1370))
@@ -734,7 +813,7 @@
       (pin Round[A]Pad_1600.000000_um 1 0 0)
       (pin Round[A]Pad_1600.000000_um 2 5000 0)
     )
-    (image Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm::1
+    (image Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm::2
       (outline (polygon signal 0  6045 -1495  -1045 -1495  -1045 1495  6045 1495))
       (outline (path signal 120  -120 1370  5120 1370))
       (outline (path signal 120  -120 1033  -120 1370))
@@ -1381,17 +1460,24 @@
       (pins U4-6 R17-2)
     )
     (net /CSYNC_RAW
-      (pins U10-5 U3-6)
+      (pins U3-6 R50-1)
     )
     (net /CSYNC_TTL
-      (pins U10-7 TP4-1 R17-1 J1-6)
+      (pins U11-4 TP4-1 R17-1 J1-6)
+    )
+    (net /C_COMP
+      (pins U11-3 U10-7 R53-2)
+    )
+    (net /C_HALF
+      (pins U10-6 R51-1 R50-2)
     )
     (net /GND
-      (pins U10-4 U8-1 U8-18 U7-1 U7-18 U6-1 U6-18 U5-1 U5-18 U4-1 U4-10 U4-13 U4-15
-        U4-17 U4-19 U3-1 U3-20 U1-10 TP2-1 R46-2 R33-2 R31-2 R30-2 R28-2 R27-2 R25-2
-        R13-2 R12-2 R9-2 R8-2 J1-1 D2-1 D1-1 C29-2 C16-2 C15-2 C14-2 C13-2 C12-2 C11-2
-        C10-2 C9-2 C8-2 C7-2 C6-2 C5-2 C4-2 C3-2 C2-2 C1-2 A1-3 A1-8 A1-13 A1-18 A1-23
-        A1-28 A1-33 A1-38)
+      (pins U11-5 U11-7 U11-9 U11-11 U11-13 U10-4 U8-1 U8-18 U7-1 U7-18 U6-1 U6-18
+        U5-1 U5-18 U4-1 U4-10 U4-13 U4-15 U4-17 U4-19 U3-1 U3-20 U1-10 TP2-1 R51-2
+        R49-2 R46-2 R33-2 R31-2 R30-2 R28-2 R27-2 R25-2 R13-2 R12-2 R9-2 R8-2 J1-1
+        D2-1 D1-1 C30-2 C29-2 C16-2 C15-2 C14-2 C13-2 C12-2 C11-2 C10-2 C9-2 C8-2
+        C7-2 C6-2 C5-2 C4-2 C3-2 C2-2 C1-2 A1-3 A1-8 A1-13 A1-18 A1-23 A1-28 A1-33
+        A1-38)
     )
     (net /GREEN_RAW
       (pins U3-22 TP6-1 R29-1 R28-1 J1-4)
@@ -1403,10 +1489,16 @@
       (pins U4-4 R16-2)
     )
     (net /HSYNC_RAW
-      (pins U10-3 U3-5)
+      (pins U3-5 R48-1)
     )
     (net /HSYNC_TTL
-      (pins U10-1 R16-1)
+      (pins U11-2 R16-1)
+    )
+    (net /H_COMP
+      (pins U11-1 U10-1 R52-2)
+    )
+    (net /H_HALF
+      (pins U10-2 R49-1 R48-2)
     )
     (net /INT_5
       (pins U4-11 R19-2)
@@ -1496,7 +1588,7 @@
       (pins SW2-4 R46-1 R45-2)
     )
     (net /SYNC_REF
-      (pins U10-2 U10-6 SW2-5)
+      (pins U10-3 U10-5 SW2-5)
     )
     (net /VA0
       (pins U8-14 U7-14 U6-14 U5-14 U3-49)
@@ -1529,8 +1621,8 @@
       (pins F1-1 A1-40)
     )
     (net /VCCVDP
-      (pins U10-8 U8-9 U7-9 U6-9 U5-9 U3-58 SW2-3 RN1-1 R47-1 R44-1 R43-1 R1-1 L1-2
-        C29-1 C15-1 C14-1 C13-1 C12-1 C8-1 C7-1 C6-1)
+      (pins U11-14 U10-8 U8-9 U7-9 U6-9 U5-9 U3-58 SW2-3 RN1-1 R53-1 R52-1 R47-1 R44-1
+        R43-1 R1-1 L1-2 C30-1 C29-1 C15-1 C14-1 C13-1 C12-1 C8-1 C7-1 C6-1)
     )
     (net /VD0
       (pins U7-2 U5-2 U3-41)
@@ -1664,19 +1756,33 @@
     (net "unconnected-(U4-2Y4-Pad3)"
       (pins U4-3)
     )
+    (net "unconnected-(U11-3Y-Pad6)"
+      (pins U11-6)
+    )
+    (net "unconnected-(U11-4Y-Pad8)"
+      (pins U11-8)
+    )
+    (net "unconnected-(U11-5Y-Pad10)"
+      (pins U11-10)
+    )
+    (net "unconnected-(U11-6Y-Pad12)"
+      (pins U11-12)
+    )
     (class kicad_default /ADC_B /ADC_G /ADC_R /BLUE_RAW /BUS_DIR /BUS_OE_N
       /CAS0 /CAS0_RAW /CAS1 /CAS1_RAW /CB0 /CB1 /CB2 /CB3 /CB4 /CB5 /CB6 /CB7
-      /CPUCLK_5 /CPUCLK_RAW /CSYNC_5 /CSYNC_RAW /CSYNC_TTL /GREEN_RAW /HRESET
-      /HSYNC_5 /HSYNC_RAW /HSYNC_TTL /INT_5 /INT_RAW /LED_GREEN /LED_GREEN_A
-      /LED_RED /LED_RED_A /MON_CPUCLK /MON_CSYNC /MON_HSYNC /MON_INT /MON_WAIT
-      /P_CSR_N /P_CSW_N /P_D0 /P_D1 /P_D2 /P_D3 /P_D4 /P_D5 /P_D6 /P_D7 /P_MODE0
-      /P_MODE1 /P_RESET_N /RAS /RAS_RAW /RED_RAW /REF_38 /REF_58 /SYNC_REF
-      /VA0 /VA1 /VA2 /VA3 /VA4 /VA5 /VA6 /VA7 /VBB /VD0 /VD1 /VD2 /VD3 /VD4
-      /VD5 /VD6 /VD7 /VDP_CSR_N /VDP_CSW_N /VDP_D0 /VDP_D1 /VDP_D2 /VDP_D3
-      /VDP_D4 /VDP_D5 /VDP_D6 /VDP_D7 /VDP_MODE0 /VDP_MODE1 /VDP_PIN21 /VDP_RESET_N
-      /VRESET /VWR /VWR_RAW /WAIT_5 /WAIT_RAW /XTAL1 /XTAL2 "unconnected-(A1-3V3_EN-Pad37)"
-      "unconnected-(A1-ADC_VREF-Pad35)" "unconnected-(A1-GP22-Pad29)" "unconnected-(A1-RUN-Pad30)"
-      "unconnected-(A1-VSYS-Pad39)" "unconnected-(SW2-38-A-Pad1)" "unconnected-(U3-BLEO-Pad7)"
+      /CPUCLK_5 /CPUCLK_RAW /CSYNC_5 /CSYNC_RAW /CSYNC_TTL /C_COMP /C_HALF
+      /GREEN_RAW /HRESET /HSYNC_5 /HSYNC_RAW /HSYNC_TTL /H_COMP /H_HALF /INT_5
+      /INT_RAW /LED_GREEN /LED_GREEN_A /LED_RED /LED_RED_A /MON_CPUCLK /MON_CSYNC
+      /MON_HSYNC /MON_INT /MON_WAIT /P_CSR_N /P_CSW_N /P_D0 /P_D1 /P_D2 /P_D3
+      /P_D4 /P_D5 /P_D6 /P_D7 /P_MODE0 /P_MODE1 /P_RESET_N /RAS /RAS_RAW /RED_RAW
+      /REF_38 /REF_58 /SYNC_REF /VA0 /VA1 /VA2 /VA3 /VA4 /VA5 /VA6 /VA7 /VBB
+      /VD0 /VD1 /VD2 /VD3 /VD4 /VD5 /VD6 /VD7 /VDP_CSR_N /VDP_CSW_N /VDP_D0
+      /VDP_D1 /VDP_D2 /VDP_D3 /VDP_D4 /VDP_D5 /VDP_D6 /VDP_D7 /VDP_MODE0 /VDP_MODE1
+      /VDP_PIN21 /VDP_RESET_N /VRESET /VWR /VWR_RAW /WAIT_5 /WAIT_RAW /XTAL1
+      /XTAL2 "unconnected-(A1-3V3_EN-Pad37)" "unconnected-(A1-ADC_VREF-Pad35)"
+      "unconnected-(A1-GP22-Pad29)" "unconnected-(A1-RUN-Pad30)" "unconnected-(A1-VSYS-Pad39)"
+      "unconnected-(SW2-38-A-Pad1)" "unconnected-(U11-3Y-Pad6)" "unconnected-(U11-4Y-Pad8)"
+      "unconnected-(U11-5Y-Pad10)" "unconnected-(U11-6Y-Pad12)" "unconnected-(U3-BLEO-Pad7)"
       "unconnected-(U3-CBDR-Pad11)" "unconnected-(U3-~CASX-Pad59)" "unconnected-(U3-~DHCLK-Pad2)"
       "unconnected-(U3-~DLCLK-Pad3)" "unconnected-(U3-~YS-Pad10)" "unconnected-(U4-2Y2-Pad7)"
       "unconnected-(U4-2Y3-Pad5)" "unconnected-(U4-2Y4-Pad3)"

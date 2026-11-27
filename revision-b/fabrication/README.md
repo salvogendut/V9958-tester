@@ -1,6 +1,6 @@
 # Revision B fabrication package
 
-`V9958-Tester-RevB-B1-silk2-gerbers.zip` contains the final Gerber and separate plated
+[V9958-Tester-RevB-B1.1-gerbers.zip](V9958-Tester-RevB-B1.1-gerbers.zip) contains the final Gerber and separate plated
 and non-plated Excellon drill files.
 
 - Two layers, FR-4, 1.6 mm nominal thickness.
@@ -10,3 +10,5 @@ and non-plated Excellon drill files.
 - Board size 170 x 118 mm.
 
 Review the Gerbers and exact socket/header mechanical parts before ordering.
+
+For boards marked **B1**, U10 is the MAX942CPA+. [Earlier Gerbers](V9958-Tester-RevB-B1-silk2-gerbers.zip) · [B1 BOM](https://github.com/salvogendut/V9958-tester/blob/81ad3057a48962fd7bea91b546fce25a6f905914/revision-b/docs/BOM.csv)

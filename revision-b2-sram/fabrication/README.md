@@ -1,6 +1,6 @@
 # Revision B2 SRAM fabrication package
 
-`V9958-Tester-RevB2-SRAM-B2.1-silk2-gerbers.zip` contains the final Gerber and separate
+[V9958-Tester-RevB2-SRAM-B2.2-gerbers.zip](V9958-Tester-RevB2-SRAM-B2.2-gerbers.zip) contains the final Gerber and separate
 plated/non-plated Excellon drill files.
 
 - Two layers, FR-4, 1.6 mm nominal thickness.
@@ -12,3 +12,5 @@ plated/non-plated Excellon drill files.
 Review the Gerbers, socket footprints and exact AS6C1008-55PCN part before
 ordering. This revision is experimental and has not been electrically
 qualified against V9958 memory timing.
+
+For boards marked **B2.1**, U10 is the MAX942CPA+. [Earlier Gerbers](V9958-Tester-RevB2-SRAM-B2.1-silk2-gerbers.zip) · [B2.1 BOM](https://github.com/salvogendut/V9958-tester/blob/81ad3057a48962fd7bea91b546fce25a6f905914/revision-b2-sram/docs/BOM.csv)

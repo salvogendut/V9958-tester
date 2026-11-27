@@ -59,8 +59,8 @@ default.SetViaDrill(M(0.35))
 
 title = board.GetTitleBlock()
 title.SetTitle("V9938/V9958 Pico functional tester")
-title.SetRevision("0.4 PROTOTYPE")
-title.SetDate("2026-11-20")
+title.SetRevision("0.5 PROTOTYPE")
+title.SetDate("2026-11-27")
 title.SetCompany("Omega side project")
 
 nets = {}
@@ -94,6 +94,9 @@ pos = {
     "SW2": (101, 92, 0), "R43": (104, 86, 0),
     "U10": (30, 57, 0), "C29": (36, 53, 0),
     "R44": (24, 71, 90), "R45": (30, 76, 90), "R46": (36, 76, 90),
+    "U11": (42, 65, 0), "C30": (55, 65, 270),
+    "R48": (32, 52, 180), "R49": (30, 47, 0), "R50": (19, 60, 180),
+    "R51": (30, 42, 0), "R52": (19, 69, 270), "R53": (30, 81, 0),
     "R47": (132, 75, 0),
     "U5": (50, 20, 90), "U6": (80, 20, 90),
     "U7": (110, 20, 90), "U8": (140, 20, 90),
@@ -198,7 +201,7 @@ for a, b in zip(outline, outline[1:] + outline[:1]):
     board.Add(edge)
 
 add_text(board, "V9938/V9958 PICO FUNCTIONAL TESTER", 115, 5, 1.6)
-add_text(board, "REV 0.4  PROTOTYPE / UNVALIDATED", 115, 8, 0.9)
+add_text(board, "REV 0.5  PROTOTYPE / UNVALIDATED", 115, 8, 0.9)
 add_text(board, "POWER OFF BEFORE INSERTING OR REMOVING DUT", 88, 63, 0.9, p.B_SilkS)
 add_text(board, "V9938", 96, 94, 0.8)
 add_text(board, "V9958", 112, 94, 0.8)

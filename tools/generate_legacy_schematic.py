@@ -150,7 +150,8 @@ symbols = {}
 lib_parts = []
 for name, ref, names, left_count in [
     ("VDP_Select", "SW", vdp_socket.SELECTOR, 3),
-    ("MAX942", "U", vdp_socket.MAX942, 4),
+    ("LM393", "U", vdp_socket.LM393, 4),
+    ("74HC14", "U", vdp_socket.HC14, 7),
     ("V9958", "U", v9958_names, 32),
     ("RaspberryPi_Pico", "A", pico_names, 20),
     ("D41464", "U", dram_names, 9),
@@ -375,8 +376,15 @@ for idx, (ref, label, net) in enumerate([
     add(ref, "TestPoint", label, "TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm", 5900 + (idx%3)*600, 9000 + (idx//3)*500, {1:net})
 
 # Put the model selector and sync receiver together at the top of the sheet.
-for part, (x, y) in zip(vdp_socket.PARTS, [(17800,2200),(20800,2200),
-        (17800,3200),(17800,3800),(17800,4400),(17800,5000),(20800,3200),(20800,3800)]):
+sync_positions = {
+    "SW2": (17800,2200), "U10": (20800,2200), "R43": (17800,3200),
+    "R44": (17800,3800), "R45": (17800,4400), "R46": (17800,5000),
+    "R47": (20800,3200), "C29": (20800,3800), "U11": (20800,5000),
+    "C30": (20800,6100), "R48": (17800,6900), "R49": (20800,6900),
+    "R50": (17800,7600), "R51": (20800,7600), "R52": (17800,8300), "R53": (20800,8300),
+}
+for part in vdp_socket.PARTS:
+    x, y = sync_positions[part[0]]
     ref, symbol, value, footprint, nets = part
     add(ref, symbol, value, footprint, x, y, nets)
 
@@ -417,8 +425,8 @@ sch = [
     "encoding utf-8",
     "Sheet 1 1",
     'Title "V9938/V9958 Pico Functional Tester"',
-    'Date "2026-11-20"',
-    'Rev "0.4-prototype"',
+    'Date "2026-11-27"',
+    'Rev "0.5-prototype"',
     'Comp "Omega side project"',
     'Comment1 "Unbuilt prototype - verify socket and parts before fabrication"',
     'Comment2 "USB 5V supply must provide at least 1A"',
@@ -426,7 +434,7 @@ sch = [
     'Comment4 "V9958 behavioral tester, not forensic authentication"',
     "$EndDescr",
     "Text Notes 900 700 0    100  ~ 20",
-    "V9938/V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.4",
+    "V9938/V9958 PICO FUNCTIONAL TESTER - PROTOTYPE REV 0.5",
     "Text Notes 900 900 0    60   ~ 12",
     "Checks V9938/V9958 ID, CPU interface, 128 KiB VRAM, sync/clock frequencies, interrupt and RGB response; buffered DIN RGB output.",
     "Text Notes 900 1100 0    60   ~ 12",

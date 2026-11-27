@@ -2,19 +2,21 @@
 
 This is an all-through-hole carrier board that performs a behavioral test of a socketed Yamaha V9938 or V9958 video display processor. An original RP2040 Raspberry Pi Pico controls the VDP, tests its dedicated 128 KiB VRAM, measures its clocks and analog RGB outputs, and reports the result on green/red LEDs, USB serial, and an on-screen message through an Omega-compatible DIN RGB output.
 
-The current design is **revision 0.4, an unbuilt prototype**. It passes KiCad ERC, DRC, connectivity, and schematic/PCB parity checks, but it still needs physical assembly and calibration before it should be treated as a proven fixture.
+The current full-size board is **revision 0.5**. U10 is a through-hole TI LM393P dual comparator and U11 is an SN74HC14N sync buffer. The board passes KiCad ERC, DRC and schematic/PCB parity checks. Qualification on real VDPs is pending. [0.5 Gerbers](fabrication/V9958-Tester-rev0.5-gerbers.zip) · [0.5 BOM](docs/BOM.csv)
 
-**Disconnect USB and set SW2 to the model printed on the chip before inserting it in U3.** The V9938 uses pin 21 as a video output. Selecting V9958 connects that pin directly to the filtered 5 V rail and can damage a V9938. The original 0.3, B0 and B2 tester PCBs have this direct connection permanently. Use a board marked **0.4**, **B1** or **B2.1 SRAM** for V9938 testing.
+For a board already marked **0.4**, fit the MAX942CPA+ specified for that circuit. The LM393P requires the revised input dividers and output circuitry. [0.4 BOM](https://github.com/salvogendut/V9958-tester/blob/81ad3057a48962fd7bea91b546fce25a6f905914/docs/BOM.csv) · [Original 0.3 BOM](docs/V9958-Tester-rev0.3-BOM.csv)
+
+**Disconnect USB and set SW2 to the model printed on the chip before inserting it in U3.** The V9938 uses pin 21 as a video output. Selecting V9958 connects that pin directly to the filtered 5 V rail and can damage a V9938. The original 0.3, B0 and B2 tester PCBs have this direct connection permanently. Use a board marked **0.4 or 0.5**, **B1 or B1.1**, or **B2.1 or B2.2 SRAM** for V9938 testing.
 
 **Polarity correction for full-size v0.3 and early v0.4 boards.** Four electrolytics (C25, C26, C27 and C28) have an extra printed `+` on the negative side. On all seven radial capacitors, fit the positive lead to the rounded-square pad 1 and the striped negative lead to circular pad 2. With the components facing you and the DIN socket at the upper right, the stripe goes on the **right**. The corrected [v0.4 Gerbers](fabrication/V9958-Tester-rev0.4-silk2-gerbers.zip) have a single `+` beside each positive capacitor pad. [Assembly checks](docs/TEST-PROCEDURE.md)
 
 ## Board renderings
 
-![Revision 0.4 V9938/V9958 tester with the RGB DIN opening facing outward at the upper-right edge](docs/V9958-Tester-3D.png)
+![Revision 0.5 V9938/V9958 tester with the RGB DIN opening facing outward at the upper-right edge](docs/V9958-Tester-3D.png)
 
 The RGB cable plugs into J1 from outside the top edge. The four VRAM sockets sit above the central U3 footprint, and the Pico USB connector faces the right edge. All four boards print component references and BOM values together on the component side, including the 1% resistor tolerances.
 
-![Top view of the revision 0.4 tester showing the U3 footprint and V9938/V9958 selector](docs/V9958-Tester-top.png)
+![Top view of the revision 0.5 tester showing the U3 footprint and V9938/V9958 selector](docs/V9958-Tester-top.png)
 
 SW2, just above the TEST button, selects V9938 or V9958 with USB power disconnected.
 
@@ -27,18 +29,18 @@ power integrity, RGB loads and Pico. The Pico drives the VDP control inputs
 directly through 330-ohm series resistors. The CXA1645 and DIN connector have
 moved to a separate [RGB DIN daughterboard](video-daughterboard/).
 
-![Revision B1 DRAM tester with four VRAM sockets and a keyed video header](revision-b/docs/V9958-Tester-RevB-3D.png)
+![Revision B1.1 DRAM tester with four VRAM sockets and a keyed video header](revision-b/docs/V9958-Tester-RevB-3D.png)
 
-![Top view of the revision B1 DRAM tester showing the V9938/V9958 selector](revision-b/docs/V9958-Tester-RevB-top.png)
+![Top view of the revision B1.1 DRAM tester showing the V9938/V9958 selector](revision-b/docs/V9958-Tester-RevB-top.png)
 
 The experimental [Revision B2 SRAM board](revision-b2-sram/) replaces the four
 41464 DRAMs with one AS6C1008-55PCN 128Kx8 SRAM, an SN74AHCT573 row-address
 latch and an SN74AHCT08 CAS-to-output-enable gate. The Pico still controls and
 tests the selected VDP; it does not emulate the timing-critical video RAM bus.
 
-![Revision B2.1 tester with a single SRAM socket](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-3D.png)
+![Revision B2.2 tester with a single SRAM socket](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-3D.png)
 
-![Top view of the revision B2.1 SRAM tester showing the V9938/V9958 selector](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-top.png)
+![Top view of the revision B2.2 SRAM tester showing the V9938/V9958 selector](revision-b2-sram/docs/V9958-Tester-RevB2-SRAM-top.png)
 
 B2 is smaller at 160 x 110 mm and remains entirely through-hole. It includes
 dedicated `/RAS`, `/CAS0`, `/CAS1`, SRAM `/OE` and SRAM `/WE` test points. Its
@@ -72,7 +74,7 @@ The firmware also leaves a 40-column PAL result screen visible on the DIN RGB ou
 
 ## Construction
 
-The tester PCB itself uses no SMD parts. Fit the Pico on two 1x20 through-hole socket strips; the Pico module is, of course, an already assembled module containing SMD components. Use sockets for U1–U9, including a suitable SDIP-64 socket at U3. Fit U10 (MAX942CPA+) and the model selector SW2 (C&K JS202011CQN).
+The tester PCB itself uses no SMD parts. Fit the Pico on two 1x20 through-hole socket strips; the Pico module is, of course, an already assembled module containing SMD components. Use sockets for U1–U9, including a suitable SDIP-64 socket at U3. On revision 0.5, fit the LM393P at U10, the SN74HC14N at U11, and the C&K JS202011CQN model selector at SW2.
 
 Important parts:
 
@@ -86,7 +88,7 @@ Important parts:
 - Y1: 21.477270 MHz crystal; C1 is the 30 pF oscillator trimmer.
 - F1: Bourns MF-RHT100 resettable fuse, 1.0 A hold / 1.8 A trip.
 
-The grouped [BOM](docs/BOM.csv), [schematic PDF](docs/V9958-Tester-Schematic.pdf), and [test procedure](docs/TEST-PROCEDURE.md) are in `docs/`. Gerbers and drill files are in `fabrication/` after running the release export.
+The grouped [BOM](docs/BOM.csv), [schematic PDF](docs/V9958-Tester-Schematic.pdf), and [test procedure](docs/TEST-PROCEDURE.md) are in `docs/`. The [fabrication directory](fabrication/) contains the Gerbers and drill files for each full-size dual-model revision.
 
 ## Power and handling
 
@@ -108,7 +110,7 @@ cmake --build firmware/build -j4
 
 Copy the supplied [full-size tester UF2](firmware/v9958_tester.uf2) or your local build to a Pico in BOOTSEL mode. The program runs once at power-up and again whenever SW1 is pressed. USB CDC serial prints the clock counts, VDP ID, first VRAM mismatch if any, interrupt result, RGB ADC readings, and final stage code. At completion it programs the VDP for PAL text mode and shows the same result through J1.
 
-The compact boards use the shared source. Their images are [B1 DRAM](revision-b/firmware/v9958_tester_revb.uf2) and [B2.1 SRAM](revision-b2-sram/firmware/v9958_tester_revb2.uf2). They have no TEST
+The compact boards use the shared source. Their images are [B1/B1.1 DRAM](revision-b/firmware/v9958_tester_revb.uf2) and [B2.1/B2.2 SRAM](revision-b2-sram/firmware/v9958_tester_revb2.uf2). They have no TEST
 button; send `R` over USB serial to repeat the test.
 
 ## Design files and regeneration

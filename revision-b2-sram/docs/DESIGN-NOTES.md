@@ -55,4 +55,4 @@ All populated carrier-board parts and sockets are through-hole.
 - Texas Instruments, SN74AHCT08 quad two-input AND gate:
   <https://www.ti.com/product/SN74AHCT08>
 
-U10 conditions both sync signals. SW2 sets its threshold and the pin-21 supply connection together. See the [shared socket circuit and pin table](../../docs/DESIGN-NOTES.md#model-selector-and-sync).
+On B2.2, U10 (LM393P) compares both divided sync signals and U11 (SN74HC14N) drives the monitor buffer and the CSYNC header. SW2 sets its threshold and the pin-21 supply connection together. See the [shared socket circuit and pin table](../../docs/DESIGN-NOTES.md#model-selector-and-sync).

@@ -1,15 +1,17 @@
 # V9958 Tester Revision B
 
-**Use PCB B1 for V9938 or V9958.** Disconnect USB, set SW2 to the package marking, then insert the DUT. Earlier boards without SW2 connect pin 21 directly to 5 V and can damage a V9938. See the [selector checks](docs/TEST-PROCEDURE.md).
+**Use PCB B1 or B1.1 for V9938 or V9958.** Disconnect USB, set SW2 to the package marking, then insert the DUT. Earlier boards without SW2 connect pin 21 directly to 5 V and can damage a V9938. See the [selector checks](docs/TEST-PROCEDURE.md).
+
+PCB **B1.1** uses an LM393P at U10 and an SN74HC14N at U11. PCB **B1** uses a MAX942CPA+ at U10. [B1.1 BOM](docs/BOM.csv) · [B1.1 Gerbers](fabrication/V9958-Tester-RevB-B1.1-gerbers.zip) · [B1 BOM](https://github.com/salvogendut/V9958-tester/blob/81ad3057a48962fd7bea91b546fce25a6f905914/revision-b/docs/BOM.csv)
 
 Revision B is the minimal all-through-hole V9938/V9958 functional tester. It is a
 170 x 118 mm, two-layer core board powered through the Pico USB connector. It
 performs the same VDP identification, CPU bus, 128 KiB VRAM, sync, interrupt
-and RGB-response tests as revision 0.4 without requiring a CXA1645 or monitor.
+and RGB-response tests as the full-size tester without requiring a CXA1645 or monitor.
 
-![Revision B1 DRAM tester with four VRAM sockets and a keyed video header](docs/V9958-Tester-RevB-3D.png)
+![Revision B1.1 DRAM tester with four VRAM sockets and a keyed video header](docs/V9958-Tester-RevB-3D.png)
 
-![Top view of the revision B1 DRAM tester showing the V9938/V9958 selector](docs/V9958-Tester-RevB-top.png)
+![Top view of the revision B1.1 DRAM tester showing the V9938/V9958 selector](docs/V9958-Tester-RevB-top.png)
 
 ## What was simplified
 
@@ -20,7 +22,7 @@ and RGB-response tests as revision 0.4 without requiring a CXA1645 or monitor.
 - The V9958, four 41464 VRAMs, crystal network, RGB loads, decoupling and
   filtered 5 V rail remain because they are intrinsic to a trustworthy test.
 - U4 remains an SN74LVC244 powered at 3.3 V. Its 5 V-tolerant inputs avoid
-  loading the V9958's relatively weak clock/sync outputs and protect the Pico.
+  loading the VDP clock output. U10 and U11 condition HSYNC and CSYNC before U4.
 
 J1 is a keyed 2x3 IDC video expansion header: 1 GND, 2 +5 V, 3 red, 4 green,
 5 blue and 6 CSYNC. Use a straight-through cable to the matching daughterboard.
